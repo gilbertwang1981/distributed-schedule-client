@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.hs.dsch.proto;
+
+enum DistributedSchedulerDiscoverResponseCode {
+    RESP_CODE_SUCCESS = 0;
+    RESP_CODE_ALREADY_REG = 1;
+    RESP_CODE_NOT_EXSITED = 2;
+};
+
+message DistributedSchedulerDiscoveryRequest {
+	string namespace = 1;
+	string serviceName = 2;
+	string group = 3;
+	string identity = 4;
+}
+
+message DistributedSchedulerDiscoveryResponse {
+	string instance = 1;
+	DistributedSchedulerDiscoverResponseCode responseCode = 2;	
+}

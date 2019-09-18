@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.hs.dsch.proto;
+
+enum DistributedSchedulerKeepaliveResponseCode {
+    RESP_CODE_ALIVE = 0;
+    RESP_CODE_NOT_EXSITED = 1;
+};
+
+message DistributedSchedulerKeepaliveRequest {
+	string instance = 1;
+	string job = 2;
+}
+
+message DistributedSchedulerKeepaliveResponse {
+	string instance = 1;
+	DistributedSchedulerDiscoverResponseCode responseCode = 2;	
+}
