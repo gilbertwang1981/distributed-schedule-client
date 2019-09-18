@@ -7,12 +7,27 @@ enum DistributedSchedulerKeepaliveResponseCode {
     RESP_CODE_NOT_EXSITED = 1;
 };
 
+enum DistributedSchedulerCommand {
+    CMD_START = 0;
+    CMD_STOP = 1;
+    CMD_NONE = 2;
+};
+
+enum DistributedSchedulerJobStatus {
+    JOB_STOPPED = 0;
+    JOB_STOPPING = 1;
+    JOB_STARTED = 2;
+    JOB_STARTING = 3;
+};
+
 message DistributedSchedulerKeepaliveRequest {
 	string instance = 1;
 	string job = 2;
+	DistributedSchedulerJobStatus jobStatus = 3;
 }
 
 message DistributedSchedulerKeepaliveResponse {
 	string instance = 1;
-	DistributedSchedulerDiscoverResponseCode responseCode = 2;	
+	DistributedSchedulerDiscoverResponseCode responseCode = 2;
+	DistributedSchedulerCommand cmd = 3;
 }
