@@ -10,7 +10,7 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
-description = " 分布式计划任务调度客户端工程"
+description = "分布式计划任务调度客户端工程"
 
 sourceCompatibility = 1.8
 
