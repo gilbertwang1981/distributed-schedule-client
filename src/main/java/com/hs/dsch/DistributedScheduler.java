@@ -8,6 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.hs.dsch.launch.DistributedSchedulerLauncher;
 
@@ -15,6 +16,7 @@ import com.hs.dsch.launch.DistributedSchedulerLauncher;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
+@EnableScheduling
 @Import(DistributedSchedulerLauncher.class)
 public @interface DistributedScheduler {
 	/**
