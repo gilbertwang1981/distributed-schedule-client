@@ -5,11 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
 
-import com.hs.dsch.DistributedScheduler;
+import com.hs.dsch.annotation.DScheduledJob;
 
-public class DistributedSchedulerLauncher extends DistributedSchedulerSpringFactoryImportSelector<DistributedScheduler> {
-	private static Logger logger = LoggerFactory.getLogger(DistributedSchedulerLauncher.class);
+public class DSchedulerJob extends DSchedulerSpringFactoryImportSelector<DScheduledJob> {
 	
+	private static Logger logger = LoggerFactory.getLogger(DSchedulerJob.class);
+
 	@Override
 	public String[] selectImports(AnnotationMetadata metadata) {
 		AnnotationAttributes attributes = AnnotationAttributes.fromMap(
@@ -19,12 +20,11 @@ public class DistributedSchedulerLauncher extends DistributedSchedulerSpringFact
 
 		return new String[0];
 	}
-
+	
 	private void initApplication(AnnotationAttributes attributes) {
-		String namespace = attributes.getString("namespace");
-		String service = attributes.getString("service");
-		String group = attributes.getString("group");
+		String job = attributes.getString("job");
+		String author = attributes.getString("author");
 		
-		logger.info("分布式计划任务调度客户端启动，namespace:{} service:{} group:{}" , namespace , service , group);
+		logger.info("分布式计划任务调度客户端启动，job:{} author:{}" , job , author);
 	}
 }

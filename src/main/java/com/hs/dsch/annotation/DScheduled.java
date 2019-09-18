@@ -1,4 +1,4 @@
-package com.hs.dsch.aspect;
+package com.hs.dsch.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Scheduled
-public @interface DScheduler {
+public @interface DScheduled {
 
 	/**
 	 * A cron-like expression, extending the usual UN*X definition to include triggers

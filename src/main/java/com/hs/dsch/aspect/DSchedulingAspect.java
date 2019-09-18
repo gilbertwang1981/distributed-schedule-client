@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class DistributedSchedulerAspect {
-	private static Logger logger = LoggerFactory.getLogger(DistributedSchedulerAspect.class);
+public class DSchedulingAspect {
+	private static Logger logger = LoggerFactory.getLogger(DSchedulingAspect.class);
 	
-	@Pointcut("@annotation(com.hs.dsch.aspect.DScheduler)")
+	@Pointcut("@annotation(com.hs.dsch.annotation.DScheduled)")
     public void schedulePointCut() {
     }
 	

@@ -1,4 +1,4 @@
-package com.hs.dsch;
+package com.hs.dsch.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -10,15 +10,15 @@ import java.lang.annotation.Target;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import com.hs.dsch.launch.DistributedSchedulerLauncher;
+import com.hs.dsch.launch.DSchedulerDiscovery;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
 @EnableScheduling
-@Import(DistributedSchedulerLauncher.class)
-public @interface DistributedScheduler {
+@Import(DSchedulerDiscovery.class)
+public @interface EnableDScheduling {
 	/**
 	 * 名字空间
 	 * @return
