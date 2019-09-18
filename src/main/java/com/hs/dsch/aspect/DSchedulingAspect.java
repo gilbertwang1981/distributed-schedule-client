@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.hs.dsch.annotation.DScheduled;
+
 @Aspect
 @Component
 public class DSchedulingAspect {
@@ -17,9 +19,9 @@ public class DSchedulingAspect {
     public void schedulePointCut() {
     }
 	
-	@Around("schedulePointCut()")
-    public Object around(ProceedingJoinPoint point) throws Throwable {
-		logger.info("执行调度方法, {}" , point.getArgs());
+	@Around("schedulePointCut() && @annotation(dsechduled)")
+    public Object around(ProceedingJoinPoint point , DScheduled dsechduled) throws Throwable {
+		logger.info("执行调度方法, {} {}" , dsechduled.fixedRate() , dsechduled.initialDelay());
 		
 		return point.proceed();
 	}

@@ -25,6 +25,6 @@ public class DSchedulerJob extends DSchedulerSpringFactoryImportSelector<DSchedu
 		String job = attributes.getString("job");
 		String author = attributes.getString("author");
 		
-		logger.info("分布式计划任务调度客户端启动，job:{} author:{}" , job , author);
+		logger.info("任务：job:{} author:{}" , job , author);
 	}
 }
