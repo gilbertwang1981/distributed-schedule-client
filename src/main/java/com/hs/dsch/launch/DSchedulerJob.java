@@ -23,8 +23,8 @@ public class DSchedulerJob extends DSchedulerSpringFactoryImportSelector<DSchedu
 	
 	private void initApplication(AnnotationAttributes attributes) {
 		String job = attributes.getString("job");
-		String author = attributes.getString("author");
+		String desc = attributes.getString("desc");
 		
-		logger.info("任务：job:{} author:{}" , job , author);
+		logger.info("任务：job:{} desc:{}" , job , desc);
 	}
 }

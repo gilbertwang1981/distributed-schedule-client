@@ -28,9 +28,8 @@ public class DSchedulerDiscovery extends DSchedulerSpringFactoryImportSelector<E
 	private void initApplication(AnnotationAttributes attributes) {
 		String namespace = attributes.getString("namespace");
 		String service = attributes.getString("service");
-		String group = attributes.getString("group");
 		
-		logger.info("分布式计划任务调度客户端启动，namespace:{} service:{} group:{} @ {}" , 
-				namespace , service , group , addressConvertor.getLocalIPList().get(0));
+		logger.info("分布式计划任务调度客户端启动，namespace:{} service:{} @ {}" , 
+				namespace , service , addressConvertor.getLocalIPList().get(0));
 	}
 }
