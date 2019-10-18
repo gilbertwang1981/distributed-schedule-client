@@ -20,20 +20,20 @@ import com.hs.dsch.launch.DSchedulerDiscovery;
 @Import(DSchedulerDiscovery.class)
 public @interface EnableDScheduling {
 	/**
-	 * 名字空间
-	 * @return
-	 */
-	String namespace();
-	
-	/**
 	 * 服务名字
 	 * @return
 	 */
 	String service();
 	
 	/**
-	 * 分组名
+	 * 名字空间
 	 * @return
 	 */
-	String group();
+	String namespace();
+	
+	/**
+	 * 描述
+	 * @return
+	 */
+	String desc();
 }

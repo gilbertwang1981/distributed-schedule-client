@@ -23,8 +23,8 @@ public @interface DScheduledJob {
 	String job();
 	
 	/**
-	 * 作者
+	 * 任务描述
 	 * @return
 	 */
-	String author() default "";
+	String desc() default "";
 }
