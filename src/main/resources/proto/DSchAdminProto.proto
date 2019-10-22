@@ -1,0 +1,158 @@
+syntax = "proto3";
+
+package com.hs.dsch.proto;
+
+// 消息响应
+enum AdminResponseCode {
+	// 成功
+    RESP_CODE_SUCCESS = 0;
+    // 失败
+    RESP_CODE_FAILED = 1;
+};
+
+//【任务端】节点注册消息请求
+message DSchAdminRegisterNodeRequest {
+	// 服务名
+	string serviceName = 1;
+	// 名字空间
+	string namespace = 2;
+	// POD地址
+	string host = 3;
+}
+
+//【任务端】节点注册消息响应
+message DSchAdminRegisterNodeResponse {
+	// 结果码
+	AdminResponseCode resCode = 1;
+	// 服务端分配节点id
+	string nodeId = 2;
+}
+
+//【任务端】某个节点下，任务注册请求
+message DSchAdminRegisterJobRequest {
+	// 节点id
+	string nodeId = 1;
+	// 任务名字
+	string jobName = 2;
+}
+
+//【任务端】任务注册响应
+message DSchAdminRegisterJobResponse {
+	// 结果码
+	AdminResponseCode resCode = 1;
+	// 节点id
+	string nodeId = 2;
+	// 任务id
+	string jobId = 3;
+}
+
+// 任务定义
+message DSchAdminJob {
+	// 任务id
+	string jobId = 1;
+	// 任务最近一次执行时间
+	int64 execTime = 2;
+}
+
+//【任务端】健康检查请求
+message DSchAdminHealthCheckRequest {
+	// 节点id
+	string nodeId = 1;
+	// 任务列表
+	repeated DSchAdminJob jobs = 2;
+}
+
+//【任务端】健康检查响应
+message DSchAdminHealthCheckResponse {
+	// 响应码
+	AdminResponseCode resCode = 1;
+}
+
+// 命令定义
+enum DSchAdminCmd {
+	// 启动任务
+    DSCH_ADMIN_JOB_START = 0;
+    // 停止任务
+    DSCH_ADMIN_JOB_STOP = 1;
+};
+
+//【任务端】获取远程控制命令请求
+message DSchAdminCommandRequest {
+	// 节点id
+	string nodeId = 1;
+	// 任务id
+	string jobId = 2;
+}
+
+// 远程控制命令列表
+message DSchAdminCommand {
+	// 任务id
+	string jobId = 1;
+	// 远程控制命令
+	DSchAdminCmd cmdType = 2;
+}
+
+//【任务端】获取远程控制命令响应
+message DSchAdminCommandResponse {
+	// 获取远程控制命令
+	DSchAdminCommand command = 1;
+	// 节点id
+	string nodeId = 2;
+}
+
+//【管理端】添加命令请求
+message DSchAdminAddCommandRequest {
+	// 远程控制命令列表
+	string nodeId = 1;
+	repeated DSchAdminCommand cmds = 2;
+}
+
+//【管理端】添加命令响应
+message DSchAdminAddCommandResponse {
+	// 结果码
+	AdminResponseCode resCode = 1;
+}
+
+//【管理端】获取任务状态请求
+message DSchAdminJobStatusRequest {
+	// 节点id
+	string nodeId = 1;
+	// 任务id
+	string jobId = 2;
+}
+
+//【管理端】获取任务状态响应
+message DSchAdminJobStatusResponse {
+	// 结果码
+	AdminResponseCode resCode = 1;
+	// 最后一次任务执行时间
+	int64 execTime = 2;
+	// 最后更新的时间
+	int64 timestamp = 3;
+}
+
+//【管理端】任务下线请求
+message DSchAdminOfflineJobRequest {
+	// 节点id
+	string nodeId = 1;
+	// 任务id
+	string jobId = 2;
+}
+
+//【管理端】任务下线响应
+message DSchAdminOfflineJobResponse {
+	// 结果码
+	AdminResponseCode resCode = 1;
+}
+
+//【管理端】节点下线请求
+message DSchAdminOfflineNodeRequest {
+	// 节点id
+	string nodeId = 1;
+}
+
+//【管理端】节点下线响应
+message DSchAdminOfflineNodeResponse {
+	// 结果码
+	AdminResponseCode resCode = 1;
+}
