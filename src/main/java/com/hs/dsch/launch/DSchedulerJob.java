@@ -3,8 +3,6 @@ package com.hs.dsch.launch;
 import org.apache.http.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.type.AnnotationMetadata;
@@ -23,9 +21,8 @@ public class DSchedulerJob extends DSchedulerSpringFactoryImportSelector<DSchedu
 	
 	private static Logger logger = LoggerFactory.getLogger(DSchedulerJob.class);
 	
-	private ApplicationContext appCtx = new AnnotationConfigApplicationContext(DSchConfiguration.class , HttpClient.class);	
-	private DSchConfiguration dschConfiguration = (DSchConfiguration) appCtx.getBean("dschConfiguration");
-	private HttpClient httpClient = (HttpClient)appCtx.getBean("httpClient");
+	private DSchConfiguration dschConfiguration = DSchContext.getInstance().getDSchConfiguration();
+	private HttpClient httpClient = DSchContext.getInstance().getHttpClient();
 
 	@Override
 	public String[] selectImports(AnnotationMetadata metadata) {
