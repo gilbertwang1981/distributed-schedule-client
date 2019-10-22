@@ -13,6 +13,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Documented
 @Scheduled
 public @interface DScheduled {
+	
+	/**
+	 * 作业名字
+	 * @return
+	 */
+	String job();
 
 	/**
 	 * A cron-like expression, extending the usual UN*X definition to include triggers

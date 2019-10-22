@@ -35,8 +35,6 @@ public class DSchedulingAspect {
 	
 	@Around("schedulePointCut() && @annotation(dsechduled)")
     public Object around(ProceedingJoinPoint point , DScheduled dsechduled) throws Throwable {
-		logger.info("执行调度方法, {} {}" , dsechduled.fixedRate() , dsechduled.initialDelay());
-		
 		long begin = System.currentTimeMillis();
 		
 		Object returnObj = point.proceed();
@@ -49,7 +47,14 @@ public class DSchedulingAspect {
 		request.setNodeId(DSchContext.getInstance().getNodeId());
 		DSchAdminJob.Builder job = DSchAdminJob.newBuilder();
 		job.setExecTime(duration == 0?1L:duration);
-		job.setJobId("1122");
+		
+		if (DSchContext.getInstance().getJob(dsechduled.job()) == null) {
+			logger.error("找不到任务，和服务器失联.{}" , dsechduled.job());
+			
+			return returnObj;
+		}
+		
+		job.setJobId(DSchContext.getInstance().getJob(dsechduled.job()));
 		request.addJobs(job);
 		
 		try {

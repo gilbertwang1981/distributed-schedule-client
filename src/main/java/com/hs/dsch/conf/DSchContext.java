@@ -1,5 +1,8 @@
 package com.hs.dsch.conf;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -14,7 +17,17 @@ public class DSchContext {
 	private DSchConfiguration dschConfiguration = (DSchConfiguration) appCtx.getBean("dschConfiguration");
 	private HttpClient httpClient = (HttpClient)appCtx.getBean("httpClient");
 	
+	private Map<String , String> jobs = new ConcurrentHashMap<>();
+	
 	private static DSchContext instance = null;
+	
+	public void addJob(String jobName , String jobId) {
+		jobs.put(jobName,  jobId);
+	}
+	
+	public String getJob(String jobName) {
+		return jobs.get(jobName);
+	}
 	
 	public AddressConvertor getAddressConvertor() {
 		return addressConvertor;

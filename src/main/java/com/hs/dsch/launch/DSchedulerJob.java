@@ -48,6 +48,7 @@ public class DSchedulerJob extends DSchedulerSpringFactoryImportSelector<DSchedu
 			if (response.getResCode() == AdminResponseCode.RESP_CODE_FAILED) {
 				logger.error("注册任务失败,{}" , job);
 			} else {
+				DSchContext.getInstance().addJob(job , response.getJobId());
 				logger.info("注册任务成功,{}/{}" , DSchContext.getInstance().getNodeId() , response.getJobId());
 			}
 		} catch (Exception e) {
