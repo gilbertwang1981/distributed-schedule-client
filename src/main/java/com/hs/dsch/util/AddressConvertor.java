@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration("addressConvertor")
 public class AddressConvertor {	
 	public List<String> getLocalIPList() {
 		List<String> ipList = new ArrayList<String>();
