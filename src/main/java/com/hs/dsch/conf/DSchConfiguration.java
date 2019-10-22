@@ -5,7 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import com.hs.dsch.consts.DSchClientConsts;
 
 @Configuration("dschConfiguration")
-public class DSchConfiguration {	
+public class DSchConfiguration {
+
 	public String getHost() {
 		String host = System.getenv("DSCH_SERVICE_HOST");
 		if (host == null) {

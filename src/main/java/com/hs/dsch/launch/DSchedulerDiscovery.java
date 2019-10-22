@@ -6,9 +6,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.annotation.AnnotationAttributes;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.type.AnnotationMetadata;
 import com.hs.dsch.annotation.EnableDScheduling;
 import com.hs.dsch.conf.DSchConfiguration;
+import com.hs.dsch.conf.DSchContext;
 import com.hs.dsch.consts.DSchClientConsts;
 import com.hs.dsch.proto.DSchAdminProto.AdminResponseCode;
 import com.hs.dsch.proto.DSchAdminProto.DSchAdminRegisterNodeRequest;
@@ -16,14 +18,14 @@ import com.hs.dsch.proto.DSchAdminProto.DSchAdminRegisterNodeResponse;
 import com.hs.dsch.util.AddressConvertor;
 import com.hs.dsch.util.HttpClient;
 
+@Order(1)
 public class DSchedulerDiscovery extends DSchedulerSpringFactoryImportSelector<EnableDScheduling> {
 	private static Logger logger = LoggerFactory.getLogger(DSchedulerDiscovery.class);
 	
-	private HttpClient httpClient = new HttpClient();
-	
-	private ApplicationContext appCtx = new AnnotationConfigApplicationContext(AddressConvertor.class , DSchConfiguration.class);	
+	private ApplicationContext appCtx = new AnnotationConfigApplicationContext(AddressConvertor.class , DSchConfiguration.class , HttpClient.class);	
 	private AddressConvertor addressConvertor = (AddressConvertor) appCtx.getBean("addressConvertor");
 	private DSchConfiguration dschConfiguration = (DSchConfiguration) appCtx.getBean("dschConfiguration");
+	private HttpClient httpClient = (HttpClient)appCtx.getBean("httpClient");
 	
 	@Override
 	public String[] selectImports(AnnotationMetadata metadata) {
@@ -51,7 +53,9 @@ public class DSchedulerDiscovery extends DSchedulerSpringFactoryImportSelector<E
 			if (response.getResCode() == AdminResponseCode.RESP_CODE_FAILED) {
 				logger.error("注册节点失败,{}/{}/{}" , namespace , service , addressConvertor.getLocalIPList().get(0));
 			} else {
-				logger.info("注册节点成功,{}/{}/{}" , namespace , service , addressConvertor.getLocalIPList().get(0));
+				logger.info("注册节点成功,{}/{}/{}/{}" , namespace , service , addressConvertor.getLocalIPList().get(0) , 
+						response.getNodeId());
+				DSchContext.getInstance().setNodeId(response.getNodeId());
 			}
 		} catch (Exception e) {
 			logger.error("注册节点失败，异常：{}" , e);

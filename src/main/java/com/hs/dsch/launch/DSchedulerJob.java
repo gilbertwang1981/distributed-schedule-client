@@ -1,15 +1,31 @@
 package com.hs.dsch.launch;
 
+import org.apache.http.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.annotation.AnnotationAttributes;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.type.AnnotationMetadata;
 
 import com.hs.dsch.annotation.DScheduledJob;
+import com.hs.dsch.conf.DSchConfiguration;
+import com.hs.dsch.conf.DSchContext;
+import com.hs.dsch.consts.DSchClientConsts;
+import com.hs.dsch.proto.DSchAdminProto.AdminResponseCode;
+import com.hs.dsch.proto.DSchAdminProto.DSchAdminRegisterJobRequest;
+import com.hs.dsch.proto.DSchAdminProto.DSchAdminRegisterJobResponse;
+import com.hs.dsch.util.HttpClient;
 
+@Order(2)
 public class DSchedulerJob extends DSchedulerSpringFactoryImportSelector<DScheduledJob> {
 	
 	private static Logger logger = LoggerFactory.getLogger(DSchedulerJob.class);
+	
+	private ApplicationContext appCtx = new AnnotationConfigApplicationContext(DSchConfiguration.class , HttpClient.class);	
+	private DSchConfiguration dschConfiguration = (DSchConfiguration) appCtx.getBean("dschConfiguration");
+	private HttpClient httpClient = (HttpClient)appCtx.getBean("httpClient");
 
 	@Override
 	public String[] selectImports(AnnotationMetadata metadata) {
@@ -23,8 +39,22 @@ public class DSchedulerJob extends DSchedulerSpringFactoryImportSelector<DSchedu
 	
 	private void initApplication(AnnotationAttributes attributes) {
 		String job = attributes.getString("job");
-		String desc = attributes.getString("desc");
 		
-		logger.info("任务：job:{} desc:{}" , job , desc);
+		DSchAdminRegisterJobRequest.Builder request = DSchAdminRegisterJobRequest.newBuilder();
+		request.setJobName(job);
+		request.setNodeId(DSchContext.getInstance().getNodeId());
+		
+		try {
+			HttpResponse httpResponse = httpClient.post(dschConfiguration.getHost() , dschConfiguration.getPort() ,
+					DSchClientConsts.DSCH_SERVICE_REG_JOB_INF_NAME , request.build().toByteArray());
+			DSchAdminRegisterJobResponse response = DSchAdminRegisterJobResponse.parseFrom(httpResponse.getEntity().getContent());
+			if (response.getResCode() == AdminResponseCode.RESP_CODE_FAILED) {
+				logger.error("注册任务失败,{}" , job);
+			} else {
+				logger.info("注册任务成功,{}/{}" , DSchContext.getInstance().getNodeId() , response.getJobId());
+			}
+		} catch (Exception e) {
+			logger.error("注册任务失败：{}" , e);
+		}
 	}
 }

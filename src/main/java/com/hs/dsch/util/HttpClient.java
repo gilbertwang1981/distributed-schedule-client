@@ -14,7 +14,9 @@ import org.apache.http.impl.client.DefaultHttpRequestRetryHandler;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.protocol.HttpContext;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration("httpClient")
 public class HttpClient {
 	private CloseableHttpClient httpClient = null;
 	
