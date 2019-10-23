@@ -113,6 +113,18 @@ message DSchAdminAddCommandResponse {
 	AdminResponseCode resCode = 1;
 }
 
+//【管理端/任务端】任务运行状态
+enum DSchJobStatus {
+	// 任务已经启动
+	DSCH_JOB_ST_STARTED = 0;
+	// 任务运行中
+	DSCH_JOB_ST_RUNNING = 1;
+	// 任务已启动未运行
+	DSCH_JOB_ST_IDLING = 2;
+	// 任务已经停止
+	DSCH_JOB_ST_STOPPED = 3;
+}
+
 //【管理端】获取任务状态请求
 message DSchAdminJobStatusRequest {
 	// 节点id
@@ -129,6 +141,8 @@ message DSchAdminJobStatusResponse {
 	int64 execTime = 2;
 	// 最后更新的时间
 	int64 timestamp = 3;
+	// 任务运行状态
+	DSchJobStatus status = 4;
 }
 
 //【管理端】任务下线请求
