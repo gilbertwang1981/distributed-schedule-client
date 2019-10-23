@@ -52,6 +52,8 @@ message DSchAdminJob {
 	string jobId = 1;
 	// 任务最近一次执行时间
 	int64 execTime = 2;
+	// 任务状态
+	int32 status = 3;
 }
 
 //【任务端】健康检查请求

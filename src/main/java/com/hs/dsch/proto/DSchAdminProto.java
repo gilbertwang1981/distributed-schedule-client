@@ -3760,6 +3760,15 @@ public final class DSchAdminProto {
      * <code>int64 execTime = 2;</code>
      */
     long getExecTime();
+
+    /**
+     * <pre>
+     * 任务状态
+     * </pre>
+     *
+     * <code>int32 status = 3;</code>
+     */
+    int getStatus();
   }
   /**
    * <pre>
@@ -3780,6 +3789,7 @@ public final class DSchAdminProto {
     private DSchAdminJob() {
       jobId_ = "";
       execTime_ = 0L;
+      status_ = 0;
     }
 
     @java.lang.Override
@@ -3815,6 +3825,11 @@ public final class DSchAdminProto {
             case 16: {
 
               execTime_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              status_ = input.readInt32();
               break;
             }
             default: {
@@ -3904,6 +3919,19 @@ public final class DSchAdminProto {
       return execTime_;
     }
 
+    public static final int STATUS_FIELD_NUMBER = 3;
+    private int status_;
+    /**
+     * <pre>
+     * 任务状态
+     * </pre>
+     *
+     * <code>int32 status = 3;</code>
+     */
+    public int getStatus() {
+      return status_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3924,6 +3952,9 @@ public final class DSchAdminProto {
       if (execTime_ != 0L) {
         output.writeInt64(2, execTime_);
       }
+      if (status_ != 0) {
+        output.writeInt32(3, status_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3939,6 +3970,10 @@ public final class DSchAdminProto {
       if (execTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, execTime_);
+      }
+      if (status_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, status_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3960,6 +3995,8 @@ public final class DSchAdminProto {
           .equals(other.getJobId());
       result = result && (getExecTime()
           == other.getExecTime());
+      result = result && (getStatus()
+          == other.getStatus());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3976,6 +4013,8 @@ public final class DSchAdminProto {
       hash = (37 * hash) + EXECTIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getExecTime());
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4117,6 +4156,8 @@ public final class DSchAdminProto {
 
         execTime_ = 0L;
 
+        status_ = 0;
+
         return this;
       }
 
@@ -4145,6 +4186,7 @@ public final class DSchAdminProto {
         com.hs.dsch.proto.DSchAdminProto.DSchAdminJob result = new com.hs.dsch.proto.DSchAdminProto.DSchAdminJob(this);
         result.jobId_ = jobId_;
         result.execTime_ = execTime_;
+        result.status_ = status_;
         onBuilt();
         return result;
       }
@@ -4199,6 +4241,9 @@ public final class DSchAdminProto {
         }
         if (other.getExecTime() != 0L) {
           setExecTime(other.getExecTime());
+        }
+        if (other.getStatus() != 0) {
+          setStatus(other.getStatus());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4352,6 +4397,44 @@ public final class DSchAdminProto {
       public Builder clearExecTime() {
         
         execTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int status_ ;
+      /**
+       * <pre>
+       * 任务状态
+       * </pre>
+       *
+       * <code>int32 status = 3;</code>
+       */
+      public int getStatus() {
+        return status_;
+      }
+      /**
+       * <pre>
+       * 任务状态
+       * </pre>
+       *
+       * <code>int32 status = 3;</code>
+       */
+      public Builder setStatus(int value) {
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务状态
+       * </pre>
+       *
+       * <code>int32 status = 3;</code>
+       */
+      public Builder clearStatus() {
+        
+        status_ = 0;
         onChanged();
         return this;
       }
@@ -14081,43 +14164,43 @@ public final class DSchAdminProto {
       "Request\022\016\n\006nodeId\030\001 \001(\t\022\017\n\007jobName\030\002 \001(\t" +
       "\"t\n\034DSchAdminRegisterJobResponse\0225\n\007resC" +
       "ode\030\001 \001(\0162$.com.hs.dsch.proto.AdminRespo" +
-      "nseCode\022\016\n\006nodeId\030\002 \001(\t\022\r\n\005jobId\030\003 \001(\t\"/" +
+      "nseCode\022\016\n\006nodeId\030\002 \001(\t\022\r\n\005jobId\030\003 \001(\t\"?" +
       "\n\014DSchAdminJob\022\r\n\005jobId\030\001 \001(\t\022\020\n\010execTim" +
-      "e\030\002 \001(\003\"\\\n\033DSchAdminHealthCheckRequest\022\016" +
-      "\n\006nodeId\030\001 \001(\t\022-\n\004jobs\030\002 \003(\0132\037.com.hs.ds" +
-      "ch.proto.DSchAdminJob\"U\n\034DSchAdminHealth" +
-      "CheckResponse\0225\n\007resCode\030\001 \001(\0162$.com.hs." +
-      "dsch.proto.AdminResponseCode\"8\n\027DSchAdmi" +
-      "nCommandRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId" +
-      "\030\002 \001(\t\"S\n\020DSchAdminCommand\022\r\n\005jobId\030\001 \001(" +
-      "\t\0220\n\007cmdType\030\002 \001(\0162\037.com.hs.dsch.proto.D" +
-      "SchAdminCmd\"`\n\030DSchAdminCommandResponse\022" +
-      "4\n\007command\030\001 \001(\0132#.com.hs.dsch.proto.DSc" +
-      "hAdminCommand\022\016\n\006nodeId\030\002 \001(\t\"_\n\032DSchAdm" +
-      "inAddCommandRequest\022\016\n\006nodeId\030\001 \001(\t\0221\n\004c" +
-      "mds\030\002 \003(\0132#.com.hs.dsch.proto.DSchAdminC" +
-      "ommand\"T\n\033DSchAdminAddCommandResponse\0225\n" +
-      "\007resCode\030\001 \001(\0162$.com.hs.dsch.proto.Admin" +
-      "ResponseCode\":\n\031DSchAdminJobStatusReques" +
-      "t\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"\252\001\n\032DSc" +
-      "hAdminJobStatusResponse\0225\n\007resCode\030\001 \001(\016" +
-      "2$.com.hs.dsch.proto.AdminResponseCode\022\020" +
-      "\n\010execTime\030\002 \001(\003\022\021\n\ttimestamp\030\003 \001(\003\0220\n\006s" +
-      "tatus\030\004 \001(\0162 .com.hs.dsch.proto.DSchJobS" +
-      "tatus\";\n\032DSchAdminOfflineJobRequest\022\016\n\006n" +
-      "odeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"T\n\033DSchAdminO" +
-      "fflineJobResponse\0225\n\007resCode\030\001 \001(\0162$.com" +
-      ".hs.dsch.proto.AdminResponseCode\"-\n\033DSch" +
-      "AdminOfflineNodeRequest\022\016\n\006nodeId\030\001 \001(\t\"" +
-      "U\n\034DSchAdminOfflineNodeResponse\0225\n\007resCo" +
-      "de\030\001 \001(\0162$.com.hs.dsch.proto.AdminRespon" +
-      "seCode*@\n\021AdminResponseCode\022\025\n\021RESP_CODE" +
-      "_SUCCESS\020\000\022\024\n\020RESP_CODE_FAILED\020\001*A\n\014DSch" +
-      "AdminCmd\022\030\n\024DSCH_ADMIN_JOB_START\020\000\022\027\n\023DS" +
-      "CH_ADMIN_JOB_STOP\020\001*r\n\rDSchJobStatus\022\027\n\023" +
-      "DSCH_JOB_ST_STARTED\020\000\022\027\n\023DSCH_JOB_ST_RUN" +
-      "NING\020\001\022\026\n\022DSCH_JOB_ST_IDLING\020\002\022\027\n\023DSCH_J" +
-      "OB_ST_STOPPED\020\003b\006proto3"
+      "e\030\002 \001(\003\022\016\n\006status\030\003 \001(\005\"\\\n\033DSchAdminHeal" +
+      "thCheckRequest\022\016\n\006nodeId\030\001 \001(\t\022-\n\004jobs\030\002" +
+      " \003(\0132\037.com.hs.dsch.proto.DSchAdminJob\"U\n" +
+      "\034DSchAdminHealthCheckResponse\0225\n\007resCode" +
+      "\030\001 \001(\0162$.com.hs.dsch.proto.AdminResponse" +
+      "Code\"8\n\027DSchAdminCommandRequest\022\016\n\006nodeI" +
+      "d\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"S\n\020DSchAdminComma" +
+      "nd\022\r\n\005jobId\030\001 \001(\t\0220\n\007cmdType\030\002 \001(\0162\037.com" +
+      ".hs.dsch.proto.DSchAdminCmd\"`\n\030DSchAdmin" +
+      "CommandResponse\0224\n\007command\030\001 \001(\0132#.com.h" +
+      "s.dsch.proto.DSchAdminCommand\022\016\n\006nodeId\030" +
+      "\002 \001(\t\"_\n\032DSchAdminAddCommandRequest\022\016\n\006n" +
+      "odeId\030\001 \001(\t\0221\n\004cmds\030\002 \003(\0132#.com.hs.dsch." +
+      "proto.DSchAdminCommand\"T\n\033DSchAdminAddCo" +
+      "mmandResponse\0225\n\007resCode\030\001 \001(\0162$.com.hs." +
+      "dsch.proto.AdminResponseCode\":\n\031DSchAdmi" +
+      "nJobStatusRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005job" +
+      "Id\030\002 \001(\t\"\252\001\n\032DSchAdminJobStatusResponse\022" +
+      "5\n\007resCode\030\001 \001(\0162$.com.hs.dsch.proto.Adm" +
+      "inResponseCode\022\020\n\010execTime\030\002 \001(\003\022\021\n\ttime" +
+      "stamp\030\003 \001(\003\0220\n\006status\030\004 \001(\0162 .com.hs.dsc" +
+      "h.proto.DSchJobStatus\";\n\032DSchAdminOfflin" +
+      "eJobRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001" +
+      "(\t\"T\n\033DSchAdminOfflineJobResponse\0225\n\007res" +
+      "Code\030\001 \001(\0162$.com.hs.dsch.proto.AdminResp" +
+      "onseCode\"-\n\033DSchAdminOfflineNodeRequest\022" +
+      "\016\n\006nodeId\030\001 \001(\t\"U\n\034DSchAdminOfflineNodeR" +
+      "esponse\0225\n\007resCode\030\001 \001(\0162$.com.hs.dsch.p" +
+      "roto.AdminResponseCode*@\n\021AdminResponseC" +
+      "ode\022\025\n\021RESP_CODE_SUCCESS\020\000\022\024\n\020RESP_CODE_" +
+      "FAILED\020\001*A\n\014DSchAdminCmd\022\030\n\024DSCH_ADMIN_J" +
+      "OB_START\020\000\022\027\n\023DSCH_ADMIN_JOB_STOP\020\001*r\n\rD" +
+      "SchJobStatus\022\027\n\023DSCH_JOB_ST_STARTED\020\000\022\027\n" +
+      "\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022DSCH_JOB_ST_ID" +
+      "LING\020\002\022\027\n\023DSCH_JOB_ST_STOPPED\020\003b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14160,7 +14243,7 @@ public final class DSchAdminProto {
     internal_static_com_hs_dsch_proto_DSchAdminJob_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchAdminJob_descriptor,
-        new java.lang.String[] { "JobId", "ExecTime", });
+        new java.lang.String[] { "JobId", "ExecTime", "Status", });
     internal_static_com_hs_dsch_proto_DSchAdminHealthCheckRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_com_hs_dsch_proto_DSchAdminHealthCheckRequest_fieldAccessorTable = new
