@@ -6,6 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.hs.dsch.proto.DSchAdminProto.DSchJobStatus;
 import com.hs.dsch.util.AddressConvertor;
 import com.hs.dsch.util.HttpClient;
 
@@ -32,7 +33,7 @@ public class DSchContext {
 	}
 	
 	public Integer getJobStatus(String jobId) {
-		return jobStatus.get(jobId) == null? 0 : jobStatus.get(jobId);
+		return jobStatus.get(jobId) == null? DSchJobStatus.DSCH_JOB_ST_STARTED_VALUE : jobStatus.get(jobId);
 	}
 	
 	public String getJob(String jobName) {
