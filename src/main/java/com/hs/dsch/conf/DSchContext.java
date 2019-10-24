@@ -19,10 +19,20 @@ public class DSchContext {
 	
 	private Map<String , String> jobs = new ConcurrentHashMap<>();
 	
+	private Map<String , Integer> jobStatus = new ConcurrentHashMap<>();
+	
 	private static DSchContext instance = null;
 	
 	public void addJob(String jobName , String jobId) {
 		jobs.put(jobName,  jobId);
+	}
+	
+	public void updateJobStatus(String jobId , Integer status) {
+		jobStatus.put(jobId , status);
+	}
+	
+	public Integer getJobStatus(String jobId) {
+		return jobStatus.get(jobId) == null? 0 : jobStatus.get(jobId);
 	}
 	
 	public String getJob(String jobName) {
