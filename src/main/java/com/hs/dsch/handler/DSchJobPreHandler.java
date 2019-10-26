@@ -22,7 +22,7 @@ public class DSchJobPreHandler implements DSchJobHandler {
 
 	@Override
 	public void handle(DSchJobContext context) {
-		logger.info("从服务端拉取命令:{}" , context);
+		logger.info("从服务端拉取命令:job:{} node:{}" , context.getJobId() , context.getNodeId());
 		
 		DSchAdminCommandRequest.Builder request = DSchAdminCommandRequest.newBuilder();
 		request.setJobId(context.getJobId());
@@ -34,7 +34,7 @@ public class DSchJobPreHandler implements DSchJobHandler {
 			DSchAdminCommandResponse response = DSchAdminCommandResponse.parseFrom(httpResponse.getEntity().getContent());
 			if (response.getCommand().getCmdType() != DSchAdminCmd.DSCH_ADMIN_JOB_START && 
 					response.getCommand().getCmdType() != DSchAdminCmd.DSCH_ADMIN_JOB_STOP) {
-				logger.error("获取不到远程命令,{}" , request.getJobId());
+				logger.error("获取不到远程命令,job:{} node:{}" , request.getJobId() , request.getNodeId());
 				
 				return;
 			}
