@@ -37,10 +37,10 @@ public class DSchJobPostHandler implements DSchJobHandler {
 			if (response.getResCode() == AdminResponseCode.RESP_CODE_FAILED) {
 				logger.error("任务健康检查失败,{}" , job.getJobId());
 			} else {
-				logger.info("任务健康检查成功,{}/{}" , DSchContext.getInstance().getNodeId() , job.getJobId());
+				logger.info("任务健康检查成功,node:{} job:{}" , DSchContext.getInstance().getNodeId() , job.getJobId());
 			}
 		} catch (Exception e) {
-			logger.error("任务健康检查失败：{}" , e);
+			logger.error("任务健康检查失败：{}" , e.getMessage());
 		}
 	}
 }
