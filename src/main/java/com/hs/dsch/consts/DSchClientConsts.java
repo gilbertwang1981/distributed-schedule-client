@@ -6,4 +6,5 @@ public interface DSchClientConsts {
 	public static final String DSCH_SERVICE_REG_NODE_INF_NAME = "/dsch/registerNode";
 	public static final String DSCH_SERVICE_REG_JOB_INF_NAME = "/dsch/registerJob";
 	public static final String DSCH_SERVICE_HEALTH_CHECK_INF_NAME = "/dsch/healthCheck";
+	public static final String DSCH_SERVICE_GET_COMMAND_INF_NAME = "/dsch/getCommand";
 }
