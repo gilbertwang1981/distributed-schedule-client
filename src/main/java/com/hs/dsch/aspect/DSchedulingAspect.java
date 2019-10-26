@@ -46,8 +46,6 @@ public class DSchedulingAspect {
 		if (DSchContext.getInstance().getJobStatus(jobId) == DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE) {
 			logger.error("任务状态已停止，同服务器失联.{}" , dsechduled.job() , DSchContext.getInstance().getJobStatus(jobId));
 			
-			DSchContext.getInstance().updateJobStatus(jobId, DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE);
-			
 			return point.proceed();
 		}
 		
