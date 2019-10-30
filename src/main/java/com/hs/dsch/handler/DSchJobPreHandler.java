@@ -36,6 +36,8 @@ public class DSchJobPreHandler implements DSchJobHandler {
 					response.getCommand().getCmdType() != DSchAdminCmd.DSCH_ADMIN_JOB_STOP) {
 				logger.error("获取不到远程命令,job:{} node:{}" , request.getJobId() , request.getNodeId());
 				
+				DSchContext.getInstance().updateJobStatus(context.getJobId() , DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE);
+				
 				return;
 			}
 			
