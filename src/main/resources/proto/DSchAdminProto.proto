@@ -193,20 +193,6 @@ message DSchNodeStatusResponse {
 	DSchNode node = 2;
 }
 
-//【管理端】任务下线请求
-message DSchOfflineJobRequest {
-	// 节点id
-	string nodeId = 1;
-	// 任务id
-	string jobId = 2;
-}
-
-//【管理端】任务下线响应
-message DSchOfflineJobResponse {
-	// 结果码
-	DSchResponseCode resCode = 1;
-}
-
 //【管理端】节点下线请求
 message DSchOfflineNodeRequest {
 	// 节点id
