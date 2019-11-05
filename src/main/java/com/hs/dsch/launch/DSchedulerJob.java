@@ -11,9 +11,9 @@ import com.hs.dsch.annotation.DScheduledJob;
 import com.hs.dsch.conf.DSchConfiguration;
 import com.hs.dsch.conf.DSchContext;
 import com.hs.dsch.consts.DSchClientConsts;
-import com.hs.dsch.proto.DSchAdminProto.AdminResponseCode;
-import com.hs.dsch.proto.DSchAdminProto.DSchAdminRegisterJobRequest;
-import com.hs.dsch.proto.DSchAdminProto.DSchAdminRegisterJobResponse;
+import com.hs.dsch.proto.DSchAdminProto.DSchRegisterJobRequest;
+import com.hs.dsch.proto.DSchAdminProto.DSchRegisterJobResponse;
+import com.hs.dsch.proto.DSchAdminProto.DSchResponseCode;
 import com.hs.dsch.util.HttpClient;
 
 @Order(2)
@@ -37,15 +37,15 @@ public class DSchedulerJob extends DSchedulerSpringFactoryImportSelector<DSchedu
 	private void initApplication(AnnotationAttributes attributes) {
 		String job = attributes.getString("job");
 		
-		DSchAdminRegisterJobRequest.Builder request = DSchAdminRegisterJobRequest.newBuilder();
+		DSchRegisterJobRequest.Builder request = DSchRegisterJobRequest.newBuilder();
 		request.setJobName(job);
 		request.setNodeId(DSchContext.getInstance().getNodeId());
 		
 		try {
 			HttpResponse httpResponse = httpClient.post(dschConfiguration.getHost() , dschConfiguration.getPort() ,
 					DSchClientConsts.DSCH_SERVICE_REG_JOB_INF_NAME , request.build().toByteArray());
-			DSchAdminRegisterJobResponse response = DSchAdminRegisterJobResponse.parseFrom(httpResponse.getEntity().getContent());
-			if (response.getResCode() == AdminResponseCode.RESP_CODE_FAILED) {
+			DSchRegisterJobResponse response = DSchRegisterJobResponse.parseFrom(httpResponse.getEntity().getContent());
+			if (response.getResCode() == DSchResponseCode.RESP_CODE_FAILED) {
 				logger.error("注册任务失败,{}" , job);
 			} else {
 				DSchContext.getInstance().addJob(job , response.getJobId());

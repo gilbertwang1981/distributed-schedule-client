@@ -4,7 +4,8 @@ public class DSchJobContext {
 	private String nodeId;
 	private String jobId;
 	private String jobName;
-	private Long duration;
+	private Long beginTime;
+	private Long endTime;
 	
 	public String getNodeId() {
 		return nodeId;
@@ -24,10 +25,16 @@ public class DSchJobContext {
 	public void setJobName(String jobName) {
 		this.jobName = jobName;
 	}
-	public Long getDuration() {
-		return duration;
+	public Long getBeginTime() {
+		return beginTime;
 	}
-	public void setDuration(Long duration) {
-		this.duration = duration;
+	public void setBeginTime(Long beginTime) {
+		this.beginTime = beginTime;
+	}
+	public Long getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
 	}
 }

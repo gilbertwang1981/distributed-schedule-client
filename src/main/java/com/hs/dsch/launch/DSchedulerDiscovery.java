@@ -10,9 +10,9 @@ import com.hs.dsch.annotation.EnableDScheduling;
 import com.hs.dsch.conf.DSchConfiguration;
 import com.hs.dsch.conf.DSchContext;
 import com.hs.dsch.consts.DSchClientConsts;
-import com.hs.dsch.proto.DSchAdminProto.AdminResponseCode;
-import com.hs.dsch.proto.DSchAdminProto.DSchAdminRegisterNodeRequest;
-import com.hs.dsch.proto.DSchAdminProto.DSchAdminRegisterNodeResponse;
+import com.hs.dsch.proto.DSchAdminProto.DSchRegisterNodeRequest;
+import com.hs.dsch.proto.DSchAdminProto.DSchRegisterNodeResponse;
+import com.hs.dsch.proto.DSchAdminProto.DSchResponseCode;
 import com.hs.dsch.util.AddressConvertor;
 import com.hs.dsch.util.HttpClient;
 
@@ -38,7 +38,7 @@ public class DSchedulerDiscovery extends DSchedulerSpringFactoryImportSelector<E
 		String namespace = attributes.getString("namespace");
 		String service = attributes.getString("service");
 		
-		DSchAdminRegisterNodeRequest.Builder request = DSchAdminRegisterNodeRequest.newBuilder();
+		DSchRegisterNodeRequest.Builder request = DSchRegisterNodeRequest.newBuilder();
 		request.setHost(addressConvertor.getLocalIPList().get(0));
 		request.setNamespace(namespace);
 		request.setServiceName(service);
@@ -46,8 +46,8 @@ public class DSchedulerDiscovery extends DSchedulerSpringFactoryImportSelector<E
 		try {
 			HttpResponse httpResponse = httpClient.post(dschConfiguration.getHost() , dschConfiguration.getPort() ,
 					DSchClientConsts.DSCH_SERVICE_REG_NODE_INF_NAME , request.build().toByteArray());
-			DSchAdminRegisterNodeResponse response = DSchAdminRegisterNodeResponse.parseFrom(httpResponse.getEntity().getContent());
-			if (response.getResCode() == AdminResponseCode.RESP_CODE_FAILED) {
+			DSchRegisterNodeResponse response = DSchRegisterNodeResponse.parseFrom(httpResponse.getEntity().getContent());
+			if (response.getResCode() == DSchResponseCode.RESP_CODE_FAILED) {
 				logger.error("注册节点失败,{}/{}/{}" , namespace , service , addressConvertor.getLocalIPList().get(0));
 			} else {
 				logger.info("注册节点成功,{}/{}/{}/{}" , namespace , service , addressConvertor.getLocalIPList().get(0) , 

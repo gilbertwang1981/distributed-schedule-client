@@ -51,16 +51,16 @@ public class DSchedulingAspect {
 		
 		DSchContext.getInstance().updateJobStatus(jobId, DSchJobStatus.DSCH_JOB_ST_RUNNING_VALUE);
 		
-		long begin = System.currentTimeMillis();
+		DSchJobContext postContext = new DSchJobContext();
+		
+		postContext.setBeginTime(System.currentTimeMillis());
 		
 		Object returnObj = point.proceed();
 		
-		long end = System.currentTimeMillis();
+		postContext.setEndTime(System.currentTimeMillis());
 		
 		DSchContext.getInstance().updateJobStatus(jobId, DSchJobStatus.DSCH_JOB_ST_IDLING_VALUE);
 
-		DSchJobContext postContext = new DSchJobContext();
-		postContext.setDuration(end - begin);
 		postContext.setJobId(jobId);
 		postContext.setJobName(dsechduled.job());
 		postContext.setNodeId(DSchContext.getInstance().getNodeId());
