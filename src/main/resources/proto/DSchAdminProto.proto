@@ -72,6 +72,8 @@ message DSchNode {
 	int64 cpu = 5;
 	// 节点进程内存使用率
 	int64 mem = 6;
+	// 最后更新时间
+	int64 updateTime = 7;
 }
 
 //【任务端】任务健康检查请求

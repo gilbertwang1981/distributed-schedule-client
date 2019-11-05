@@ -4658,6 +4658,15 @@ public final class DSchAdminProto {
      * <code>int64 mem = 6;</code>
      */
     long getMem();
+
+    /**
+     * <pre>
+     * 最后更新时间
+     * </pre>
+     *
+     * <code>int64 updateTime = 7;</code>
+     */
+    long getUpdateTime();
   }
   /**
    * <pre>
@@ -4682,6 +4691,7 @@ public final class DSchAdminProto {
       totalThreads_ = 0L;
       cpu_ = 0L;
       mem_ = 0L;
+      updateTime_ = 0L;
     }
 
     @java.lang.Override
@@ -4737,6 +4747,11 @@ public final class DSchAdminProto {
             case 48: {
 
               mem_ = input.readInt64();
+              break;
+            }
+            case 56: {
+
+              updateTime_ = input.readInt64();
               break;
             }
             default: {
@@ -4878,6 +4893,19 @@ public final class DSchAdminProto {
       return mem_;
     }
 
+    public static final int UPDATETIME_FIELD_NUMBER = 7;
+    private long updateTime_;
+    /**
+     * <pre>
+     * 最后更新时间
+     * </pre>
+     *
+     * <code>int64 updateTime = 7;</code>
+     */
+    public long getUpdateTime() {
+      return updateTime_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4909,6 +4937,9 @@ public final class DSchAdminProto {
       }
       if (mem_ != 0L) {
         output.writeInt64(6, mem_);
+      }
+      if (updateTime_ != 0L) {
+        output.writeInt64(7, updateTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -4942,6 +4973,10 @@ public final class DSchAdminProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, mem_);
       }
+      if (updateTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, updateTime_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4970,6 +5005,8 @@ public final class DSchAdminProto {
           == other.getCpu());
       result = result && (getMem()
           == other.getMem());
+      result = result && (getUpdateTime()
+          == other.getUpdateTime());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4997,6 +5034,9 @@ public final class DSchAdminProto {
       hash = (37 * hash) + MEM_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMem());
+      hash = (37 * hash) + UPDATETIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUpdateTime());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5146,6 +5186,8 @@ public final class DSchAdminProto {
 
         mem_ = 0L;
 
+        updateTime_ = 0L;
+
         return this;
       }
 
@@ -5178,6 +5220,7 @@ public final class DSchAdminProto {
         result.totalThreads_ = totalThreads_;
         result.cpu_ = cpu_;
         result.mem_ = mem_;
+        result.updateTime_ = updateTime_;
         onBuilt();
         return result;
       }
@@ -5244,6 +5287,9 @@ public final class DSchAdminProto {
         }
         if (other.getMem() != 0L) {
           setMem(other.getMem());
+        }
+        if (other.getUpdateTime() != 0L) {
+          setUpdateTime(other.getUpdateTime());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5549,6 +5595,44 @@ public final class DSchAdminProto {
       public Builder clearMem() {
         
         mem_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long updateTime_ ;
+      /**
+       * <pre>
+       * 最后更新时间
+       * </pre>
+       *
+       * <code>int64 updateTime = 7;</code>
+       */
+      public long getUpdateTime() {
+        return updateTime_;
+      }
+      /**
+       * <pre>
+       * 最后更新时间
+       * </pre>
+       *
+       * <code>int64 updateTime = 7;</code>
+       */
+      public Builder setUpdateTime(long value) {
+        
+        updateTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 最后更新时间
+       * </pre>
+       *
+       * <code>int64 updateTime = 7;</code>
+       */
+      public Builder clearUpdateTime() {
+        
+        updateTime_ = 0L;
         onChanged();
         return this;
       }
@@ -16630,48 +16714,48 @@ public final class DSchAdminProto {
       "\001(\0162#.com.hs.dsch.proto.DSchResponseCode" +
       "\022\016\n\006nodeId\030\002 \001(\t\022\r\n\005jobId\030\003 \001(\t\"L\n\007DSchJ" +
       "ob\022\r\n\005jobId\030\001 \001(\t\022\016\n\006status\030\002 \001(\005\022\021\n\tbeg" +
-      "inTime\030\003 \001(\003\022\017\n\007endTime\030\004 \001(\003\"q\n\010DSchNod" +
-      "e\022\016\n\006nodeId\030\001 \001(\t\022\016\n\006status\030\002 \001(\005\022\025\n\ract" +
-      "iveThreads\030\003 \001(\003\022\024\n\014totalThreads\030\004 \001(\003\022\013" +
-      "\n\003cpu\030\005 \001(\003\022\013\n\003mem\030\006 \001(\003\"T\n\031DSchJobHealt" +
-      "hCheckRequest\022\016\n\006nodeId\030\001 \001(\t\022\'\n\003job\030\002 \001" +
-      "(\0132\032.com.hs.dsch.proto.DSchJob\"R\n\032DSchJo" +
-      "bHealthCheckResponse\0224\n\007resCode\030\001 \001(\0162#." +
-      "com.hs.dsch.proto.DSchResponseCode\"W\n\032DS" +
-      "chNodeHealthCheckRequest\022\016\n\006nodeId\030\001 \001(\t" +
-      "\022)\n\004node\030\002 \001(\0132\033.com.hs.dsch.proto.DSchN" +
-      "ode\"S\n\033DSchNodeHealthCheckResponse\0224\n\007re" +
-      "sCode\030\001 \001(\0162#.com.hs.dsch.proto.DSchResp" +
-      "onseCode\"3\n\022DSchCommandRequest\022\016\n\006nodeId" +
-      "\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"I\n\013DSchCommand\022\r\n\005" +
-      "jobId\030\001 \001(\t\022+\n\007cmdType\030\002 \001(\0162\032.com.hs.ds" +
-      "ch.proto.DSchCmd\"V\n\023DSchCommandResponse\022" +
-      "/\n\007command\030\001 \001(\0132\036.com.hs.dsch.proto.DSc" +
-      "hCommand\022\016\n\006nodeId\030\002 \001(\t\"U\n\025DSchAddComma" +
-      "ndRequest\022\016\n\006nodeId\030\001 \001(\t\022,\n\004cmds\030\002 \003(\0132" +
-      "\036.com.hs.dsch.proto.DSchCommand\"N\n\026DSchA" +
-      "ddCommandResponse\0224\n\007resCode\030\001 \001(\0162#.com" +
-      ".hs.dsch.proto.DSchResponseCode\"5\n\024DSchJ" +
-      "obStatusRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId" +
-      "\030\002 \001(\t\"\250\001\n\025DSchJobStatusResponse\0224\n\007resC" +
-      "ode\030\001 \001(\0162#.com.hs.dsch.proto.DSchRespon" +
-      "seCode\022\'\n\003job\030\002 \001(\0132\032.com.hs.dsch.proto." +
-      "DSchJob\0220\n\006status\030\003 \001(\0162 .com.hs.dsch.pr" +
-      "oto.DSchJobStatus\"\'\n\025DSchNodeStatusReque" +
-      "st\022\016\n\006nodeId\030\001 \001(\t\"y\n\026DSchNodeStatusResp" +
-      "onse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.prot" +
-      "o.DSchResponseCode\022)\n\004node\030\002 \001(\0132\033.com.h" +
-      "s.dsch.proto.DSchNode\"(\n\026DSchOfflineNode" +
-      "Request\022\016\n\006nodeId\030\001 \001(\t\"O\n\027DSchOfflineNo" +
-      "deResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsc" +
-      "h.proto.DSchResponseCode*?\n\020DSchResponse" +
-      "Code\022\025\n\021RESP_CODE_SUCCESS\020\000\022\024\n\020RESP_CODE" +
-      "_FAILED\020\001*I\n\007DSchCmd\022\023\n\017DSCH_JOB_RESUME\020" +
-      "\000\022\022\n\016DSCH_JOB_PAUSE\020\001\022\025\n\021DSCH_NODE_OFFLI" +
-      "NE\020\002*r\n\rDSchJobStatus\022\027\n\023DSCH_JOB_ST_STA" +
-      "RTED\020\000\022\027\n\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022DSCH_" +
-      "JOB_ST_IDLING\020\002\022\027\n\023DSCH_JOB_ST_STOPPED\020\003" +
-      "b\006proto3"
+      "inTime\030\003 \001(\003\022\017\n\007endTime\030\004 \001(\003\"\205\001\n\010DSchNo" +
+      "de\022\016\n\006nodeId\030\001 \001(\t\022\016\n\006status\030\002 \001(\005\022\025\n\rac" +
+      "tiveThreads\030\003 \001(\003\022\024\n\014totalThreads\030\004 \001(\003\022" +
+      "\013\n\003cpu\030\005 \001(\003\022\013\n\003mem\030\006 \001(\003\022\022\n\nupdateTime\030" +
+      "\007 \001(\003\"T\n\031DSchJobHealthCheckRequest\022\016\n\006no" +
+      "deId\030\001 \001(\t\022\'\n\003job\030\002 \001(\0132\032.com.hs.dsch.pr" +
+      "oto.DSchJob\"R\n\032DSchJobHealthCheckRespons" +
+      "e\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto.D" +
+      "SchResponseCode\"W\n\032DSchNodeHealthCheckRe" +
+      "quest\022\016\n\006nodeId\030\001 \001(\t\022)\n\004node\030\002 \001(\0132\033.co" +
+      "m.hs.dsch.proto.DSchNode\"S\n\033DSchNodeHeal" +
+      "thCheckResponse\0224\n\007resCode\030\001 \001(\0162#.com.h" +
+      "s.dsch.proto.DSchResponseCode\"3\n\022DSchCom" +
+      "mandRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001" +
+      "(\t\"I\n\013DSchCommand\022\r\n\005jobId\030\001 \001(\t\022+\n\007cmdT" +
+      "ype\030\002 \001(\0162\032.com.hs.dsch.proto.DSchCmd\"V\n" +
+      "\023DSchCommandResponse\022/\n\007command\030\001 \001(\0132\036." +
+      "com.hs.dsch.proto.DSchCommand\022\016\n\006nodeId\030" +
+      "\002 \001(\t\"U\n\025DSchAddCommandRequest\022\016\n\006nodeId" +
+      "\030\001 \001(\t\022,\n\004cmds\030\002 \003(\0132\036.com.hs.dsch.proto" +
+      ".DSchCommand\"N\n\026DSchAddCommandResponse\0224" +
+      "\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto.DSch" +
+      "ResponseCode\"5\n\024DSchJobStatusRequest\022\016\n\006" +
+      "nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"\250\001\n\025DSchJobS" +
+      "tatusResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs." +
+      "dsch.proto.DSchResponseCode\022\'\n\003job\030\002 \001(\013" +
+      "2\032.com.hs.dsch.proto.DSchJob\0220\n\006status\030\003" +
+      " \001(\0162 .com.hs.dsch.proto.DSchJobStatus\"\'" +
+      "\n\025DSchNodeStatusRequest\022\016\n\006nodeId\030\001 \001(\t\"" +
+      "y\n\026DSchNodeStatusResponse\0224\n\007resCode\030\001 \001" +
+      "(\0162#.com.hs.dsch.proto.DSchResponseCode\022" +
+      ")\n\004node\030\002 \001(\0132\033.com.hs.dsch.proto.DSchNo" +
+      "de\"(\n\026DSchOfflineNodeRequest\022\016\n\006nodeId\030\001" +
+      " \001(\t\"O\n\027DSchOfflineNodeResponse\0224\n\007resCo" +
+      "de\030\001 \001(\0162#.com.hs.dsch.proto.DSchRespons" +
+      "eCode*?\n\020DSchResponseCode\022\025\n\021RESP_CODE_S" +
+      "UCCESS\020\000\022\024\n\020RESP_CODE_FAILED\020\001*I\n\007DSchCm" +
+      "d\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016DSCH_JOB_PAUSE" +
+      "\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002*r\n\rDSchJobStat" +
+      "us\022\027\n\023DSCH_JOB_ST_STARTED\020\000\022\027\n\023DSCH_JOB_" +
+      "ST_RUNNING\020\001\022\026\n\022DSCH_JOB_ST_IDLING\020\002\022\027\n\023" +
+      "DSCH_JOB_ST_STOPPED\020\003b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -16720,7 +16804,7 @@ public final class DSchAdminProto {
     internal_static_com_hs_dsch_proto_DSchNode_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchNode_descriptor,
-        new java.lang.String[] { "NodeId", "Status", "ActiveThreads", "TotalThreads", "Cpu", "Mem", });
+        new java.lang.String[] { "NodeId", "Status", "ActiveThreads", "TotalThreads", "Cpu", "Mem", "UpdateTime", });
     internal_static_com_hs_dsch_proto_DSchJobHealthCheckRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_com_hs_dsch_proto_DSchJobHealthCheckRequest_fieldAccessorTable = new
