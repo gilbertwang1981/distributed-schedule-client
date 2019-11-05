@@ -206,3 +206,27 @@ message DSchOfflineNodeResponse {
 	// 结果码
 	DSchResponseCode resCode = 1;
 }
+
+//【管理端】服务上线请求
+message DSchOnlineServiceRequest {
+	// 服务名
+	string serviceName = 1;
+}
+
+//【管理端】服务上线响应
+message DSchOnlineServiceResponse {
+	// 结果码
+	DSchResponseCode resCode = 1;
+}
+
+//【管理端】服务下线请求
+message DSchOfflineServiceRequest {
+	// 服务名
+	string serviceName = 1;
+}
+
+//【管理端】服务下线响应
+message DSchOfflineServiceResponse {
+	// 结果码
+	DSchResponseCode resCode = 1;
+}

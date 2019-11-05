@@ -16589,6 +16589,2296 @@ public final class DSchAdminProto {
 
   }
 
+  public interface DSchOnlineServiceRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.hs.dsch.proto.DSchOnlineServiceRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 服务名
+     * </pre>
+     *
+     * <code>string serviceName = 1;</code>
+     */
+    java.lang.String getServiceName();
+    /**
+     * <pre>
+     * 服务名
+     * </pre>
+     *
+     * <code>string serviceName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getServiceNameBytes();
+  }
+  /**
+   * <pre>
+   *【管理端】服务上线请求
+   * </pre>
+   *
+   * Protobuf type {@code com.hs.dsch.proto.DSchOnlineServiceRequest}
+   */
+  public  static final class DSchOnlineServiceRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.hs.dsch.proto.DSchOnlineServiceRequest)
+      DSchOnlineServiceRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DSchOnlineServiceRequest.newBuilder() to construct.
+    private DSchOnlineServiceRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DSchOnlineServiceRequest() {
+      serviceName_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DSchOnlineServiceRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serviceName_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest.class, com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest.Builder.class);
+    }
+
+    public static final int SERVICENAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object serviceName_;
+    /**
+     * <pre>
+     * 服务名
+     * </pre>
+     *
+     * <code>string serviceName = 1;</code>
+     */
+    public java.lang.String getServiceName() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serviceName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 服务名
+     * </pre>
+     *
+     * <code>string serviceName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServiceNameBytes() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serviceName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getServiceNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, serviceName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getServiceNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, serviceName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest)) {
+        return super.equals(obj);
+      }
+      com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest other = (com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest) obj;
+
+      boolean result = true;
+      result = result && getServiceName()
+          .equals(other.getServiceName());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SERVICENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getServiceName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *【管理端】服务上线请求
+     * </pre>
+     *
+     * Protobuf type {@code com.hs.dsch.proto.DSchOnlineServiceRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.hs.dsch.proto.DSchOnlineServiceRequest)
+        com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest.class, com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest.Builder.class);
+      }
+
+      // Construct using com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        serviceName_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest getDefaultInstanceForType() {
+        return com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest build() {
+        com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest buildPartial() {
+        com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest result = new com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest(this);
+        result.serviceName_ = serviceName_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest) {
+          return mergeFrom((com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest other) {
+        if (other == com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest.getDefaultInstance()) return this;
+        if (!other.getServiceName().isEmpty()) {
+          serviceName_ = other.serviceName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object serviceName_ = "";
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public java.lang.String getServiceName() {
+        java.lang.Object ref = serviceName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serviceName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServiceNameBytes() {
+        java.lang.Object ref = serviceName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serviceName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public Builder setServiceName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public Builder clearServiceName() {
+        
+        serviceName_ = getDefaultInstance().getServiceName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public Builder setServiceNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.hs.dsch.proto.DSchOnlineServiceRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.hs.dsch.proto.DSchOnlineServiceRequest)
+    private static final com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest();
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DSchOnlineServiceRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DSchOnlineServiceRequest>() {
+      @java.lang.Override
+      public DSchOnlineServiceRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DSchOnlineServiceRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DSchOnlineServiceRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DSchOnlineServiceRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DSchOnlineServiceResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.hs.dsch.proto.DSchOnlineServiceResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 结果码
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+     */
+    int getResCodeValue();
+    /**
+     * <pre>
+     * 结果码
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+     */
+    com.hs.dsch.proto.DSchAdminProto.DSchResponseCode getResCode();
+  }
+  /**
+   * <pre>
+   *【管理端】服务上线响应
+   * </pre>
+   *
+   * Protobuf type {@code com.hs.dsch.proto.DSchOnlineServiceResponse}
+   */
+  public  static final class DSchOnlineServiceResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.hs.dsch.proto.DSchOnlineServiceResponse)
+      DSchOnlineServiceResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DSchOnlineServiceResponse.newBuilder() to construct.
+    private DSchOnlineServiceResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DSchOnlineServiceResponse() {
+      resCode_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DSchOnlineServiceResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              resCode_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse.class, com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse.Builder.class);
+    }
+
+    public static final int RESCODE_FIELD_NUMBER = 1;
+    private int resCode_;
+    /**
+     * <pre>
+     * 结果码
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+     */
+    public int getResCodeValue() {
+      return resCode_;
+    }
+    /**
+     * <pre>
+     * 结果码
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+     */
+    public com.hs.dsch.proto.DSchAdminProto.DSchResponseCode getResCode() {
+      @SuppressWarnings("deprecation")
+      com.hs.dsch.proto.DSchAdminProto.DSchResponseCode result = com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.valueOf(resCode_);
+      return result == null ? com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+        output.writeEnum(1, resCode_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, resCode_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse)) {
+        return super.equals(obj);
+      }
+      com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse other = (com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse) obj;
+
+      boolean result = true;
+      result = result && resCode_ == other.resCode_;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RESCODE_FIELD_NUMBER;
+      hash = (53 * hash) + resCode_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *【管理端】服务上线响应
+     * </pre>
+     *
+     * Protobuf type {@code com.hs.dsch.proto.DSchOnlineServiceResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.hs.dsch.proto.DSchOnlineServiceResponse)
+        com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse.class, com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse.Builder.class);
+      }
+
+      // Construct using com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        resCode_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse getDefaultInstanceForType() {
+        return com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse build() {
+        com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse buildPartial() {
+        com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse result = new com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse(this);
+        result.resCode_ = resCode_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse) {
+          return mergeFrom((com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse other) {
+        if (other == com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse.getDefaultInstance()) return this;
+        if (other.resCode_ != 0) {
+          setResCodeValue(other.getResCodeValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int resCode_ = 0;
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public int getResCodeValue() {
+        return resCode_;
+      }
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public Builder setResCodeValue(int value) {
+        resCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public com.hs.dsch.proto.DSchAdminProto.DSchResponseCode getResCode() {
+        @SuppressWarnings("deprecation")
+        com.hs.dsch.proto.DSchAdminProto.DSchResponseCode result = com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.valueOf(resCode_);
+        return result == null ? com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public Builder setResCode(com.hs.dsch.proto.DSchAdminProto.DSchResponseCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        resCode_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public Builder clearResCode() {
+        
+        resCode_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.hs.dsch.proto.DSchOnlineServiceResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.hs.dsch.proto.DSchOnlineServiceResponse)
+    private static final com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse();
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DSchOnlineServiceResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DSchOnlineServiceResponse>() {
+      @java.lang.Override
+      public DSchOnlineServiceResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DSchOnlineServiceResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DSchOnlineServiceResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DSchOnlineServiceResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.hs.dsch.proto.DSchAdminProto.DSchOnlineServiceResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DSchOfflineServiceRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.hs.dsch.proto.DSchOfflineServiceRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 服务名
+     * </pre>
+     *
+     * <code>string serviceName = 1;</code>
+     */
+    java.lang.String getServiceName();
+    /**
+     * <pre>
+     * 服务名
+     * </pre>
+     *
+     * <code>string serviceName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getServiceNameBytes();
+  }
+  /**
+   * <pre>
+   *【管理端】服务下线请求
+   * </pre>
+   *
+   * Protobuf type {@code com.hs.dsch.proto.DSchOfflineServiceRequest}
+   */
+  public  static final class DSchOfflineServiceRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.hs.dsch.proto.DSchOfflineServiceRequest)
+      DSchOfflineServiceRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DSchOfflineServiceRequest.newBuilder() to construct.
+    private DSchOfflineServiceRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DSchOfflineServiceRequest() {
+      serviceName_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DSchOfflineServiceRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serviceName_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest.class, com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest.Builder.class);
+    }
+
+    public static final int SERVICENAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object serviceName_;
+    /**
+     * <pre>
+     * 服务名
+     * </pre>
+     *
+     * <code>string serviceName = 1;</code>
+     */
+    public java.lang.String getServiceName() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serviceName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 服务名
+     * </pre>
+     *
+     * <code>string serviceName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServiceNameBytes() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serviceName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getServiceNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, serviceName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getServiceNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, serviceName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest)) {
+        return super.equals(obj);
+      }
+      com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest other = (com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest) obj;
+
+      boolean result = true;
+      result = result && getServiceName()
+          .equals(other.getServiceName());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SERVICENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getServiceName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *【管理端】服务下线请求
+     * </pre>
+     *
+     * Protobuf type {@code com.hs.dsch.proto.DSchOfflineServiceRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.hs.dsch.proto.DSchOfflineServiceRequest)
+        com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest.class, com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest.Builder.class);
+      }
+
+      // Construct using com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        serviceName_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest getDefaultInstanceForType() {
+        return com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest build() {
+        com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest buildPartial() {
+        com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest result = new com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest(this);
+        result.serviceName_ = serviceName_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest) {
+          return mergeFrom((com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest other) {
+        if (other == com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest.getDefaultInstance()) return this;
+        if (!other.getServiceName().isEmpty()) {
+          serviceName_ = other.serviceName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object serviceName_ = "";
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public java.lang.String getServiceName() {
+        java.lang.Object ref = serviceName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serviceName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServiceNameBytes() {
+        java.lang.Object ref = serviceName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serviceName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public Builder setServiceName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public Builder clearServiceName() {
+        
+        serviceName_ = getDefaultInstance().getServiceName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 服务名
+       * </pre>
+       *
+       * <code>string serviceName = 1;</code>
+       */
+      public Builder setServiceNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.hs.dsch.proto.DSchOfflineServiceRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.hs.dsch.proto.DSchOfflineServiceRequest)
+    private static final com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest();
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DSchOfflineServiceRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DSchOfflineServiceRequest>() {
+      @java.lang.Override
+      public DSchOfflineServiceRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DSchOfflineServiceRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DSchOfflineServiceRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DSchOfflineServiceRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DSchOfflineServiceResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.hs.dsch.proto.DSchOfflineServiceResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 结果码
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+     */
+    int getResCodeValue();
+    /**
+     * <pre>
+     * 结果码
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+     */
+    com.hs.dsch.proto.DSchAdminProto.DSchResponseCode getResCode();
+  }
+  /**
+   * <pre>
+   *【管理端】服务下线响应
+   * </pre>
+   *
+   * Protobuf type {@code com.hs.dsch.proto.DSchOfflineServiceResponse}
+   */
+  public  static final class DSchOfflineServiceResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.hs.dsch.proto.DSchOfflineServiceResponse)
+      DSchOfflineServiceResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DSchOfflineServiceResponse.newBuilder() to construct.
+    private DSchOfflineServiceResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DSchOfflineServiceResponse() {
+      resCode_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DSchOfflineServiceResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              resCode_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse.class, com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse.Builder.class);
+    }
+
+    public static final int RESCODE_FIELD_NUMBER = 1;
+    private int resCode_;
+    /**
+     * <pre>
+     * 结果码
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+     */
+    public int getResCodeValue() {
+      return resCode_;
+    }
+    /**
+     * <pre>
+     * 结果码
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+     */
+    public com.hs.dsch.proto.DSchAdminProto.DSchResponseCode getResCode() {
+      @SuppressWarnings("deprecation")
+      com.hs.dsch.proto.DSchAdminProto.DSchResponseCode result = com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.valueOf(resCode_);
+      return result == null ? com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+        output.writeEnum(1, resCode_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, resCode_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse)) {
+        return super.equals(obj);
+      }
+      com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse other = (com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse) obj;
+
+      boolean result = true;
+      result = result && resCode_ == other.resCode_;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RESCODE_FIELD_NUMBER;
+      hash = (53 * hash) + resCode_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *【管理端】服务下线响应
+     * </pre>
+     *
+     * Protobuf type {@code com.hs.dsch.proto.DSchOfflineServiceResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.hs.dsch.proto.DSchOfflineServiceResponse)
+        com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse.class, com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse.Builder.class);
+      }
+
+      // Construct using com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        resCode_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse getDefaultInstanceForType() {
+        return com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse build() {
+        com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse buildPartial() {
+        com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse result = new com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse(this);
+        result.resCode_ = resCode_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse) {
+          return mergeFrom((com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse other) {
+        if (other == com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse.getDefaultInstance()) return this;
+        if (other.resCode_ != 0) {
+          setResCodeValue(other.getResCodeValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int resCode_ = 0;
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public int getResCodeValue() {
+        return resCode_;
+      }
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public Builder setResCodeValue(int value) {
+        resCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public com.hs.dsch.proto.DSchAdminProto.DSchResponseCode getResCode() {
+        @SuppressWarnings("deprecation")
+        com.hs.dsch.proto.DSchAdminProto.DSchResponseCode result = com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.valueOf(resCode_);
+        return result == null ? com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public Builder setResCode(com.hs.dsch.proto.DSchAdminProto.DSchResponseCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        resCode_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 结果码
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchResponseCode resCode = 1;</code>
+       */
+      public Builder clearResCode() {
+        
+        resCode_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.hs.dsch.proto.DSchOfflineServiceResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.hs.dsch.proto.DSchOfflineServiceResponse)
+    private static final com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse();
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DSchOfflineServiceResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DSchOfflineServiceResponse>() {
+      @java.lang.Override
+      public DSchOfflineServiceResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DSchOfflineServiceResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DSchOfflineServiceResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DSchOfflineServiceResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.hs.dsch.proto.DSchAdminProto.DSchOfflineServiceResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_hs_dsch_proto_DSchRegisterNodeRequest_descriptor;
   private static final 
@@ -16694,6 +18984,26 @@ public final class DSchAdminProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_hs_dsch_proto_DSchOfflineNodeResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -16749,13 +19059,20 @@ public final class DSchAdminProto {
       "de\"(\n\026DSchOfflineNodeRequest\022\016\n\006nodeId\030\001" +
       " \001(\t\"O\n\027DSchOfflineNodeResponse\0224\n\007resCo" +
       "de\030\001 \001(\0162#.com.hs.dsch.proto.DSchRespons" +
-      "eCode*?\n\020DSchResponseCode\022\025\n\021RESP_CODE_S" +
-      "UCCESS\020\000\022\024\n\020RESP_CODE_FAILED\020\001*I\n\007DSchCm" +
-      "d\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016DSCH_JOB_PAUSE" +
-      "\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002*r\n\rDSchJobStat" +
-      "us\022\027\n\023DSCH_JOB_ST_STARTED\020\000\022\027\n\023DSCH_JOB_" +
-      "ST_RUNNING\020\001\022\026\n\022DSCH_JOB_ST_IDLING\020\002\022\027\n\023" +
-      "DSCH_JOB_ST_STOPPED\020\003b\006proto3"
+      "eCode\"/\n\030DSchOnlineServiceRequest\022\023\n\013ser" +
+      "viceName\030\001 \001(\t\"Q\n\031DSchOnlineServiceRespo" +
+      "nse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto" +
+      ".DSchResponseCode\"0\n\031DSchOfflineServiceR" +
+      "equest\022\023\n\013serviceName\030\001 \001(\t\"R\n\032DSchOffli" +
+      "neServiceResponse\0224\n\007resCode\030\001 \001(\0162#.com" +
+      ".hs.dsch.proto.DSchResponseCode*?\n\020DSchR" +
+      "esponseCode\022\025\n\021RESP_CODE_SUCCESS\020\000\022\024\n\020RE" +
+      "SP_CODE_FAILED\020\001*I\n\007DSchCmd\022\023\n\017DSCH_JOB_" +
+      "RESUME\020\000\022\022\n\016DSCH_JOB_PAUSE\020\001\022\025\n\021DSCH_NOD" +
+      "E_OFFLINE\020\002*r\n\rDSchJobStatus\022\027\n\023DSCH_JOB" +
+      "_ST_STARTED\020\000\022\027\n\023DSCH_JOB_ST_RUNNING\020\001\022\026" +
+      "\n\022DSCH_JOB_ST_IDLING\020\002\022\027\n\023DSCH_JOB_ST_ST" +
+      "OPPED\020\003b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -16894,6 +19211,30 @@ public final class DSchAdminProto {
     internal_static_com_hs_dsch_proto_DSchOfflineNodeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchOfflineNodeResponse_descriptor,
+        new java.lang.String[] { "ResCode", });
+    internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_hs_dsch_proto_DSchOnlineServiceRequest_descriptor,
+        new java.lang.String[] { "ServiceName", });
+    internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_hs_dsch_proto_DSchOnlineServiceResponse_descriptor,
+        new java.lang.String[] { "ResCode", });
+    internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_hs_dsch_proto_DSchOfflineServiceRequest_descriptor,
+        new java.lang.String[] { "ServiceName", });
+    internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_hs_dsch_proto_DSchOfflineServiceResponse_descriptor,
         new java.lang.String[] { "ResCode", });
   }
 
