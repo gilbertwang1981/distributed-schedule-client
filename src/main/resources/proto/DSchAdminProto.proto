@@ -112,6 +112,10 @@ enum DSchCmd {
     DSCH_JOB_PAUSE = 1;
     // 节点下线
     DSCH_NODE_OFFLINE = 2;
+    // 服务上线
+    DSCH_SERVICE_ONLINE = 3;
+    // 服务下线
+    DSCH_SERVICE_OFFLINE = 4;
 };
 
 //【任务端】获取远程控制命令请求

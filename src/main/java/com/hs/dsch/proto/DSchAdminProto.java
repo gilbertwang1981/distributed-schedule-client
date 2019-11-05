@@ -165,6 +165,22 @@ public final class DSchAdminProto {
      * <code>DSCH_NODE_OFFLINE = 2;</code>
      */
     DSCH_NODE_OFFLINE(2),
+    /**
+     * <pre>
+     * 服务上线
+     * </pre>
+     *
+     * <code>DSCH_SERVICE_ONLINE = 3;</code>
+     */
+    DSCH_SERVICE_ONLINE(3),
+    /**
+     * <pre>
+     * 服务下线
+     * </pre>
+     *
+     * <code>DSCH_SERVICE_OFFLINE = 4;</code>
+     */
+    DSCH_SERVICE_OFFLINE(4),
     UNRECOGNIZED(-1),
     ;
 
@@ -192,6 +208,22 @@ public final class DSchAdminProto {
      * <code>DSCH_NODE_OFFLINE = 2;</code>
      */
     public static final int DSCH_NODE_OFFLINE_VALUE = 2;
+    /**
+     * <pre>
+     * 服务上线
+     * </pre>
+     *
+     * <code>DSCH_SERVICE_ONLINE = 3;</code>
+     */
+    public static final int DSCH_SERVICE_ONLINE_VALUE = 3;
+    /**
+     * <pre>
+     * 服务下线
+     * </pre>
+     *
+     * <code>DSCH_SERVICE_OFFLINE = 4;</code>
+     */
+    public static final int DSCH_SERVICE_OFFLINE_VALUE = 4;
 
 
     public final int getNumber() {
@@ -215,6 +247,8 @@ public final class DSchAdminProto {
         case 0: return DSCH_JOB_RESUME;
         case 1: return DSCH_JOB_PAUSE;
         case 2: return DSCH_NODE_OFFLINE;
+        case 3: return DSCH_SERVICE_ONLINE;
+        case 4: return DSCH_SERVICE_OFFLINE;
         default: return null;
       }
     }
@@ -19067,12 +19101,13 @@ public final class DSchAdminProto {
       "neServiceResponse\0224\n\007resCode\030\001 \001(\0162#.com" +
       ".hs.dsch.proto.DSchResponseCode*?\n\020DSchR" +
       "esponseCode\022\025\n\021RESP_CODE_SUCCESS\020\000\022\024\n\020RE" +
-      "SP_CODE_FAILED\020\001*I\n\007DSchCmd\022\023\n\017DSCH_JOB_" +
+      "SP_CODE_FAILED\020\001*|\n\007DSchCmd\022\023\n\017DSCH_JOB_" +
       "RESUME\020\000\022\022\n\016DSCH_JOB_PAUSE\020\001\022\025\n\021DSCH_NOD" +
-      "E_OFFLINE\020\002*r\n\rDSchJobStatus\022\027\n\023DSCH_JOB" +
-      "_ST_STARTED\020\000\022\027\n\023DSCH_JOB_ST_RUNNING\020\001\022\026" +
-      "\n\022DSCH_JOB_ST_IDLING\020\002\022\027\n\023DSCH_JOB_ST_ST" +
-      "OPPED\020\003b\006proto3"
+      "E_OFFLINE\020\002\022\027\n\023DSCH_SERVICE_ONLINE\020\003\022\030\n\024" +
+      "DSCH_SERVICE_OFFLINE\020\004*r\n\rDSchJobStatus\022" +
+      "\027\n\023DSCH_JOB_ST_STARTED\020\000\022\027\n\023DSCH_JOB_ST_" +
+      "RUNNING\020\001\022\026\n\022DSCH_JOB_ST_IDLING\020\002\022\027\n\023DSC" +
+      "H_JOB_ST_STOPPED\020\003b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
