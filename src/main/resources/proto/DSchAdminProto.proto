@@ -102,15 +102,15 @@ message DSchNodeHealthCheckResponse {
 
 // 命令定义
 enum DSchCmd {
-	// 任务恢复
+	//【管理端】任务恢复
     DSCH_JOB_RESUME = 0;
-    // 任务暂停
+    //【管理端】任务暂停
     DSCH_JOB_PAUSE = 1;
-    // 节点下线
+    //【任务端】节点下线
     DSCH_NODE_OFFLINE = 2;
-    // 服务上线
+    //【任务端】服务上线
     DSCH_SERVICE_ONLINE = 3;
-    // 服务下线
+    //【任务端】服务下线
     DSCH_SERVICE_OFFLINE = 4;
 };
 

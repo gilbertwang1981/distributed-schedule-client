@@ -143,7 +143,7 @@ public final class DSchAdminProto {
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
-     * 任务恢复
+     *【管理端】任务恢复
      * </pre>
      *
      * <code>DSCH_JOB_RESUME = 0;</code>
@@ -151,7 +151,7 @@ public final class DSchAdminProto {
     DSCH_JOB_RESUME(0),
     /**
      * <pre>
-     * 任务暂停
+     *【管理端】任务暂停
      * </pre>
      *
      * <code>DSCH_JOB_PAUSE = 1;</code>
@@ -159,7 +159,7 @@ public final class DSchAdminProto {
     DSCH_JOB_PAUSE(1),
     /**
      * <pre>
-     * 节点下线
+     *【任务端】节点下线
      * </pre>
      *
      * <code>DSCH_NODE_OFFLINE = 2;</code>
@@ -167,7 +167,7 @@ public final class DSchAdminProto {
     DSCH_NODE_OFFLINE(2),
     /**
      * <pre>
-     * 服务上线
+     *【任务端】服务上线
      * </pre>
      *
      * <code>DSCH_SERVICE_ONLINE = 3;</code>
@@ -175,7 +175,7 @@ public final class DSchAdminProto {
     DSCH_SERVICE_ONLINE(3),
     /**
      * <pre>
-     * 服务下线
+     *【任务端】服务下线
      * </pre>
      *
      * <code>DSCH_SERVICE_OFFLINE = 4;</code>
@@ -186,7 +186,7 @@ public final class DSchAdminProto {
 
     /**
      * <pre>
-     * 任务恢复
+     *【管理端】任务恢复
      * </pre>
      *
      * <code>DSCH_JOB_RESUME = 0;</code>
@@ -194,7 +194,7 @@ public final class DSchAdminProto {
     public static final int DSCH_JOB_RESUME_VALUE = 0;
     /**
      * <pre>
-     * 任务暂停
+     *【管理端】任务暂停
      * </pre>
      *
      * <code>DSCH_JOB_PAUSE = 1;</code>
@@ -202,7 +202,7 @@ public final class DSchAdminProto {
     public static final int DSCH_JOB_PAUSE_VALUE = 1;
     /**
      * <pre>
-     * 节点下线
+     *【任务端】节点下线
      * </pre>
      *
      * <code>DSCH_NODE_OFFLINE = 2;</code>
@@ -210,7 +210,7 @@ public final class DSchAdminProto {
     public static final int DSCH_NODE_OFFLINE_VALUE = 2;
     /**
      * <pre>
-     * 服务上线
+     *【任务端】服务上线
      * </pre>
      *
      * <code>DSCH_SERVICE_ONLINE = 3;</code>
@@ -218,7 +218,7 @@ public final class DSchAdminProto {
     public static final int DSCH_SERVICE_ONLINE_VALUE = 3;
     /**
      * <pre>
-     * 服务下线
+     *【任务端】服务下线
      * </pre>
      *
      * <code>DSCH_SERVICE_OFFLINE = 4;</code>
