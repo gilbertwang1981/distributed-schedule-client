@@ -23,6 +23,7 @@ public class DSchedulerDiscovery extends DSchedulerSpringFactoryImportSelector<E
 	private AddressConvertor addressConvertor = DSchContext.getInstance().getAddressConvertor();
 	private DSchConfiguration dschConfiguration = DSchContext.getInstance().getDSchConfiguration();
 	private HttpClient httpClient = DSchContext.getInstance().getHttpClient();
+	private DSchedulerNodeHealthChecker nodeHealthChecker = new DSchedulerNodeHealthChecker();
 	
 	@Override
 	public String[] selectImports(AnnotationMetadata metadata) {
@@ -49,13 +50,19 @@ public class DSchedulerDiscovery extends DSchedulerSpringFactoryImportSelector<E
 			DSchRegisterNodeResponse response = DSchRegisterNodeResponse.parseFrom(httpResponse.getEntity().getContent());
 			if (response.getResCode() == DSchResponseCode.RESP_CODE_FAILED) {
 				logger.error("注册节点失败,{}/{}/{}" , namespace , service , addressConvertor.getLocalIPList().get(0));
+				
+				System.exit(0);
 			} else {
 				logger.info("注册节点成功,{}/{}/{}/{}" , namespace , service , addressConvertor.getLocalIPList().get(0) , 
 						response.getNodeId());
 				DSchContext.getInstance().setNodeId(response.getNodeId());
+				
+				nodeHealthChecker.scheduleTimer();
 			}
 		} catch (Exception e) {
 			logger.error("注册节点失败，异常：{}" , e);
+			
+			System.exit(0);
 		}
 	}
 }
