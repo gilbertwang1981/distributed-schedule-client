@@ -11,10 +11,12 @@ import com.hs.dsch.conf.DSchConfiguration;
 import com.hs.dsch.conf.DSchContext;
 import com.hs.dsch.consts.DSchClientConsts;
 import com.hs.dsch.proto.DSchAdminProto.DSchNode;
+import com.hs.dsch.proto.DSchAdminProto.DSchNode.Builder;
 import com.hs.dsch.proto.DSchAdminProto.DSchNodeHealthCheckRequest;
 import com.hs.dsch.proto.DSchAdminProto.DSchNodeHealthCheckResponse;
 import com.hs.dsch.proto.DSchAdminProto.DSchResponseCode;
 import com.hs.dsch.util.HttpClient;
+import com.hs.dsch.util.SystemUtils;
 
 public class DSchedulerNodeHealthChecker {
 	private static Logger logger = LoggerFactory.getLogger(DSchedulerNodeHealthChecker.class);
@@ -31,7 +33,12 @@ public class DSchedulerNodeHealthChecker {
 			public void run() {				
 				DSchNodeHealthCheckRequest.Builder builder = DSchNodeHealthCheckRequest.newBuilder();
 				builder.setNodeId(DSchContext.getInstance().getNodeId());
-				builder.setNode(DSchNode.newBuilder().setNodeId(DSchContext.getInstance().getNodeId()).setUpdateTime(System.currentTimeMillis()).setStatus(0));
+				Builder node = DSchNode.newBuilder();
+				node.setActiveThreads(SystemUtils.getThreadCount());
+				node.setMem(SystemUtils.getMemUtil());
+				node.setCpu(0);
+				node.setUpdateTime(System.currentTimeMillis());
+				builder.setNode(node);
 				
 				try {
 					HttpResponse httpResponse = httpClient.post(dschConfiguration.getHost() , dschConfiguration.getPort() ,
