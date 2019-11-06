@@ -62,16 +62,14 @@ message DSchJob {
 message DSchNode {
 	// 节点id
 	string nodeId = 1;
-	// 节点状态
-	int32 status = 2;
 	// 节点进程中活跃线程数
-	int64 activeThreads = 3;
+	int64 activeThreads = 2;
 	// 节点进程CPU使用率
-	int64 cpu = 4;
+	int64 cpu = 3;
 	// 节点进程内存使用率
-	int64 mem = 5;
+	int64 mem = 4;
 	// 最后更新时间
-	int64 updateTime = 6;
+	int64 updateTime = 5;
 }
 
 //【任务端】任务健康检查请求
