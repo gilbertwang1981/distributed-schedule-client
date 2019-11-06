@@ -28,9 +28,7 @@ public class DSchedulerNodeHealthChecker {
 		nodeHealthChecker.schedule(new TimerTask() {
 
 			@Override
-			public void run() {
-				logger.info("节点健康检查");
-				
+			public void run() {				
 				DSchNodeHealthCheckRequest.Builder builder = DSchNodeHealthCheckRequest.newBuilder();
 				builder.setNodeId(DSchContext.getInstance().getNodeId());
 				builder.setNode(DSchNode.newBuilder().setNodeId(DSchContext.getInstance().getNodeId()).setUpdateTime(System.currentTimeMillis()).setStatus(0));
@@ -40,7 +38,9 @@ public class DSchedulerNodeHealthChecker {
 						DSchClientConsts.DSCH_SERVICE_NODE_HC_INF_NAME , builder.build().toByteArray());
 					DSchNodeHealthCheckResponse response = DSchNodeHealthCheckResponse.parseFrom(httpResponse.getEntity().getContent());
 					if (response.getResCode() == DSchResponseCode.RESP_CODE_FAILED) {
-						logger.error("注册健康检查失败,{}/{}/{}" , DSchContext.getInstance().getNodeId());
+						logger.error("注册健康检查失败,{}" , DSchContext.getInstance().getNodeId());
+					} else {
+						logger.info("节点健康检查成功, {}" , DSchContext.getInstance().getNodeId());
 					}
 				} catch (Exception e) {
 					logger.error("节点健康检查发生异常：{}" , e);
