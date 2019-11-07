@@ -45,7 +45,9 @@ public class DSchedulerNodeHealthChecker {
 						DSchClientConsts.DSCH_SERVICE_NODE_HC_INF_NAME , builder.build().toByteArray());
 					DSchNodeHealthCheckResponse response = DSchNodeHealthCheckResponse.parseFrom(httpResponse.getEntity().getContent());
 					if (response.getResCode() == DSchResponseCode.RESP_CODE_FAILED) {
-						logger.error("注册健康检查失败,{}" , DSchContext.getInstance().getNodeId());
+						logger.error("节点健康检查失败,{}" , DSchContext.getInstance().getNodeId());
+						
+						DSchContext.getInstance().shutdownNode();
 					} else {
 						logger.info("节点健康检查成功, {}" , DSchContext.getInstance().getNodeId());
 					}

@@ -28,6 +28,12 @@ public class DSchedulingAspect {
 	
 	@Around("schedulePointCut() && @annotation(dsechduled)")
     public Object around(ProceedingJoinPoint point , DScheduled dsechduled) throws Throwable {
+		if (DSchContext.getInstance().isNodeShutdown()) {
+			logger.error("节点已经下线,{}" , DSchContext.getInstance().getNodeId());
+			
+			System.exit(0);
+		}
+		
 		String jobId = DSchContext.getInstance().getJob(dsechduled.job());
 		if (jobId == null) {
 			logger.error("找不到任务，同服务器失联.{}" , dsechduled.job());

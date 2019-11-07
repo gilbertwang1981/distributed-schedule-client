@@ -18,6 +18,8 @@ public class DSchContext {
 	private DSchConfiguration dschConfiguration = (DSchConfiguration) appCtx.getBean("dschConfiguration");
 	private HttpClient httpClient = (HttpClient)appCtx.getBean("httpClient");
 	
+	private Boolean isNodeShutdown = false;
+	
 	private Map<String , String> jobs = new ConcurrentHashMap<>();
 	
 	private Map<String , Integer> jobStatus = new ConcurrentHashMap<>();
@@ -26,6 +28,14 @@ public class DSchContext {
 	
 	public void addJob(String jobName , String jobId) {
 		jobs.put(jobName,  jobId);
+	}
+	
+	public void shutdownNode() {
+		this.isNodeShutdown = true;
+	}
+	
+	public Boolean isNodeShutdown() {
+		return this.isNodeShutdown;
 	}
 	
 	public void updateJobStatus(String jobId , Integer status) {
