@@ -50,12 +50,10 @@ message DSchRegisterJobResponse {
 message DSchJob {
 	// 任务id
 	string jobId = 1;
-	// 任务状态
-	int32 status = 2;
 	// 任务最近一次开始执行时间
-	int64 beginTime = 3;
+	int64 beginTime = 2;
 	// 任务最近一次结束执行时间
-	int64 endTime = 4;
+	int64 endTime = 3;
 }
 
 // 节点定义
@@ -177,8 +175,6 @@ message DSchJobStatusResponse {
 	DSchResponseCode resCode = 1;
 	// 任务详情
 	DSchJob job = 2;
-	// 任务运行状态
-	DSchJobStatus status = 3;
 }
 
 //【管理端】获取节点状态请求

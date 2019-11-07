@@ -3805,19 +3805,10 @@ public final class DSchAdminProto {
 
     /**
      * <pre>
-     * 任务状态
-     * </pre>
-     *
-     * <code>int32 status = 2;</code>
-     */
-    int getStatus();
-
-    /**
-     * <pre>
      * 任务最近一次开始执行时间
      * </pre>
      *
-     * <code>int64 beginTime = 3;</code>
+     * <code>int64 beginTime = 2;</code>
      */
     long getBeginTime();
 
@@ -3826,7 +3817,7 @@ public final class DSchAdminProto {
      * 任务最近一次结束执行时间
      * </pre>
      *
-     * <code>int64 endTime = 4;</code>
+     * <code>int64 endTime = 3;</code>
      */
     long getEndTime();
   }
@@ -3848,7 +3839,6 @@ public final class DSchAdminProto {
     }
     private DSchJob() {
       jobId_ = "";
-      status_ = 0;
       beginTime_ = 0L;
       endTime_ = 0L;
     }
@@ -3885,15 +3875,10 @@ public final class DSchAdminProto {
             }
             case 16: {
 
-              status_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
               beginTime_ = input.readInt64();
               break;
             }
-            case 32: {
+            case 24: {
 
               endTime_ = input.readInt64();
               break;
@@ -3972,40 +3957,27 @@ public final class DSchAdminProto {
       }
     }
 
-    public static final int STATUS_FIELD_NUMBER = 2;
-    private int status_;
-    /**
-     * <pre>
-     * 任务状态
-     * </pre>
-     *
-     * <code>int32 status = 2;</code>
-     */
-    public int getStatus() {
-      return status_;
-    }
-
-    public static final int BEGINTIME_FIELD_NUMBER = 3;
+    public static final int BEGINTIME_FIELD_NUMBER = 2;
     private long beginTime_;
     /**
      * <pre>
      * 任务最近一次开始执行时间
      * </pre>
      *
-     * <code>int64 beginTime = 3;</code>
+     * <code>int64 beginTime = 2;</code>
      */
     public long getBeginTime() {
       return beginTime_;
     }
 
-    public static final int ENDTIME_FIELD_NUMBER = 4;
+    public static final int ENDTIME_FIELD_NUMBER = 3;
     private long endTime_;
     /**
      * <pre>
      * 任务最近一次结束执行时间
      * </pre>
      *
-     * <code>int64 endTime = 4;</code>
+     * <code>int64 endTime = 3;</code>
      */
     public long getEndTime() {
       return endTime_;
@@ -4028,14 +4000,11 @@ public final class DSchAdminProto {
       if (!getJobIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, jobId_);
       }
-      if (status_ != 0) {
-        output.writeInt32(2, status_);
-      }
       if (beginTime_ != 0L) {
-        output.writeInt64(3, beginTime_);
+        output.writeInt64(2, beginTime_);
       }
       if (endTime_ != 0L) {
-        output.writeInt64(4, endTime_);
+        output.writeInt64(3, endTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -4049,17 +4018,13 @@ public final class DSchAdminProto {
       if (!getJobIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, jobId_);
       }
-      if (status_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, status_);
-      }
       if (beginTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, beginTime_);
+          .computeInt64Size(2, beginTime_);
       }
       if (endTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, endTime_);
+          .computeInt64Size(3, endTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4079,8 +4044,6 @@ public final class DSchAdminProto {
       boolean result = true;
       result = result && getJobId()
           .equals(other.getJobId());
-      result = result && (getStatus()
-          == other.getStatus());
       result = result && (getBeginTime()
           == other.getBeginTime());
       result = result && (getEndTime()
@@ -4098,8 +4061,6 @@ public final class DSchAdminProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + JOBID_FIELD_NUMBER;
       hash = (53 * hash) + getJobId().hashCode();
-      hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + getStatus();
       hash = (37 * hash) + BEGINTIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getBeginTime());
@@ -4245,8 +4206,6 @@ public final class DSchAdminProto {
         super.clear();
         jobId_ = "";
 
-        status_ = 0;
-
         beginTime_ = 0L;
 
         endTime_ = 0L;
@@ -4278,7 +4237,6 @@ public final class DSchAdminProto {
       public com.hs.dsch.proto.DSchAdminProto.DSchJob buildPartial() {
         com.hs.dsch.proto.DSchAdminProto.DSchJob result = new com.hs.dsch.proto.DSchAdminProto.DSchJob(this);
         result.jobId_ = jobId_;
-        result.status_ = status_;
         result.beginTime_ = beginTime_;
         result.endTime_ = endTime_;
         onBuilt();
@@ -4332,9 +4290,6 @@ public final class DSchAdminProto {
         if (!other.getJobId().isEmpty()) {
           jobId_ = other.jobId_;
           onChanged();
-        }
-        if (other.getStatus() != 0) {
-          setStatus(other.getStatus());
         }
         if (other.getBeginTime() != 0L) {
           setBeginTime(other.getBeginTime());
@@ -4460,51 +4415,13 @@ public final class DSchAdminProto {
         return this;
       }
 
-      private int status_ ;
-      /**
-       * <pre>
-       * 任务状态
-       * </pre>
-       *
-       * <code>int32 status = 2;</code>
-       */
-      public int getStatus() {
-        return status_;
-      }
-      /**
-       * <pre>
-       * 任务状态
-       * </pre>
-       *
-       * <code>int32 status = 2;</code>
-       */
-      public Builder setStatus(int value) {
-        
-        status_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 任务状态
-       * </pre>
-       *
-       * <code>int32 status = 2;</code>
-       */
-      public Builder clearStatus() {
-        
-        status_ = 0;
-        onChanged();
-        return this;
-      }
-
       private long beginTime_ ;
       /**
        * <pre>
        * 任务最近一次开始执行时间
        * </pre>
        *
-       * <code>int64 beginTime = 3;</code>
+       * <code>int64 beginTime = 2;</code>
        */
       public long getBeginTime() {
         return beginTime_;
@@ -4514,7 +4431,7 @@ public final class DSchAdminProto {
        * 任务最近一次开始执行时间
        * </pre>
        *
-       * <code>int64 beginTime = 3;</code>
+       * <code>int64 beginTime = 2;</code>
        */
       public Builder setBeginTime(long value) {
         
@@ -4527,7 +4444,7 @@ public final class DSchAdminProto {
        * 任务最近一次开始执行时间
        * </pre>
        *
-       * <code>int64 beginTime = 3;</code>
+       * <code>int64 beginTime = 2;</code>
        */
       public Builder clearBeginTime() {
         
@@ -4542,7 +4459,7 @@ public final class DSchAdminProto {
        * 任务最近一次结束执行时间
        * </pre>
        *
-       * <code>int64 endTime = 4;</code>
+       * <code>int64 endTime = 3;</code>
        */
       public long getEndTime() {
         return endTime_;
@@ -4552,7 +4469,7 @@ public final class DSchAdminProto {
        * 任务最近一次结束执行时间
        * </pre>
        *
-       * <code>int64 endTime = 4;</code>
+       * <code>int64 endTime = 3;</code>
        */
       public Builder setEndTime(long value) {
         
@@ -4565,7 +4482,7 @@ public final class DSchAdminProto {
        * 任务最近一次结束执行时间
        * </pre>
        *
-       * <code>int64 endTime = 4;</code>
+       * <code>int64 endTime = 3;</code>
        */
       public Builder clearEndTime() {
         
@@ -13022,23 +12939,6 @@ public final class DSchAdminProto {
      * <code>.com.hs.dsch.proto.DSchJob job = 2;</code>
      */
     com.hs.dsch.proto.DSchAdminProto.DSchJobOrBuilder getJobOrBuilder();
-
-    /**
-     * <pre>
-     * 任务运行状态
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobStatus status = 3;</code>
-     */
-    int getStatusValue();
-    /**
-     * <pre>
-     * 任务运行状态
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobStatus status = 3;</code>
-     */
-    com.hs.dsch.proto.DSchAdminProto.DSchJobStatus getStatus();
   }
   /**
    * <pre>
@@ -13058,7 +12958,6 @@ public final class DSchAdminProto {
     }
     private DSchJobStatusResponse() {
       resCode_ = 0;
-      status_ = 0;
     }
 
     @java.lang.Override
@@ -13102,12 +13001,6 @@ public final class DSchAdminProto {
                 job_ = subBuilder.buildPartial();
               }
 
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              status_ = rawValue;
               break;
             }
             default: {
@@ -13200,31 +13093,6 @@ public final class DSchAdminProto {
       return getJob();
     }
 
-    public static final int STATUS_FIELD_NUMBER = 3;
-    private int status_;
-    /**
-     * <pre>
-     * 任务运行状态
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobStatus status = 3;</code>
-     */
-    public int getStatusValue() {
-      return status_;
-    }
-    /**
-     * <pre>
-     * 任务运行状态
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobStatus status = 3;</code>
-     */
-    public com.hs.dsch.proto.DSchAdminProto.DSchJobStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.hs.dsch.proto.DSchAdminProto.DSchJobStatus result = com.hs.dsch.proto.DSchAdminProto.DSchJobStatus.valueOf(status_);
-      return result == null ? com.hs.dsch.proto.DSchAdminProto.DSchJobStatus.UNRECOGNIZED : result;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13245,9 +13113,6 @@ public final class DSchAdminProto {
       if (job_ != null) {
         output.writeMessage(2, getJob());
       }
-      if (status_ != com.hs.dsch.proto.DSchAdminProto.DSchJobStatus.DSCH_JOB_ST_STARTED.getNumber()) {
-        output.writeEnum(3, status_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -13264,10 +13129,6 @@ public final class DSchAdminProto {
       if (job_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getJob());
-      }
-      if (status_ != com.hs.dsch.proto.DSchAdminProto.DSchJobStatus.DSCH_JOB_ST_STARTED.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, status_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -13291,7 +13152,6 @@ public final class DSchAdminProto {
         result = result && getJob()
             .equals(other.getJob());
       }
-      result = result && status_ == other.status_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -13309,8 +13169,6 @@ public final class DSchAdminProto {
         hash = (37 * hash) + JOB_FIELD_NUMBER;
         hash = (53 * hash) + getJob().hashCode();
       }
-      hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + status_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13456,8 +13314,6 @@ public final class DSchAdminProto {
           job_ = null;
           jobBuilder_ = null;
         }
-        status_ = 0;
-
         return this;
       }
 
@@ -13490,7 +13346,6 @@ public final class DSchAdminProto {
         } else {
           result.job_ = jobBuilder_.build();
         }
-        result.status_ = status_;
         onBuilt();
         return result;
       }
@@ -13544,9 +13399,6 @@ public final class DSchAdminProto {
         }
         if (other.hasJob()) {
           mergeJob(other.getJob());
-        }
-        if (other.status_ != 0) {
-          setStatusValue(other.getStatusValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13793,71 +13645,6 @@ public final class DSchAdminProto {
           job_ = null;
         }
         return jobBuilder_;
-      }
-
-      private int status_ = 0;
-      /**
-       * <pre>
-       * 任务运行状态
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobStatus status = 3;</code>
-       */
-      public int getStatusValue() {
-        return status_;
-      }
-      /**
-       * <pre>
-       * 任务运行状态
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobStatus status = 3;</code>
-       */
-      public Builder setStatusValue(int value) {
-        status_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 任务运行状态
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobStatus status = 3;</code>
-       */
-      public com.hs.dsch.proto.DSchAdminProto.DSchJobStatus getStatus() {
-        @SuppressWarnings("deprecation")
-        com.hs.dsch.proto.DSchAdminProto.DSchJobStatus result = com.hs.dsch.proto.DSchAdminProto.DSchJobStatus.valueOf(status_);
-        return result == null ? com.hs.dsch.proto.DSchAdminProto.DSchJobStatus.UNRECOGNIZED : result;
-      }
-      /**
-       * <pre>
-       * 任务运行状态
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobStatus status = 3;</code>
-       */
-      public Builder setStatus(com.hs.dsch.proto.DSchAdminProto.DSchJobStatus value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        status_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 任务运行状态
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobStatus status = 3;</code>
-       */
-      public Builder clearStatus() {
-        
-        status_ = 0;
-        onChanged();
-        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -18890,57 +18677,55 @@ public final class DSchAdminProto {
       "d\030\001 \001(\t\022\017\n\007jobName\030\002 \001(\t\"n\n\027DSchRegister" +
       "JobResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.ds" +
       "ch.proto.DSchResponseCode\022\016\n\006nodeId\030\002 \001(" +
-      "\t\022\r\n\005jobId\030\003 \001(\t\"L\n\007DSchJob\022\r\n\005jobId\030\001 \001" +
-      "(\t\022\016\n\006status\030\002 \001(\005\022\021\n\tbeginTime\030\003 \001(\003\022\017\n" +
-      "\007endTime\030\004 \001(\003\"_\n\010DSchNode\022\016\n\006nodeId\030\001 \001" +
-      "(\t\022\025\n\ractiveThreads\030\002 \001(\003\022\013\n\003cpu\030\003 \001(\003\022\013" +
-      "\n\003mem\030\004 \001(\003\022\022\n\nupdateTime\030\005 \001(\003\"T\n\031DSchJ" +
-      "obHealthCheckRequest\022\016\n\006nodeId\030\001 \001(\t\022\'\n\003" +
-      "job\030\002 \001(\0132\032.com.hs.dsch.proto.DSchJob\"R\n" +
-      "\032DSchJobHealthCheckResponse\0224\n\007resCode\030\001" +
-      " \001(\0162#.com.hs.dsch.proto.DSchResponseCod" +
-      "e\"W\n\032DSchNodeHealthCheckRequest\022\016\n\006nodeI" +
-      "d\030\001 \001(\t\022)\n\004node\030\002 \001(\0132\033.com.hs.dsch.prot" +
-      "o.DSchNode\"S\n\033DSchNodeHealthCheckRespons" +
-      "e\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto.D" +
-      "SchResponseCode\"3\n\022DSchCommandRequest\022\016\n" +
-      "\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"I\n\013DSchComm" +
-      "and\022\r\n\005jobId\030\001 \001(\t\022+\n\007cmdType\030\002 \001(\0162\032.co" +
-      "m.hs.dsch.proto.DSchCmd\"V\n\023DSchCommandRe" +
-      "sponse\022/\n\007command\030\001 \001(\0132\036.com.hs.dsch.pr" +
-      "oto.DSchCommand\022\016\n\006nodeId\030\002 \001(\t\"U\n\025DSchA" +
-      "ddCommandRequest\022\016\n\006nodeId\030\001 \001(\t\022,\n\004cmds" +
-      "\030\002 \003(\0132\036.com.hs.dsch.proto.DSchCommand\"N" +
-      "\n\026DSchAddCommandResponse\0224\n\007resCode\030\001 \001(" +
-      "\0162#.com.hs.dsch.proto.DSchResponseCode\"5" +
-      "\n\024DSchJobStatusRequest\022\016\n\006nodeId\030\001 \001(\t\022\r" +
-      "\n\005jobId\030\002 \001(\t\"\250\001\n\025DSchJobStatusResponse\022" +
-      "4\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto.DSc" +
-      "hResponseCode\022\'\n\003job\030\002 \001(\0132\032.com.hs.dsch" +
-      ".proto.DSchJob\0220\n\006status\030\003 \001(\0162 .com.hs." +
-      "dsch.proto.DSchJobStatus\"\'\n\025DSchNodeStat" +
-      "usRequest\022\016\n\006nodeId\030\001 \001(\t\"y\n\026DSchNodeSta" +
-      "tusResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.ds" +
-      "ch.proto.DSchResponseCode\022)\n\004node\030\002 \001(\0132" +
-      "\033.com.hs.dsch.proto.DSchNode\"(\n\026DSchOffl" +
-      "ineNodeRequest\022\016\n\006nodeId\030\001 \001(\t\"O\n\027DSchOf" +
-      "flineNodeResponse\0224\n\007resCode\030\001 \001(\0162#.com" +
-      ".hs.dsch.proto.DSchResponseCode\"/\n\030DSchO" +
-      "nlineServiceRequest\022\023\n\013serviceName\030\001 \001(\t" +
-      "\"Q\n\031DSchOnlineServiceResponse\0224\n\007resCode" +
-      "\030\001 \001(\0162#.com.hs.dsch.proto.DSchResponseC" +
-      "ode\"0\n\031DSchOfflineServiceRequest\022\023\n\013serv" +
-      "iceName\030\001 \001(\t\"R\n\032DSchOfflineServiceRespo" +
-      "nse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto" +
-      ".DSchResponseCode*?\n\020DSchResponseCode\022\025\n" +
-      "\021RESP_CODE_SUCCESS\020\000\022\024\n\020RESP_CODE_FAILED" +
-      "\020\001*|\n\007DSchCmd\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016DS" +
-      "CH_JOB_PAUSE\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002\022\027\n" +
-      "\023DSCH_SERVICE_ONLINE\020\003\022\030\n\024DSCH_SERVICE_O" +
-      "FFLINE\020\004*r\n\rDSchJobStatus\022\027\n\023DSCH_JOB_ST" +
-      "_STARTED\020\000\022\027\n\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022D" +
-      "SCH_JOB_ST_IDLING\020\002\022\027\n\023DSCH_JOB_ST_STOPP" +
-      "ED\020\003b\006proto3"
+      "\t\022\r\n\005jobId\030\003 \001(\t\"<\n\007DSchJob\022\r\n\005jobId\030\001 \001" +
+      "(\t\022\021\n\tbeginTime\030\002 \001(\003\022\017\n\007endTime\030\003 \001(\003\"_" +
+      "\n\010DSchNode\022\016\n\006nodeId\030\001 \001(\t\022\025\n\ractiveThre" +
+      "ads\030\002 \001(\003\022\013\n\003cpu\030\003 \001(\003\022\013\n\003mem\030\004 \001(\003\022\022\n\nu" +
+      "pdateTime\030\005 \001(\003\"T\n\031DSchJobHealthCheckReq" +
+      "uest\022\016\n\006nodeId\030\001 \001(\t\022\'\n\003job\030\002 \001(\0132\032.com." +
+      "hs.dsch.proto.DSchJob\"R\n\032DSchJobHealthCh" +
+      "eckResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.ds" +
+      "ch.proto.DSchResponseCode\"W\n\032DSchNodeHea" +
+      "lthCheckRequest\022\016\n\006nodeId\030\001 \001(\t\022)\n\004node\030" +
+      "\002 \001(\0132\033.com.hs.dsch.proto.DSchNode\"S\n\033DS" +
+      "chNodeHealthCheckResponse\0224\n\007resCode\030\001 \001" +
+      "(\0162#.com.hs.dsch.proto.DSchResponseCode\"" +
+      "3\n\022DSchCommandRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n" +
+      "\005jobId\030\002 \001(\t\"I\n\013DSchCommand\022\r\n\005jobId\030\001 \001" +
+      "(\t\022+\n\007cmdType\030\002 \001(\0162\032.com.hs.dsch.proto." +
+      "DSchCmd\"V\n\023DSchCommandResponse\022/\n\007comman" +
+      "d\030\001 \001(\0132\036.com.hs.dsch.proto.DSchCommand\022" +
+      "\016\n\006nodeId\030\002 \001(\t\"U\n\025DSchAddCommandRequest" +
+      "\022\016\n\006nodeId\030\001 \001(\t\022,\n\004cmds\030\002 \003(\0132\036.com.hs." +
+      "dsch.proto.DSchCommand\"N\n\026DSchAddCommand" +
+      "Response\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch." +
+      "proto.DSchResponseCode\"5\n\024DSchJobStatusR" +
+      "equest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"v\n" +
+      "\025DSchJobStatusResponse\0224\n\007resCode\030\001 \001(\0162" +
+      "#.com.hs.dsch.proto.DSchResponseCode\022\'\n\003" +
+      "job\030\002 \001(\0132\032.com.hs.dsch.proto.DSchJob\"\'\n" +
+      "\025DSchNodeStatusRequest\022\016\n\006nodeId\030\001 \001(\t\"y" +
+      "\n\026DSchNodeStatusResponse\0224\n\007resCode\030\001 \001(" +
+      "\0162#.com.hs.dsch.proto.DSchResponseCode\022)" +
+      "\n\004node\030\002 \001(\0132\033.com.hs.dsch.proto.DSchNod" +
+      "e\"(\n\026DSchOfflineNodeRequest\022\016\n\006nodeId\030\001 " +
+      "\001(\t\"O\n\027DSchOfflineNodeResponse\0224\n\007resCod" +
+      "e\030\001 \001(\0162#.com.hs.dsch.proto.DSchResponse" +
+      "Code\"/\n\030DSchOnlineServiceRequest\022\023\n\013serv" +
+      "iceName\030\001 \001(\t\"Q\n\031DSchOnlineServiceRespon" +
+      "se\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto." +
+      "DSchResponseCode\"0\n\031DSchOfflineServiceRe" +
+      "quest\022\023\n\013serviceName\030\001 \001(\t\"R\n\032DSchOfflin" +
+      "eServiceResponse\0224\n\007resCode\030\001 \001(\0162#.com." +
+      "hs.dsch.proto.DSchResponseCode*?\n\020DSchRe" +
+      "sponseCode\022\025\n\021RESP_CODE_SUCCESS\020\000\022\024\n\020RES" +
+      "P_CODE_FAILED\020\001*|\n\007DSchCmd\022\023\n\017DSCH_JOB_R" +
+      "ESUME\020\000\022\022\n\016DSCH_JOB_PAUSE\020\001\022\025\n\021DSCH_NODE" +
+      "_OFFLINE\020\002\022\027\n\023DSCH_SERVICE_ONLINE\020\003\022\030\n\024D" +
+      "SCH_SERVICE_OFFLINE\020\004*r\n\rDSchJobStatus\022\027" +
+      "\n\023DSCH_JOB_ST_STARTED\020\000\022\027\n\023DSCH_JOB_ST_R" +
+      "UNNING\020\001\022\026\n\022DSCH_JOB_ST_IDLING\020\002\022\027\n\023DSCH" +
+      "_JOB_ST_STOPPED\020\003b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -18983,7 +18768,7 @@ public final class DSchAdminProto {
     internal_static_com_hs_dsch_proto_DSchJob_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchJob_descriptor,
-        new java.lang.String[] { "JobId", "Status", "BeginTime", "EndTime", });
+        new java.lang.String[] { "JobId", "BeginTime", "EndTime", });
     internal_static_com_hs_dsch_proto_DSchNode_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_com_hs_dsch_proto_DSchNode_fieldAccessorTable = new
@@ -19055,7 +18840,7 @@ public final class DSchAdminProto {
     internal_static_com_hs_dsch_proto_DSchJobStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchJobStatusResponse_descriptor,
-        new java.lang.String[] { "ResCode", "Job", "Status", });
+        new java.lang.String[] { "ResCode", "Job", });
     internal_static_com_hs_dsch_proto_DSchNodeStatusRequest_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_com_hs_dsch_proto_DSchNodeStatusRequest_fieldAccessorTable = new

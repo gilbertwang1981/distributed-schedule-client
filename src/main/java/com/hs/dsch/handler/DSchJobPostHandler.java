@@ -26,7 +26,6 @@ public class DSchJobPostHandler implements DSchJobHandler {
 		DSchJob.Builder job = DSchJob.newBuilder();
 		job.setBeginTime(context.getBeginTime());
 		job.setEndTime(context.getEndTime());
-		job.setStatus(DSchContext.getInstance().getJobStatus(context.getJobId()));
 		
 		job.setJobId(context.getJobId());
 		request.setJob(job);
