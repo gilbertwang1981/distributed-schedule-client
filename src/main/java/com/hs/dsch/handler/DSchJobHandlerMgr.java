@@ -6,11 +6,12 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DSchJobHandlerMgr {
 	private static DSchJobHandlerMgr instance = null;
 	
-	private Map<DSchJobHandlerType , DSchJobHandler> handlers = new ConcurrentHashMap<>();
+	private Map<DSchHandlerType , DSchJobHandler> handlers = new ConcurrentHashMap<>();
 	
 	private DSchJobHandlerMgr() {
-		handlers.put(DSchJobHandlerType.DSCH_JOB_HANDLER_TYPE_PRE , new DSchJobPreHandler());
-		handlers.put(DSchJobHandlerType.DSCH_JOB_HANDLER_TYPE_POST , new DSchJobPostHandler());
+		handlers.put(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_COMMAND , new DSchJobCommandHandler());
+		handlers.put(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_JOB_HC , new DSchJobHealthCheckHandler());
+		handlers.put(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_NODE_HC , new DSchNodeHealthCheckHandler());
 	}
 	
 	public static DSchJobHandlerMgr getInstance() {
@@ -25,7 +26,7 @@ public class DSchJobHandlerMgr {
 		return instance;
 	}
 	
-	public void handle(DSchJobHandlerType type , DSchJobContext context) {
+	public void handle(DSchHandlerType type , DSchJobContext context) {
 		handlers.get(type).handle(context);
 	}
 }

@@ -13,12 +13,12 @@ import com.hs.dsch.proto.DSchAdminProto.DSchCommandResponse;
 import com.hs.dsch.proto.DSchAdminProto.DSchJobStatus;
 import com.hs.dsch.util.HttpClient;
 
-public class DSchJobPreHandler implements DSchJobHandler {
+public class DSchJobCommandHandler implements DSchJobHandler {
 	
 	private DSchConfiguration dschConfiguration = DSchContext.getInstance().getDSchConfiguration();
 	private HttpClient httpClient = DSchContext.getInstance().getHttpClient();
 	
-	private static Logger logger = LoggerFactory.getLogger(DSchJobPreHandler.class);
+	private static Logger logger = LoggerFactory.getLogger(DSchJobCommandHandler.class);
 
 	@Override
 	public void handle(DSchJobContext context) {

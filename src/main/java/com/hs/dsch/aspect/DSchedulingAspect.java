@@ -13,7 +13,7 @@ import com.hs.dsch.annotation.DScheduled;
 import com.hs.dsch.conf.DSchContext;
 import com.hs.dsch.handler.DSchJobContext;
 import com.hs.dsch.handler.DSchJobHandlerMgr;
-import com.hs.dsch.handler.DSchJobHandlerType;
+import com.hs.dsch.handler.DSchHandlerType;
 import com.hs.dsch.proto.DSchAdminProto.DSchJobStatus;
 
 @Aspect
@@ -47,7 +47,7 @@ public class DSchedulingAspect {
 		preContext.setNodeId(DSchContext.getInstance().getNodeId());
 		preContext.setJobId(jobId);
 		
-		DSchJobHandlerMgr.getInstance().handle(DSchJobHandlerType.DSCH_JOB_HANDLER_TYPE_PRE , preContext);
+		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_COMMAND , preContext);
 		
 		if (DSchContext.getInstance().getJobStatus(jobId) == DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE) {
 			logger.error("任务状态已停止，同服务器失联.{}" , dsechduled.job() , DSchContext.getInstance().getJobStatus(jobId));
@@ -71,7 +71,7 @@ public class DSchedulingAspect {
 		postContext.setJobName(dsechduled.job());
 		postContext.setNodeId(DSchContext.getInstance().getNodeId());
 		
-		DSchJobHandlerMgr.getInstance().handle(DSchJobHandlerType.DSCH_JOB_HANDLER_TYPE_POST , postContext);
+		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_JOB_HC , postContext);
 		
 		return returnObj;
 	}

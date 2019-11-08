@@ -13,8 +13,8 @@ import com.hs.dsch.proto.DSchAdminProto.DSchJobHealthCheckResponse;
 import com.hs.dsch.proto.DSchAdminProto.DSchResponseCode;
 import com.hs.dsch.util.HttpClient;
 
-public class DSchJobPostHandler implements DSchJobHandler {
-	private static Logger logger = LoggerFactory.getLogger(DSchJobPostHandler.class);
+public class DSchJobHealthCheckHandler implements DSchJobHandler {
+	private static Logger logger = LoggerFactory.getLogger(DSchJobHealthCheckHandler.class);
 	
 	private DSchConfiguration dschConfiguration = DSchContext.getInstance().getDSchConfiguration();
 	private HttpClient httpClient = DSchContext.getInstance().getHttpClient();

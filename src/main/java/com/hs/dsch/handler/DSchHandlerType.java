@@ -1,12 +1,13 @@
 package com.hs.dsch.handler;
 
-public enum DSchJobHandlerType {
-	DSCH_JOB_HANDLER_TYPE_PRE(0),
-	DSCH_JOB_HANDLER_TYPE_POST(1);
+public enum DSchHandlerType {
+	DSCH_JOB_HANDLER_TYPE_COMMAND(0),
+	DSCH_JOB_HANDLER_TYPE_JOB_HC(1),
+	DSCH_JOB_HANDLER_TYPE_NODE_HC(2);
 	
 	private int type;
 	
-	DSchJobHandlerType(int type) {
+	DSchHandlerType(int type) {
 		this.setType(type);
 	}
 
