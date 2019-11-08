@@ -26,7 +26,7 @@ public class DSchedulingAspect {
     public void schedulePointCut() {
     }
 	
-	@Around("schedulePointCut() && @annotation(dsechduled)")
+	@Around("schedulePointCut() && @annotation(dscheduled)")
     public Object around(ProceedingJoinPoint point , DScheduled dscheduled) throws Throwable {
 		if (DSchContext.getInstance().isNodeShutdown()) {
 			logger.error("节点已经下线,{}" , DSchContext.getInstance().getNodeId());
