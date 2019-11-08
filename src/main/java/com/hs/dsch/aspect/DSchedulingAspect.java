@@ -27,16 +27,16 @@ public class DSchedulingAspect {
     }
 	
 	@Around("schedulePointCut() && @annotation(dsechduled)")
-    public Object around(ProceedingJoinPoint point , DScheduled dsechduled) throws Throwable {
+    public Object around(ProceedingJoinPoint point , DScheduled dscheduled) throws Throwable {
 		if (DSchContext.getInstance().isNodeShutdown()) {
 			logger.error("节点已经下线,{}" , DSchContext.getInstance().getNodeId());
 			
 			System.exit(0);
 		}
 		
-		String jobId = DSchContext.getInstance().getJob(dsechduled.job());
+		String jobId = DSchContext.getInstance().getJob(dscheduled.job());
 		if (jobId == null) {
-			logger.error("找不到任务，同服务器失联.{}" , dsechduled.job());
+			logger.error("找不到任务，同服务器失联.{}" , dscheduled.job());
 			
 			DSchContext.getInstance().updateJobStatus(jobId, DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE);
 			
@@ -50,7 +50,7 @@ public class DSchedulingAspect {
 		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_COMMAND , preContext);
 		
 		if (DSchContext.getInstance().getJobStatus(jobId) == DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE) {
-			logger.error("任务状态已停止，同服务器失联.{}" , dsechduled.job() , DSchContext.getInstance().getJobStatus(jobId));
+			logger.error("任务状态已停止，同服务器失联.{}" , dscheduled.job() , DSchContext.getInstance().getJobStatus(jobId));
 			
 			return null;
 		}
@@ -68,8 +68,12 @@ public class DSchedulingAspect {
 		DSchContext.getInstance().updateJobStatus(jobId, DSchJobStatus.DSCH_JOB_ST_IDLING_VALUE);
 
 		postContext.setJobId(jobId);
-		postContext.setJobName(dsechduled.job());
+		postContext.setJobName(dscheduled.job());
 		postContext.setNodeId(DSchContext.getInstance().getNodeId());
+		postContext.setCron(dscheduled.cron());
+		postContext.setFixDelay(dscheduled.fixedDelay());
+		postContext.setFixRate(dscheduled.fixedRate());
+		postContext.setInitialDelay(dscheduled.initialDelay());
 		
 		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_JOB_HC , postContext);
 		

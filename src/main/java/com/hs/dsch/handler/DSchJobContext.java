@@ -6,6 +6,10 @@ public class DSchJobContext {
 	private String jobName;
 	private Long beginTime;
 	private Long endTime;
+	private String cron;
+	private Long fixDelay;
+	private Long fixRate;
+	private Long initialDelay;
 	
 	public String getNodeId() {
 		return nodeId;
@@ -36,5 +40,29 @@ public class DSchJobContext {
 	}
 	public void setEndTime(Long endTime) {
 		this.endTime = endTime;
+	}
+	public String getCron() {
+		return cron;
+	}
+	public void setCron(String cron) {
+		this.cron = cron;
+	}
+	public Long getFixDelay() {
+		return fixDelay;
+	}
+	public void setFixDelay(Long fixDelay) {
+		this.fixDelay = fixDelay;
+	}
+	public Long getFixRate() {
+		return fixRate;
+	}
+	public void setFixRate(Long fixRate) {
+		this.fixRate = fixRate;
+	}
+	public Long getInitialDelay() {
+		return initialDelay;
+	}
+	public void setInitialDelay(Long initialDelay) {
+		this.initialDelay = initialDelay;
 	}
 }
