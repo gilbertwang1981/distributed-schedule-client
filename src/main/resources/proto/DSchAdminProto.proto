@@ -5,9 +5,9 @@ package com.hs.dsch.proto;
 // 消息响应码
 enum DSchResponseCode {
 	// 成功
-    RESP_CODE_SUCCESS = 0;
+    RESP_CODE_SUCCESS = 200;
     // 失败
-    RESP_CODE_FAILED = 1;
+    RESP_CODE_FAILED = 201;
 };
 
 //【任务端】节点注册消息请求
