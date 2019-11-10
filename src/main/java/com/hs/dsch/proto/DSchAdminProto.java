@@ -25,39 +25,55 @@ public final class DSchAdminProto {
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
+     * 预留
+     * </pre>
+     *
+     * <code>RESP_CODE_RESERVED = 0;</code>
+     */
+    RESP_CODE_RESERVED(0),
+    /**
+     * <pre>
      * 成功
      * </pre>
      *
-     * <code>RESP_CODE_SUCCESS = 0;</code>
+     * <code>RESP_CODE_SUCCESS = 200;</code>
      */
-    RESP_CODE_SUCCESS(0),
+    RESP_CODE_SUCCESS(200),
     /**
      * <pre>
      * 失败
      * </pre>
      *
-     * <code>RESP_CODE_FAILED = 1;</code>
+     * <code>RESP_CODE_FAILED = 201;</code>
      */
-    RESP_CODE_FAILED(1),
+    RESP_CODE_FAILED(201),
     UNRECOGNIZED(-1),
     ;
 
     /**
      * <pre>
+     * 预留
+     * </pre>
+     *
+     * <code>RESP_CODE_RESERVED = 0;</code>
+     */
+    public static final int RESP_CODE_RESERVED_VALUE = 0;
+    /**
+     * <pre>
      * 成功
      * </pre>
      *
-     * <code>RESP_CODE_SUCCESS = 0;</code>
+     * <code>RESP_CODE_SUCCESS = 200;</code>
      */
-    public static final int RESP_CODE_SUCCESS_VALUE = 0;
+    public static final int RESP_CODE_SUCCESS_VALUE = 200;
     /**
      * <pre>
      * 失败
      * </pre>
      *
-     * <code>RESP_CODE_FAILED = 1;</code>
+     * <code>RESP_CODE_FAILED = 201;</code>
      */
-    public static final int RESP_CODE_FAILED_VALUE = 1;
+    public static final int RESP_CODE_FAILED_VALUE = 201;
 
 
     public final int getNumber() {
@@ -78,8 +94,9 @@ public final class DSchAdminProto {
 
     public static DSchResponseCode forNumber(int value) {
       switch (value) {
-        case 0: return RESP_CODE_SUCCESS;
-        case 1: return RESP_CODE_FAILED;
+        case 0: return RESP_CODE_RESERVED;
+        case 200: return RESP_CODE_SUCCESS;
+        case 201: return RESP_CODE_FAILED;
         default: return null;
       }
     }
@@ -1602,7 +1619,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       if (!getNodeIdBytes().isEmpty()) {
@@ -1617,7 +1634,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -3160,7 +3177,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       if (!getNodeIdBytes().isEmpty()) {
@@ -3178,7 +3195,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -7563,7 +7580,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       unknownFields.writeTo(output);
@@ -7575,7 +7592,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -8962,7 +8979,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       unknownFields.writeTo(output);
@@ -8974,7 +8991,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -12818,7 +12835,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       unknownFields.writeTo(output);
@@ -12830,7 +12847,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -14207,7 +14224,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       if (job_ != null) {
@@ -14222,7 +14239,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -15606,7 +15623,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       if (node_ != null) {
@@ -15621,7 +15638,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -16934,7 +16951,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       unknownFields.writeTo(output);
@@ -16946,7 +16963,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -18079,7 +18096,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       unknownFields.writeTo(output);
@@ -18091,7 +18108,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -19224,7 +19241,7 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         output.writeEnum(1, resCode_);
       }
       unknownFields.writeTo(output);
@@ -19236,7 +19253,7 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
-      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_SUCCESS.getNumber()) {
+      if (resCode_ != com.hs.dsch.proto.DSchAdminProto.DSchResponseCode.RESP_CODE_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, resCode_);
       }
@@ -19826,15 +19843,16 @@ public final class DSchAdminProto {
       "ResponseCode\"0\n\031DSchOfflineServiceReques" +
       "t\022\023\n\013serviceName\030\001 \001(\t\"R\n\032DSchOfflineSer" +
       "viceResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.d" +
-      "sch.proto.DSchResponseCode*?\n\020DSchRespon" +
-      "seCode\022\025\n\021RESP_CODE_SUCCESS\020\000\022\024\n\020RESP_CO" +
-      "DE_FAILED\020\001*|\n\007DSchCmd\022\023\n\017DSCH_JOB_RESUM" +
-      "E\020\000\022\022\n\016DSCH_JOB_PAUSE\020\001\022\025\n\021DSCH_NODE_OFF" +
-      "LINE\020\002\022\027\n\023DSCH_SERVICE_ONLINE\020\003\022\030\n\024DSCH_" +
-      "SERVICE_OFFLINE\020\004*r\n\rDSchJobStatus\022\027\n\023DS" +
-      "CH_JOB_ST_STARTED\020\000\022\027\n\023DSCH_JOB_ST_RUNNI" +
-      "NG\020\001\022\026\n\022DSCH_JOB_ST_IDLING\020\002\022\027\n\023DSCH_JOB" +
-      "_ST_STOPPED\020\003b\006proto3"
+      "sch.proto.DSchResponseCode*Y\n\020DSchRespon" +
+      "seCode\022\026\n\022RESP_CODE_RESERVED\020\000\022\026\n\021RESP_C" +
+      "ODE_SUCCESS\020\310\001\022\025\n\020RESP_CODE_FAILED\020\311\001*|\n" +
+      "\007DSchCmd\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016DSCH_JO" +
+      "B_PAUSE\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002\022\027\n\023DSCH" +
+      "_SERVICE_ONLINE\020\003\022\030\n\024DSCH_SERVICE_OFFLIN" +
+      "E\020\004*r\n\rDSchJobStatus\022\027\n\023DSCH_JOB_ST_STAR" +
+      "TED\020\000\022\027\n\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022DSCH_J" +
+      "OB_ST_IDLING\020\002\022\027\n\023DSCH_JOB_ST_STOPPED\020\003b" +
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -4,6 +4,8 @@ package com.hs.dsch.proto;
 
 // 消息响应码
 enum DSchResponseCode {
+	// 预留
+    RESP_CODE_RESERVED = 0;
 	// 成功
     RESP_CODE_SUCCESS = 200;
     // 失败
