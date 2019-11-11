@@ -36,24 +36,24 @@ public class DSchedulerDiscovery extends DSchedulerSpringFactoryImportSelector<E
 	}
 
 	private void initApplication(AnnotationAttributes attributes) {
-		String namespace = attributes.getString("namespace");
 		String service = attributes.getString("service");
+		String desc = attributes.getString("desc");
 		
 		DSchRegisterNodeRequest.Builder request = DSchRegisterNodeRequest.newBuilder();
 		request.setHost(addressConvertor.getLocalIPList().get(0));
-		request.setNamespace(namespace);
 		request.setServiceName(service);
+		request.setDesc(desc);
 		
 		try {
 			HttpResponse httpResponse = httpClient.post(dschConfiguration.getHost() , dschConfiguration.getPort() ,
 					DSchClientConsts.DSCH_SERVICE_REG_NODE_INF_NAME , request.build().toByteArray());
 			DSchRegisterNodeResponse response = DSchRegisterNodeResponse.parseFrom(httpResponse.getEntity().getContent());
 			if (response.getResCode() == DSchResponseCode.RESP_CODE_FAILED) {
-				logger.error("注册节点失败,{}/{}/{}" , namespace , service , addressConvertor.getLocalIPList().get(0));
+				logger.error("注册节点失败,{}/{}" , service , addressConvertor.getLocalIPList().get(0));
 				
 				System.exit(0);
 			} else {
-				logger.info("注册节点成功,{}/{}/{}/{}" , namespace , service , addressConvertor.getLocalIPList().get(0) , 
+				logger.info("注册节点成功,{}/{}/{}" , service , addressConvertor.getLocalIPList().get(0) , 
 						response.getNodeId());
 				DSchContext.getInstance().setNodeId(response.getNodeId());
 				

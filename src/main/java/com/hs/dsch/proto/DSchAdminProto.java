@@ -1340,21 +1340,21 @@ public final class DSchAdminProto {
 
     /**
      * <pre>
-     * 名字空间
+     * 服务描述
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string desc = 2;</code>
      */
-    java.lang.String getNamespace();
+    java.lang.String getDesc();
     /**
      * <pre>
-     * 名字空间
+     * 服务描述
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string desc = 2;</code>
      */
     com.google.protobuf.ByteString
-        getNamespaceBytes();
+        getDescBytes();
 
     /**
      * <pre>
@@ -1392,7 +1392,7 @@ public final class DSchAdminProto {
     }
     private DSchRegisterNodeRequest() {
       serviceName_ = "";
-      namespace_ = "";
+      desc_ = "";
       host_ = "";
     }
 
@@ -1429,7 +1429,7 @@ public final class DSchAdminProto {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              namespace_ = s;
+              desc_ = s;
               break;
             }
             case 26: {
@@ -1512,42 +1512,42 @@ public final class DSchAdminProto {
       }
     }
 
-    public static final int NAMESPACE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object namespace_;
+    public static final int DESC_FIELD_NUMBER = 2;
+    private volatile java.lang.Object desc_;
     /**
      * <pre>
-     * 名字空间
+     * 服务描述
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string desc = 2;</code>
      */
-    public java.lang.String getNamespace() {
-      java.lang.Object ref = namespace_;
+    public java.lang.String getDesc() {
+      java.lang.Object ref = desc_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        namespace_ = s;
+        desc_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * 名字空间
+     * 服务描述
      * </pre>
      *
-     * <code>string namespace = 2;</code>
+     * <code>string desc = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-      java.lang.Object ref = namespace_;
+        getDescBytes() {
+      java.lang.Object ref = desc_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        namespace_ = b;
+        desc_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1613,8 +1613,8 @@ public final class DSchAdminProto {
       if (!getServiceNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, serviceName_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
+      if (!getDescBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, desc_);
       }
       if (!getHostBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, host_);
@@ -1631,8 +1631,8 @@ public final class DSchAdminProto {
       if (!getServiceNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, serviceName_);
       }
-      if (!getNamespaceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
+      if (!getDescBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, desc_);
       }
       if (!getHostBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, host_);
@@ -1655,8 +1655,8 @@ public final class DSchAdminProto {
       boolean result = true;
       result = result && getServiceName()
           .equals(other.getServiceName());
-      result = result && getNamespace()
-          .equals(other.getNamespace());
+      result = result && getDesc()
+          .equals(other.getDesc());
       result = result && getHost()
           .equals(other.getHost());
       result = result && unknownFields.equals(other.unknownFields);
@@ -1672,8 +1672,8 @@ public final class DSchAdminProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + SERVICENAME_FIELD_NUMBER;
       hash = (53 * hash) + getServiceName().hashCode();
-      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
-      hash = (53 * hash) + getNamespace().hashCode();
+      hash = (37 * hash) + DESC_FIELD_NUMBER;
+      hash = (53 * hash) + getDesc().hashCode();
       hash = (37 * hash) + HOST_FIELD_NUMBER;
       hash = (53 * hash) + getHost().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -1815,7 +1815,7 @@ public final class DSchAdminProto {
         super.clear();
         serviceName_ = "";
 
-        namespace_ = "";
+        desc_ = "";
 
         host_ = "";
 
@@ -1846,7 +1846,7 @@ public final class DSchAdminProto {
       public com.hs.dsch.proto.DSchAdminProto.DSchRegisterNodeRequest buildPartial() {
         com.hs.dsch.proto.DSchAdminProto.DSchRegisterNodeRequest result = new com.hs.dsch.proto.DSchAdminProto.DSchRegisterNodeRequest(this);
         result.serviceName_ = serviceName_;
-        result.namespace_ = namespace_;
+        result.desc_ = desc_;
         result.host_ = host_;
         onBuilt();
         return result;
@@ -1900,8 +1900,8 @@ public final class DSchAdminProto {
           serviceName_ = other.serviceName_;
           onChanged();
         }
-        if (!other.getNamespace().isEmpty()) {
-          namespace_ = other.namespace_;
+        if (!other.getDesc().isEmpty()) {
+          desc_ = other.desc_;
           onChanged();
         }
         if (!other.getHost().isEmpty()) {
@@ -2026,21 +2026,21 @@ public final class DSchAdminProto {
         return this;
       }
 
-      private java.lang.Object namespace_ = "";
+      private java.lang.Object desc_ = "";
       /**
        * <pre>
-       * 名字空间
+       * 服务描述
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string desc = 2;</code>
        */
-      public java.lang.String getNamespace() {
-        java.lang.Object ref = namespace_;
+      public java.lang.String getDesc() {
+        java.lang.Object ref = desc_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          namespace_ = s;
+          desc_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2048,19 +2048,19 @@ public final class DSchAdminProto {
       }
       /**
        * <pre>
-       * 名字空间
+       * 服务描述
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string desc = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getNamespaceBytes() {
-        java.lang.Object ref = namespace_;
+          getDescBytes() {
+        java.lang.Object ref = desc_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          namespace_ = b;
+          desc_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -2068,49 +2068,49 @@ public final class DSchAdminProto {
       }
       /**
        * <pre>
-       * 名字空间
+       * 服务描述
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string desc = 2;</code>
        */
-      public Builder setNamespace(
+      public Builder setDesc(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        namespace_ = value;
+        desc_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 名字空间
+       * 服务描述
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string desc = 2;</code>
        */
-      public Builder clearNamespace() {
+      public Builder clearDesc() {
         
-        namespace_ = getDefaultInstance().getNamespace();
+        desc_ = getDefaultInstance().getDesc();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 名字空间
+       * 服务描述
        * </pre>
        *
-       * <code>string namespace = 2;</code>
+       * <code>string desc = 2;</code>
        */
-      public Builder setNamespaceBytes(
+      public Builder setDescBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        namespace_ = value;
+        desc_ = value;
         onChanged();
         return this;
       }
@@ -3025,7 +3025,7 @@ public final class DSchAdminProto {
      * 任务调度策略
      * </pre>
      *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
      */
     boolean hasStrategy();
     /**
@@ -3033,7 +3033,7 @@ public final class DSchAdminProto {
      * 任务调度策略
      * </pre>
      *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
      */
     com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getStrategy();
     /**
@@ -3041,7 +3041,7 @@ public final class DSchAdminProto {
      * 任务调度策略
      * </pre>
      *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
      */
     com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder getStrategyOrBuilder();
   }
@@ -3102,7 +3102,7 @@ public final class DSchAdminProto {
               jobName_ = s;
               break;
             }
-            case 34: {
+            case 26: {
               com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder subBuilder = null;
               if (strategy_ != null) {
                 subBuilder = strategy_.toBuilder();
@@ -3231,14 +3231,14 @@ public final class DSchAdminProto {
       }
     }
 
-    public static final int STRATEGY_FIELD_NUMBER = 4;
+    public static final int STRATEGY_FIELD_NUMBER = 3;
     private com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy strategy_;
     /**
      * <pre>
      * 任务调度策略
      * </pre>
      *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
      */
     public boolean hasStrategy() {
       return strategy_ != null;
@@ -3248,7 +3248,7 @@ public final class DSchAdminProto {
      * 任务调度策略
      * </pre>
      *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
      */
     public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getStrategy() {
       return strategy_ == null ? com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance() : strategy_;
@@ -3258,7 +3258,7 @@ public final class DSchAdminProto {
      * 任务调度策略
      * </pre>
      *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
      */
     public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder getStrategyOrBuilder() {
       return getStrategy();
@@ -3285,7 +3285,7 @@ public final class DSchAdminProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, jobName_);
       }
       if (strategy_ != null) {
-        output.writeMessage(4, getStrategy());
+        output.writeMessage(3, getStrategy());
       }
       unknownFields.writeTo(output);
     }
@@ -3304,7 +3304,7 @@ public final class DSchAdminProto {
       }
       if (strategy_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getStrategy());
+          .computeMessageSize(3, getStrategy());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3804,7 +3804,7 @@ public final class DSchAdminProto {
        * 任务调度策略
        * </pre>
        *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
        */
       public boolean hasStrategy() {
         return strategyBuilder_ != null || strategy_ != null;
@@ -3814,7 +3814,7 @@ public final class DSchAdminProto {
        * 任务调度策略
        * </pre>
        *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
        */
       public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getStrategy() {
         if (strategyBuilder_ == null) {
@@ -3828,7 +3828,7 @@ public final class DSchAdminProto {
        * 任务调度策略
        * </pre>
        *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
        */
       public Builder setStrategy(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy value) {
         if (strategyBuilder_ == null) {
@@ -3848,7 +3848,7 @@ public final class DSchAdminProto {
        * 任务调度策略
        * </pre>
        *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
        */
       public Builder setStrategy(
           com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder builderForValue) {
@@ -3866,7 +3866,7 @@ public final class DSchAdminProto {
        * 任务调度策略
        * </pre>
        *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
        */
       public Builder mergeStrategy(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy value) {
         if (strategyBuilder_ == null) {
@@ -3888,7 +3888,7 @@ public final class DSchAdminProto {
        * 任务调度策略
        * </pre>
        *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
        */
       public Builder clearStrategy() {
         if (strategyBuilder_ == null) {
@@ -3906,7 +3906,7 @@ public final class DSchAdminProto {
        * 任务调度策略
        * </pre>
        *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
        */
       public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder getStrategyBuilder() {
         
@@ -3918,7 +3918,7 @@ public final class DSchAdminProto {
        * 任务调度策略
        * </pre>
        *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
        */
       public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder getStrategyOrBuilder() {
         if (strategyBuilder_ != null) {
@@ -3933,7 +3933,7 @@ public final class DSchAdminProto {
        * 任务调度策略
        * </pre>
        *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder> 
@@ -19793,66 +19793,66 @@ public final class DSchAdminProto {
       "o.proto\022\021com.hs.dsch.proto\"`\n\023DSchJobExe" +
       "cStrategy\022\014\n\004cron\030\001 \001(\t\022\022\n\nfixedDelay\030\002 " +
       "\001(\003\022\021\n\tfixedRate\030\003 \001(\003\022\024\n\014initialDelay\030\004" +
-      " \001(\003\"O\n\027DSchRegisterNodeRequest\022\023\n\013servi" +
-      "ceName\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t\022\014\n\004host\030" +
-      "\003 \001(\t\"`\n\030DSchRegisterNodeResponse\0224\n\007res" +
+      " \001(\003\"J\n\027DSchRegisterNodeRequest\022\023\n\013servi" +
+      "ceName\030\001 \001(\t\022\014\n\004desc\030\002 \001(\t\022\014\n\004host\030\003 \001(\t" +
+      "\"`\n\030DSchRegisterNodeResponse\0224\n\007resCode\030" +
+      "\001 \001(\0162#.com.hs.dsch.proto.DSchResponseCo" +
+      "de\022\016\n\006nodeId\030\002 \001(\t\"s\n\026DSchRegisterJobReq" +
+      "uest\022\016\n\006nodeId\030\001 \001(\t\022\017\n\007jobName\030\002 \001(\t\0228\n" +
+      "\010strategy\030\003 \001(\0132&.com.hs.dsch.proto.DSch" +
+      "JobExecStrategy\"n\n\027DSchRegisterJobRespon" +
+      "se\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto." +
+      "DSchResponseCode\022\016\n\006nodeId\030\002 \001(\t\022\r\n\005jobI" +
+      "d\030\003 \001(\t\"<\n\007DSchJob\022\r\n\005jobId\030\001 \001(\t\022\021\n\tbeg" +
+      "inTime\030\002 \001(\003\022\017\n\007endTime\030\003 \001(\003\"_\n\010DSchNod" +
+      "e\022\016\n\006nodeId\030\001 \001(\t\022\025\n\ractiveThreads\030\002 \001(\003" +
+      "\022\013\n\003cpu\030\003 \001(\003\022\013\n\003mem\030\004 \001(\003\022\022\n\nupdateTime" +
+      "\030\005 \001(\003\"T\n\031DSchJobHealthCheckRequest\022\016\n\006n" +
+      "odeId\030\001 \001(\t\022\'\n\003job\030\002 \001(\0132\032.com.hs.dsch.p" +
+      "roto.DSchJob\"R\n\032DSchJobHealthCheckRespon" +
+      "se\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto." +
+      "DSchResponseCode\"W\n\032DSchNodeHealthCheckR" +
+      "equest\022\016\n\006nodeId\030\001 \001(\t\022)\n\004node\030\002 \001(\0132\033.c" +
+      "om.hs.dsch.proto.DSchNode\"S\n\033DSchNodeHea" +
+      "lthCheckResponse\0224\n\007resCode\030\001 \001(\0162#.com." +
+      "hs.dsch.proto.DSchResponseCode\"3\n\022DSchCo" +
+      "mmandRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 " +
+      "\001(\t\"I\n\013DSchCommand\022\r\n\005jobId\030\001 \001(\t\022+\n\007cmd" +
+      "Type\030\002 \001(\0162\032.com.hs.dsch.proto.DSchCmd\"V" +
+      "\n\023DSchCommandResponse\022/\n\007command\030\001 \001(\0132\036" +
+      ".com.hs.dsch.proto.DSchCommand\022\016\n\006nodeId" +
+      "\030\002 \001(\t\"U\n\025DSchAddCommandRequest\022\016\n\006nodeI" +
+      "d\030\001 \001(\t\022,\n\004cmds\030\002 \003(\0132\036.com.hs.dsch.prot" +
+      "o.DSchCommand\"N\n\026DSchAddCommandResponse\022" +
+      "4\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto.DSc" +
+      "hResponseCode\"5\n\024DSchJobStatusRequest\022\016\n" +
+      "\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"v\n\025DSchJobS" +
+      "tatusResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs." +
+      "dsch.proto.DSchResponseCode\022\'\n\003job\030\002 \001(\013" +
+      "2\032.com.hs.dsch.proto.DSchJob\"\'\n\025DSchNode" +
+      "StatusRequest\022\016\n\006nodeId\030\001 \001(\t\"y\n\026DSchNod" +
+      "eStatusResponse\0224\n\007resCode\030\001 \001(\0162#.com.h" +
+      "s.dsch.proto.DSchResponseCode\022)\n\004node\030\002 " +
+      "\001(\0132\033.com.hs.dsch.proto.DSchNode\"(\n\026DSch" +
+      "OfflineNodeRequest\022\016\n\006nodeId\030\001 \001(\t\"O\n\027DS" +
+      "chOfflineNodeResponse\0224\n\007resCode\030\001 \001(\0162#" +
+      ".com.hs.dsch.proto.DSchResponseCode\"/\n\030D" +
+      "SchOnlineServiceRequest\022\023\n\013serviceName\030\001" +
+      " \001(\t\"Q\n\031DSchOnlineServiceResponse\0224\n\007res" +
       "Code\030\001 \001(\0162#.com.hs.dsch.proto.DSchRespo" +
-      "nseCode\022\016\n\006nodeId\030\002 \001(\t\"s\n\026DSchRegisterJ" +
-      "obRequest\022\016\n\006nodeId\030\001 \001(\t\022\017\n\007jobName\030\002 \001" +
-      "(\t\0228\n\010strategy\030\004 \001(\0132&.com.hs.dsch.proto" +
-      ".DSchJobExecStrategy\"n\n\027DSchRegisterJobR" +
+      "nseCode\"0\n\031DSchOfflineServiceRequest\022\023\n\013" +
+      "serviceName\030\001 \001(\t\"R\n\032DSchOfflineServiceR" +
       "esponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.p" +
-      "roto.DSchResponseCode\022\016\n\006nodeId\030\002 \001(\t\022\r\n" +
-      "\005jobId\030\003 \001(\t\"<\n\007DSchJob\022\r\n\005jobId\030\001 \001(\t\022\021" +
-      "\n\tbeginTime\030\002 \001(\003\022\017\n\007endTime\030\003 \001(\003\"_\n\010DS" +
-      "chNode\022\016\n\006nodeId\030\001 \001(\t\022\025\n\ractiveThreads\030" +
-      "\002 \001(\003\022\013\n\003cpu\030\003 \001(\003\022\013\n\003mem\030\004 \001(\003\022\022\n\nupdat" +
-      "eTime\030\005 \001(\003\"T\n\031DSchJobHealthCheckRequest" +
-      "\022\016\n\006nodeId\030\001 \001(\t\022\'\n\003job\030\002 \001(\0132\032.com.hs.d" +
-      "sch.proto.DSchJob\"R\n\032DSchJobHealthCheckR" +
-      "esponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.p" +
-      "roto.DSchResponseCode\"W\n\032DSchNodeHealthC" +
-      "heckRequest\022\016\n\006nodeId\030\001 \001(\t\022)\n\004node\030\002 \001(" +
-      "\0132\033.com.hs.dsch.proto.DSchNode\"S\n\033DSchNo" +
-      "deHealthCheckResponse\0224\n\007resCode\030\001 \001(\0162#" +
-      ".com.hs.dsch.proto.DSchResponseCode\"3\n\022D" +
-      "SchCommandRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005job" +
-      "Id\030\002 \001(\t\"I\n\013DSchCommand\022\r\n\005jobId\030\001 \001(\t\022+" +
-      "\n\007cmdType\030\002 \001(\0162\032.com.hs.dsch.proto.DSch" +
-      "Cmd\"V\n\023DSchCommandResponse\022/\n\007command\030\001 " +
-      "\001(\0132\036.com.hs.dsch.proto.DSchCommand\022\016\n\006n" +
-      "odeId\030\002 \001(\t\"U\n\025DSchAddCommandRequest\022\016\n\006" +
-      "nodeId\030\001 \001(\t\022,\n\004cmds\030\002 \003(\0132\036.com.hs.dsch" +
-      ".proto.DSchCommand\"N\n\026DSchAddCommandResp" +
-      "onse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.prot" +
-      "o.DSchResponseCode\"5\n\024DSchJobStatusReque" +
-      "st\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"v\n\025DSc" +
-      "hJobStatusResponse\0224\n\007resCode\030\001 \001(\0162#.co" +
-      "m.hs.dsch.proto.DSchResponseCode\022\'\n\003job\030" +
-      "\002 \001(\0132\032.com.hs.dsch.proto.DSchJob\"\'\n\025DSc" +
-      "hNodeStatusRequest\022\016\n\006nodeId\030\001 \001(\t\"y\n\026DS" +
-      "chNodeStatusResponse\0224\n\007resCode\030\001 \001(\0162#." +
-      "com.hs.dsch.proto.DSchResponseCode\022)\n\004no" +
-      "de\030\002 \001(\0132\033.com.hs.dsch.proto.DSchNode\"(\n" +
-      "\026DSchOfflineNodeRequest\022\016\n\006nodeId\030\001 \001(\t\"" +
-      "O\n\027DSchOfflineNodeResponse\0224\n\007resCode\030\001 " +
-      "\001(\0162#.com.hs.dsch.proto.DSchResponseCode" +
-      "\"/\n\030DSchOnlineServiceRequest\022\023\n\013serviceN" +
-      "ame\030\001 \001(\t\"Q\n\031DSchOnlineServiceResponse\0224" +
-      "\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto.DSch" +
-      "ResponseCode\"0\n\031DSchOfflineServiceReques" +
-      "t\022\023\n\013serviceName\030\001 \001(\t\"R\n\032DSchOfflineSer" +
-      "viceResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.d" +
-      "sch.proto.DSchResponseCode*Y\n\020DSchRespon" +
-      "seCode\022\026\n\022RESP_CODE_RESERVED\020\000\022\026\n\021RESP_C" +
-      "ODE_SUCCESS\020\310\001\022\025\n\020RESP_CODE_FAILED\020\311\001*|\n" +
-      "\007DSchCmd\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016DSCH_JO" +
-      "B_PAUSE\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002\022\027\n\023DSCH" +
-      "_SERVICE_ONLINE\020\003\022\030\n\024DSCH_SERVICE_OFFLIN" +
-      "E\020\004*r\n\rDSchJobStatus\022\027\n\023DSCH_JOB_ST_STAR" +
-      "TED\020\000\022\027\n\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022DSCH_J" +
-      "OB_ST_IDLING\020\002\022\027\n\023DSCH_JOB_ST_STOPPED\020\003b" +
-      "\006proto3"
+      "roto.DSchResponseCode*Y\n\020DSchResponseCod" +
+      "e\022\026\n\022RESP_CODE_RESERVED\020\000\022\026\n\021RESP_CODE_S" +
+      "UCCESS\020\310\001\022\025\n\020RESP_CODE_FAILED\020\311\001*|\n\007DSch" +
+      "Cmd\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016DSCH_JOB_PAU" +
+      "SE\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002\022\027\n\023DSCH_SERV" +
+      "ICE_ONLINE\020\003\022\030\n\024DSCH_SERVICE_OFFLINE\020\004*r" +
+      "\n\rDSchJobStatus\022\027\n\023DSCH_JOB_ST_STARTED\020\000" +
+      "\022\027\n\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022DSCH_JOB_ST" +
+      "_IDLING\020\002\022\027\n\023DSCH_JOB_ST_STOPPED\020\003b\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19877,7 +19877,7 @@ public final class DSchAdminProto {
     internal_static_com_hs_dsch_proto_DSchRegisterNodeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchRegisterNodeRequest_descriptor,
-        new java.lang.String[] { "ServiceName", "Namespace", "Host", });
+        new java.lang.String[] { "ServiceName", "Desc", "Host", });
     internal_static_com_hs_dsch_proto_DSchRegisterNodeResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_hs_dsch_proto_DSchRegisterNodeResponse_fieldAccessorTable = new
