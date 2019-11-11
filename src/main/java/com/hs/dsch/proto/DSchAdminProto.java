@@ -470,6 +470,852 @@ public final class DSchAdminProto {
     // @@protoc_insertion_point(enum_scope:com.hs.dsch.proto.DSchJobStatus)
   }
 
+  public interface DSchJobExecStrategyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.hs.dsch.proto.DSchJobExecStrategy)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * cron表达式
+     * </pre>
+     *
+     * <code>string cron = 1;</code>
+     */
+    java.lang.String getCron();
+    /**
+     * <pre>
+     * cron表达式
+     * </pre>
+     *
+     * <code>string cron = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getCronBytes();
+
+    /**
+     * <pre>
+     * 任务执行固定延迟，XX毫秒
+     * </pre>
+     *
+     * <code>int64 fixedDelay = 2;</code>
+     */
+    long getFixedDelay();
+
+    /**
+     * <pre>
+     * 任务固定频率调度，XX毫秒
+     * </pre>
+     *
+     * <code>int64 fixedRate = 3;</code>
+     */
+    long getFixedRate();
+
+    /**
+     * <pre>
+     * 第一次调度前延迟，XX毫秒
+     * </pre>
+     *
+     * <code>int64 initialDelay = 4;</code>
+     */
+    long getInitialDelay();
+  }
+  /**
+   * <pre>
+   * 任务执行策略定义
+   * </pre>
+   *
+   * Protobuf type {@code com.hs.dsch.proto.DSchJobExecStrategy}
+   */
+  public  static final class DSchJobExecStrategy extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.hs.dsch.proto.DSchJobExecStrategy)
+      DSchJobExecStrategyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DSchJobExecStrategy.newBuilder() to construct.
+    private DSchJobExecStrategy(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DSchJobExecStrategy() {
+      cron_ = "";
+      fixedDelay_ = 0L;
+      fixedRate_ = 0L;
+      initialDelay_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DSchJobExecStrategy(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              cron_ = s;
+              break;
+            }
+            case 16: {
+
+              fixedDelay_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              fixedRate_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              initialDelay_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.class, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder.class);
+    }
+
+    public static final int CRON_FIELD_NUMBER = 1;
+    private volatile java.lang.Object cron_;
+    /**
+     * <pre>
+     * cron表达式
+     * </pre>
+     *
+     * <code>string cron = 1;</code>
+     */
+    public java.lang.String getCron() {
+      java.lang.Object ref = cron_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cron_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * cron表达式
+     * </pre>
+     *
+     * <code>string cron = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCronBytes() {
+      java.lang.Object ref = cron_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cron_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FIXEDDELAY_FIELD_NUMBER = 2;
+    private long fixedDelay_;
+    /**
+     * <pre>
+     * 任务执行固定延迟，XX毫秒
+     * </pre>
+     *
+     * <code>int64 fixedDelay = 2;</code>
+     */
+    public long getFixedDelay() {
+      return fixedDelay_;
+    }
+
+    public static final int FIXEDRATE_FIELD_NUMBER = 3;
+    private long fixedRate_;
+    /**
+     * <pre>
+     * 任务固定频率调度，XX毫秒
+     * </pre>
+     *
+     * <code>int64 fixedRate = 3;</code>
+     */
+    public long getFixedRate() {
+      return fixedRate_;
+    }
+
+    public static final int INITIALDELAY_FIELD_NUMBER = 4;
+    private long initialDelay_;
+    /**
+     * <pre>
+     * 第一次调度前延迟，XX毫秒
+     * </pre>
+     *
+     * <code>int64 initialDelay = 4;</code>
+     */
+    public long getInitialDelay() {
+      return initialDelay_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getCronBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cron_);
+      }
+      if (fixedDelay_ != 0L) {
+        output.writeInt64(2, fixedDelay_);
+      }
+      if (fixedRate_ != 0L) {
+        output.writeInt64(3, fixedRate_);
+      }
+      if (initialDelay_ != 0L) {
+        output.writeInt64(4, initialDelay_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getCronBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cron_);
+      }
+      if (fixedDelay_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, fixedDelay_);
+      }
+      if (fixedRate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, fixedRate_);
+      }
+      if (initialDelay_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, initialDelay_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy)) {
+        return super.equals(obj);
+      }
+      com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy other = (com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy) obj;
+
+      boolean result = true;
+      result = result && getCron()
+          .equals(other.getCron());
+      result = result && (getFixedDelay()
+          == other.getFixedDelay());
+      result = result && (getFixedRate()
+          == other.getFixedRate());
+      result = result && (getInitialDelay()
+          == other.getInitialDelay());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CRON_FIELD_NUMBER;
+      hash = (53 * hash) + getCron().hashCode();
+      hash = (37 * hash) + FIXEDDELAY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFixedDelay());
+      hash = (37 * hash) + FIXEDRATE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFixedRate());
+      hash = (37 * hash) + INITIALDELAY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getInitialDelay());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 任务执行策略定义
+     * </pre>
+     *
+     * Protobuf type {@code com.hs.dsch.proto.DSchJobExecStrategy}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.hs.dsch.proto.DSchJobExecStrategy)
+        com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.class, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder.class);
+      }
+
+      // Construct using com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        cron_ = "";
+
+        fixedDelay_ = 0L;
+
+        fixedRate_ = 0L;
+
+        initialDelay_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getDefaultInstanceForType() {
+        return com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy build() {
+        com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy buildPartial() {
+        com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy result = new com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy(this);
+        result.cron_ = cron_;
+        result.fixedDelay_ = fixedDelay_;
+        result.fixedRate_ = fixedRate_;
+        result.initialDelay_ = initialDelay_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy) {
+          return mergeFrom((com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy other) {
+        if (other == com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance()) return this;
+        if (!other.getCron().isEmpty()) {
+          cron_ = other.cron_;
+          onChanged();
+        }
+        if (other.getFixedDelay() != 0L) {
+          setFixedDelay(other.getFixedDelay());
+        }
+        if (other.getFixedRate() != 0L) {
+          setFixedRate(other.getFixedRate());
+        }
+        if (other.getInitialDelay() != 0L) {
+          setInitialDelay(other.getInitialDelay());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object cron_ = "";
+      /**
+       * <pre>
+       * cron表达式
+       * </pre>
+       *
+       * <code>string cron = 1;</code>
+       */
+      public java.lang.String getCron() {
+        java.lang.Object ref = cron_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cron_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * cron表达式
+       * </pre>
+       *
+       * <code>string cron = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCronBytes() {
+        java.lang.Object ref = cron_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cron_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * cron表达式
+       * </pre>
+       *
+       * <code>string cron = 1;</code>
+       */
+      public Builder setCron(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cron_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * cron表达式
+       * </pre>
+       *
+       * <code>string cron = 1;</code>
+       */
+      public Builder clearCron() {
+        
+        cron_ = getDefaultInstance().getCron();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * cron表达式
+       * </pre>
+       *
+       * <code>string cron = 1;</code>
+       */
+      public Builder setCronBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cron_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long fixedDelay_ ;
+      /**
+       * <pre>
+       * 任务执行固定延迟，XX毫秒
+       * </pre>
+       *
+       * <code>int64 fixedDelay = 2;</code>
+       */
+      public long getFixedDelay() {
+        return fixedDelay_;
+      }
+      /**
+       * <pre>
+       * 任务执行固定延迟，XX毫秒
+       * </pre>
+       *
+       * <code>int64 fixedDelay = 2;</code>
+       */
+      public Builder setFixedDelay(long value) {
+        
+        fixedDelay_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务执行固定延迟，XX毫秒
+       * </pre>
+       *
+       * <code>int64 fixedDelay = 2;</code>
+       */
+      public Builder clearFixedDelay() {
+        
+        fixedDelay_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long fixedRate_ ;
+      /**
+       * <pre>
+       * 任务固定频率调度，XX毫秒
+       * </pre>
+       *
+       * <code>int64 fixedRate = 3;</code>
+       */
+      public long getFixedRate() {
+        return fixedRate_;
+      }
+      /**
+       * <pre>
+       * 任务固定频率调度，XX毫秒
+       * </pre>
+       *
+       * <code>int64 fixedRate = 3;</code>
+       */
+      public Builder setFixedRate(long value) {
+        
+        fixedRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务固定频率调度，XX毫秒
+       * </pre>
+       *
+       * <code>int64 fixedRate = 3;</code>
+       */
+      public Builder clearFixedRate() {
+        
+        fixedRate_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long initialDelay_ ;
+      /**
+       * <pre>
+       * 第一次调度前延迟，XX毫秒
+       * </pre>
+       *
+       * <code>int64 initialDelay = 4;</code>
+       */
+      public long getInitialDelay() {
+        return initialDelay_;
+      }
+      /**
+       * <pre>
+       * 第一次调度前延迟，XX毫秒
+       * </pre>
+       *
+       * <code>int64 initialDelay = 4;</code>
+       */
+      public Builder setInitialDelay(long value) {
+        
+        initialDelay_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 第一次调度前延迟，XX毫秒
+       * </pre>
+       *
+       * <code>int64 initialDelay = 4;</code>
+       */
+      public Builder clearInitialDelay() {
+        
+        initialDelay_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.hs.dsch.proto.DSchJobExecStrategy)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.hs.dsch.proto.DSchJobExecStrategy)
+    private static final com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy();
+    }
+
+    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DSchJobExecStrategy>
+        PARSER = new com.google.protobuf.AbstractParser<DSchJobExecStrategy>() {
+      @java.lang.Override
+      public DSchJobExecStrategy parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DSchJobExecStrategy(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DSchJobExecStrategy> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DSchJobExecStrategy> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface DSchRegisterNodeRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.hs.dsch.proto.DSchRegisterNodeRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -2173,6 +3019,31 @@ public final class DSchAdminProto {
      */
     com.google.protobuf.ByteString
         getJobNameBytes();
+
+    /**
+     * <pre>
+     * 任务调度策略
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     */
+    boolean hasStrategy();
+    /**
+     * <pre>
+     * 任务调度策略
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     */
+    com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getStrategy();
+    /**
+     * <pre>
+     * 任务调度策略
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     */
+    com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder getStrategyOrBuilder();
   }
   /**
    * <pre>
@@ -2229,6 +3100,19 @@ public final class DSchAdminProto {
               java.lang.String s = input.readStringRequireUtf8();
 
               jobName_ = s;
+              break;
+            }
+            case 34: {
+              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder subBuilder = null;
+              if (strategy_ != null) {
+                subBuilder = strategy_.toBuilder();
+              }
+              strategy_ = input.readMessage(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(strategy_);
+                strategy_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -2347,6 +3231,39 @@ public final class DSchAdminProto {
       }
     }
 
+    public static final int STRATEGY_FIELD_NUMBER = 4;
+    private com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy strategy_;
+    /**
+     * <pre>
+     * 任务调度策略
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     */
+    public boolean hasStrategy() {
+      return strategy_ != null;
+    }
+    /**
+     * <pre>
+     * 任务调度策略
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     */
+    public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getStrategy() {
+      return strategy_ == null ? com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance() : strategy_;
+    }
+    /**
+     * <pre>
+     * 任务调度策略
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+     */
+    public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder getStrategyOrBuilder() {
+      return getStrategy();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2367,6 +3284,9 @@ public final class DSchAdminProto {
       if (!getJobNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, jobName_);
       }
+      if (strategy_ != null) {
+        output.writeMessage(4, getStrategy());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2381,6 +3301,10 @@ public final class DSchAdminProto {
       }
       if (!getJobNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, jobName_);
+      }
+      if (strategy_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getStrategy());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2402,6 +3326,11 @@ public final class DSchAdminProto {
           .equals(other.getNodeId());
       result = result && getJobName()
           .equals(other.getJobName());
+      result = result && (hasStrategy() == other.hasStrategy());
+      if (hasStrategy()) {
+        result = result && getStrategy()
+            .equals(other.getStrategy());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2417,6 +3346,10 @@ public final class DSchAdminProto {
       hash = (53 * hash) + getNodeId().hashCode();
       hash = (37 * hash) + JOBNAME_FIELD_NUMBER;
       hash = (53 * hash) + getJobName().hashCode();
+      if (hasStrategy()) {
+        hash = (37 * hash) + STRATEGY_FIELD_NUMBER;
+        hash = (53 * hash) + getStrategy().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2558,6 +3491,12 @@ public final class DSchAdminProto {
 
         jobName_ = "";
 
+        if (strategyBuilder_ == null) {
+          strategy_ = null;
+        } else {
+          strategy_ = null;
+          strategyBuilder_ = null;
+        }
         return this;
       }
 
@@ -2586,6 +3525,11 @@ public final class DSchAdminProto {
         com.hs.dsch.proto.DSchAdminProto.DSchRegisterJobRequest result = new com.hs.dsch.proto.DSchAdminProto.DSchRegisterJobRequest(this);
         result.nodeId_ = nodeId_;
         result.jobName_ = jobName_;
+        if (strategyBuilder_ == null) {
+          result.strategy_ = strategy_;
+        } else {
+          result.strategy_ = strategyBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -2641,6 +3585,9 @@ public final class DSchAdminProto {
         if (!other.getJobName().isEmpty()) {
           jobName_ = other.jobName_;
           onChanged();
+        }
+        if (other.hasStrategy()) {
+          mergeStrategy(other.getStrategy());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2847,6 +3794,159 @@ public final class DSchAdminProto {
         jobName_ = value;
         onChanged();
         return this;
+      }
+
+      private com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy strategy_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder> strategyBuilder_;
+      /**
+       * <pre>
+       * 任务调度策略
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       */
+      public boolean hasStrategy() {
+        return strategyBuilder_ != null || strategy_ != null;
+      }
+      /**
+       * <pre>
+       * 任务调度策略
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       */
+      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getStrategy() {
+        if (strategyBuilder_ == null) {
+          return strategy_ == null ? com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance() : strategy_;
+        } else {
+          return strategyBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * 任务调度策略
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       */
+      public Builder setStrategy(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy value) {
+        if (strategyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          strategy_ = value;
+          onChanged();
+        } else {
+          strategyBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务调度策略
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       */
+      public Builder setStrategy(
+          com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder builderForValue) {
+        if (strategyBuilder_ == null) {
+          strategy_ = builderForValue.build();
+          onChanged();
+        } else {
+          strategyBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务调度策略
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       */
+      public Builder mergeStrategy(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy value) {
+        if (strategyBuilder_ == null) {
+          if (strategy_ != null) {
+            strategy_ =
+              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.newBuilder(strategy_).mergeFrom(value).buildPartial();
+          } else {
+            strategy_ = value;
+          }
+          onChanged();
+        } else {
+          strategyBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务调度策略
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       */
+      public Builder clearStrategy() {
+        if (strategyBuilder_ == null) {
+          strategy_ = null;
+          onChanged();
+        } else {
+          strategy_ = null;
+          strategyBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务调度策略
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       */
+      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder getStrategyBuilder() {
+        
+        onChanged();
+        return getStrategyFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 任务调度策略
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       */
+      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder getStrategyOrBuilder() {
+        if (strategyBuilder_ != null) {
+          return strategyBuilder_.getMessageOrBuilder();
+        } else {
+          return strategy_ == null ?
+              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance() : strategy_;
+        }
+      }
+      /**
+       * <pre>
+       * 任务调度策略
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder> 
+          getStrategyFieldBuilder() {
+        if (strategyBuilder_ == null) {
+          strategyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder>(
+                  getStrategy(),
+                  getParentForChildren(),
+                  isClean());
+          strategy_ = null;
+        }
+        return strategyBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3798,852 +4898,6 @@ public final class DSchAdminProto {
 
   }
 
-  public interface DSchJobExecStrategyOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.hs.dsch.proto.DSchJobExecStrategy)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * cron表达式
-     * </pre>
-     *
-     * <code>string cron = 1;</code>
-     */
-    java.lang.String getCron();
-    /**
-     * <pre>
-     * cron表达式
-     * </pre>
-     *
-     * <code>string cron = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getCronBytes();
-
-    /**
-     * <pre>
-     * 任务执行固定延迟，XX毫秒
-     * </pre>
-     *
-     * <code>int64 fixedDelay = 2;</code>
-     */
-    long getFixedDelay();
-
-    /**
-     * <pre>
-     * 任务固定频率调度，XX毫秒
-     * </pre>
-     *
-     * <code>int64 fixedRate = 3;</code>
-     */
-    long getFixedRate();
-
-    /**
-     * <pre>
-     * 第一次调度前延迟，XX毫秒
-     * </pre>
-     *
-     * <code>int64 initialDelay = 4;</code>
-     */
-    long getInitialDelay();
-  }
-  /**
-   * <pre>
-   * 任务执行策略定义
-   * </pre>
-   *
-   * Protobuf type {@code com.hs.dsch.proto.DSchJobExecStrategy}
-   */
-  public  static final class DSchJobExecStrategy extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.hs.dsch.proto.DSchJobExecStrategy)
-      DSchJobExecStrategyOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DSchJobExecStrategy.newBuilder() to construct.
-    private DSchJobExecStrategy(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DSchJobExecStrategy() {
-      cron_ = "";
-      fixedDelay_ = 0L;
-      fixedRate_ = 0L;
-      initialDelay_ = 0L;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DSchJobExecStrategy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              cron_ = s;
-              break;
-            }
-            case 16: {
-
-              fixedDelay_ = input.readInt64();
-              break;
-            }
-            case 24: {
-
-              fixedRate_ = input.readInt64();
-              break;
-            }
-            case 32: {
-
-              initialDelay_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.class, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder.class);
-    }
-
-    public static final int CRON_FIELD_NUMBER = 1;
-    private volatile java.lang.Object cron_;
-    /**
-     * <pre>
-     * cron表达式
-     * </pre>
-     *
-     * <code>string cron = 1;</code>
-     */
-    public java.lang.String getCron() {
-      java.lang.Object ref = cron_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        cron_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * cron表达式
-     * </pre>
-     *
-     * <code>string cron = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCronBytes() {
-      java.lang.Object ref = cron_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        cron_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int FIXEDDELAY_FIELD_NUMBER = 2;
-    private long fixedDelay_;
-    /**
-     * <pre>
-     * 任务执行固定延迟，XX毫秒
-     * </pre>
-     *
-     * <code>int64 fixedDelay = 2;</code>
-     */
-    public long getFixedDelay() {
-      return fixedDelay_;
-    }
-
-    public static final int FIXEDRATE_FIELD_NUMBER = 3;
-    private long fixedRate_;
-    /**
-     * <pre>
-     * 任务固定频率调度，XX毫秒
-     * </pre>
-     *
-     * <code>int64 fixedRate = 3;</code>
-     */
-    public long getFixedRate() {
-      return fixedRate_;
-    }
-
-    public static final int INITIALDELAY_FIELD_NUMBER = 4;
-    private long initialDelay_;
-    /**
-     * <pre>
-     * 第一次调度前延迟，XX毫秒
-     * </pre>
-     *
-     * <code>int64 initialDelay = 4;</code>
-     */
-    public long getInitialDelay() {
-      return initialDelay_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getCronBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cron_);
-      }
-      if (fixedDelay_ != 0L) {
-        output.writeInt64(2, fixedDelay_);
-      }
-      if (fixedRate_ != 0L) {
-        output.writeInt64(3, fixedRate_);
-      }
-      if (initialDelay_ != 0L) {
-        output.writeInt64(4, initialDelay_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getCronBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cron_);
-      }
-      if (fixedDelay_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, fixedDelay_);
-      }
-      if (fixedRate_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, fixedRate_);
-      }
-      if (initialDelay_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, initialDelay_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy)) {
-        return super.equals(obj);
-      }
-      com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy other = (com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy) obj;
-
-      boolean result = true;
-      result = result && getCron()
-          .equals(other.getCron());
-      result = result && (getFixedDelay()
-          == other.getFixedDelay());
-      result = result && (getFixedRate()
-          == other.getFixedRate());
-      result = result && (getInitialDelay()
-          == other.getInitialDelay());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CRON_FIELD_NUMBER;
-      hash = (53 * hash) + getCron().hashCode();
-      hash = (37 * hash) + FIXEDDELAY_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getFixedDelay());
-      hash = (37 * hash) + FIXEDRATE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getFixedRate());
-      hash = (37 * hash) + INITIALDELAY_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getInitialDelay());
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 任务执行策略定义
-     * </pre>
-     *
-     * Protobuf type {@code com.hs.dsch.proto.DSchJobExecStrategy}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.hs.dsch.proto.DSchJobExecStrategy)
-        com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.class, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder.class);
-      }
-
-      // Construct using com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        cron_ = "";
-
-        fixedDelay_ = 0L;
-
-        fixedRate_ = 0L;
-
-        initialDelay_ = 0L;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.hs.dsch.proto.DSchAdminProto.internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor;
-      }
-
-      @java.lang.Override
-      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getDefaultInstanceForType() {
-        return com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy build() {
-        com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy buildPartial() {
-        com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy result = new com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy(this);
-        result.cron_ = cron_;
-        result.fixedDelay_ = fixedDelay_;
-        result.fixedRate_ = fixedRate_;
-        result.initialDelay_ = initialDelay_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy) {
-          return mergeFrom((com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy other) {
-        if (other == com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance()) return this;
-        if (!other.getCron().isEmpty()) {
-          cron_ = other.cron_;
-          onChanged();
-        }
-        if (other.getFixedDelay() != 0L) {
-          setFixedDelay(other.getFixedDelay());
-        }
-        if (other.getFixedRate() != 0L) {
-          setFixedRate(other.getFixedRate());
-        }
-        if (other.getInitialDelay() != 0L) {
-          setInitialDelay(other.getInitialDelay());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object cron_ = "";
-      /**
-       * <pre>
-       * cron表达式
-       * </pre>
-       *
-       * <code>string cron = 1;</code>
-       */
-      public java.lang.String getCron() {
-        java.lang.Object ref = cron_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          cron_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * cron表达式
-       * </pre>
-       *
-       * <code>string cron = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getCronBytes() {
-        java.lang.Object ref = cron_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          cron_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * cron表达式
-       * </pre>
-       *
-       * <code>string cron = 1;</code>
-       */
-      public Builder setCron(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        cron_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * cron表达式
-       * </pre>
-       *
-       * <code>string cron = 1;</code>
-       */
-      public Builder clearCron() {
-        
-        cron_ = getDefaultInstance().getCron();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * cron表达式
-       * </pre>
-       *
-       * <code>string cron = 1;</code>
-       */
-      public Builder setCronBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        cron_ = value;
-        onChanged();
-        return this;
-      }
-
-      private long fixedDelay_ ;
-      /**
-       * <pre>
-       * 任务执行固定延迟，XX毫秒
-       * </pre>
-       *
-       * <code>int64 fixedDelay = 2;</code>
-       */
-      public long getFixedDelay() {
-        return fixedDelay_;
-      }
-      /**
-       * <pre>
-       * 任务执行固定延迟，XX毫秒
-       * </pre>
-       *
-       * <code>int64 fixedDelay = 2;</code>
-       */
-      public Builder setFixedDelay(long value) {
-        
-        fixedDelay_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 任务执行固定延迟，XX毫秒
-       * </pre>
-       *
-       * <code>int64 fixedDelay = 2;</code>
-       */
-      public Builder clearFixedDelay() {
-        
-        fixedDelay_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long fixedRate_ ;
-      /**
-       * <pre>
-       * 任务固定频率调度，XX毫秒
-       * </pre>
-       *
-       * <code>int64 fixedRate = 3;</code>
-       */
-      public long getFixedRate() {
-        return fixedRate_;
-      }
-      /**
-       * <pre>
-       * 任务固定频率调度，XX毫秒
-       * </pre>
-       *
-       * <code>int64 fixedRate = 3;</code>
-       */
-      public Builder setFixedRate(long value) {
-        
-        fixedRate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 任务固定频率调度，XX毫秒
-       * </pre>
-       *
-       * <code>int64 fixedRate = 3;</code>
-       */
-      public Builder clearFixedRate() {
-        
-        fixedRate_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private long initialDelay_ ;
-      /**
-       * <pre>
-       * 第一次调度前延迟，XX毫秒
-       * </pre>
-       *
-       * <code>int64 initialDelay = 4;</code>
-       */
-      public long getInitialDelay() {
-        return initialDelay_;
-      }
-      /**
-       * <pre>
-       * 第一次调度前延迟，XX毫秒
-       * </pre>
-       *
-       * <code>int64 initialDelay = 4;</code>
-       */
-      public Builder setInitialDelay(long value) {
-        
-        initialDelay_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 第一次调度前延迟，XX毫秒
-       * </pre>
-       *
-       * <code>int64 initialDelay = 4;</code>
-       */
-      public Builder clearInitialDelay() {
-        
-        initialDelay_ = 0L;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.hs.dsch.proto.DSchJobExecStrategy)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.hs.dsch.proto.DSchJobExecStrategy)
-    private static final com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy();
-    }
-
-    public static com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DSchJobExecStrategy>
-        PARSER = new com.google.protobuf.AbstractParser<DSchJobExecStrategy>() {
-      @java.lang.Override
-      public DSchJobExecStrategy parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DSchJobExecStrategy(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DSchJobExecStrategy> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DSchJobExecStrategy> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface DSchJobOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.hs.dsch.proto.DSchJob)
       com.google.protobuf.MessageOrBuilder {
@@ -4683,31 +4937,6 @@ public final class DSchAdminProto {
      * <code>int64 endTime = 3;</code>
      */
     long getEndTime();
-
-    /**
-     * <pre>
-     * 任务调度策略
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-     */
-    boolean hasStrategy();
-    /**
-     * <pre>
-     * 任务调度策略
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-     */
-    com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getStrategy();
-    /**
-     * <pre>
-     * 任务调度策略
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-     */
-    com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder getStrategyOrBuilder();
   }
   /**
    * <pre>
@@ -4769,19 +4998,6 @@ public final class DSchAdminProto {
             case 24: {
 
               endTime_ = input.readInt64();
-              break;
-            }
-            case 34: {
-              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder subBuilder = null;
-              if (strategy_ != null) {
-                subBuilder = strategy_.toBuilder();
-              }
-              strategy_ = input.readMessage(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(strategy_);
-                strategy_ = subBuilder.buildPartial();
-              }
-
               break;
             }
             default: {
@@ -4884,39 +5100,6 @@ public final class DSchAdminProto {
       return endTime_;
     }
 
-    public static final int STRATEGY_FIELD_NUMBER = 4;
-    private com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy strategy_;
-    /**
-     * <pre>
-     * 任务调度策略
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-     */
-    public boolean hasStrategy() {
-      return strategy_ != null;
-    }
-    /**
-     * <pre>
-     * 任务调度策略
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-     */
-    public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getStrategy() {
-      return strategy_ == null ? com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance() : strategy_;
-    }
-    /**
-     * <pre>
-     * 任务调度策略
-     * </pre>
-     *
-     * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-     */
-    public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder getStrategyOrBuilder() {
-      return getStrategy();
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4940,9 +5123,6 @@ public final class DSchAdminProto {
       if (endTime_ != 0L) {
         output.writeInt64(3, endTime_);
       }
-      if (strategy_ != null) {
-        output.writeMessage(4, getStrategy());
-      }
       unknownFields.writeTo(output);
     }
 
@@ -4962,10 +5142,6 @@ public final class DSchAdminProto {
       if (endTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, endTime_);
-      }
-      if (strategy_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getStrategy());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4989,11 +5165,6 @@ public final class DSchAdminProto {
           == other.getBeginTime());
       result = result && (getEndTime()
           == other.getEndTime());
-      result = result && (hasStrategy() == other.hasStrategy());
-      if (hasStrategy()) {
-        result = result && getStrategy()
-            .equals(other.getStrategy());
-      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5013,10 +5184,6 @@ public final class DSchAdminProto {
       hash = (37 * hash) + ENDTIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getEndTime());
-      if (hasStrategy()) {
-        hash = (37 * hash) + STRATEGY_FIELD_NUMBER;
-        hash = (53 * hash) + getStrategy().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5160,12 +5327,6 @@ public final class DSchAdminProto {
 
         endTime_ = 0L;
 
-        if (strategyBuilder_ == null) {
-          strategy_ = null;
-        } else {
-          strategy_ = null;
-          strategyBuilder_ = null;
-        }
         return this;
       }
 
@@ -5195,11 +5356,6 @@ public final class DSchAdminProto {
         result.jobId_ = jobId_;
         result.beginTime_ = beginTime_;
         result.endTime_ = endTime_;
-        if (strategyBuilder_ == null) {
-          result.strategy_ = strategy_;
-        } else {
-          result.strategy_ = strategyBuilder_.build();
-        }
         onBuilt();
         return result;
       }
@@ -5257,9 +5413,6 @@ public final class DSchAdminProto {
         }
         if (other.getEndTime() != 0L) {
           setEndTime(other.getEndTime());
-        }
-        if (other.hasStrategy()) {
-          mergeStrategy(other.getStrategy());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5453,159 +5606,6 @@ public final class DSchAdminProto {
         endTime_ = 0L;
         onChanged();
         return this;
-      }
-
-      private com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy strategy_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder> strategyBuilder_;
-      /**
-       * <pre>
-       * 任务调度策略
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-       */
-      public boolean hasStrategy() {
-        return strategyBuilder_ != null || strategy_ != null;
-      }
-      /**
-       * <pre>
-       * 任务调度策略
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-       */
-      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy getStrategy() {
-        if (strategyBuilder_ == null) {
-          return strategy_ == null ? com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance() : strategy_;
-        } else {
-          return strategyBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * 任务调度策略
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-       */
-      public Builder setStrategy(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy value) {
-        if (strategyBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          strategy_ = value;
-          onChanged();
-        } else {
-          strategyBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 任务调度策略
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-       */
-      public Builder setStrategy(
-          com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder builderForValue) {
-        if (strategyBuilder_ == null) {
-          strategy_ = builderForValue.build();
-          onChanged();
-        } else {
-          strategyBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 任务调度策略
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-       */
-      public Builder mergeStrategy(com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy value) {
-        if (strategyBuilder_ == null) {
-          if (strategy_ != null) {
-            strategy_ =
-              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.newBuilder(strategy_).mergeFrom(value).buildPartial();
-          } else {
-            strategy_ = value;
-          }
-          onChanged();
-        } else {
-          strategyBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 任务调度策略
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-       */
-      public Builder clearStrategy() {
-        if (strategyBuilder_ == null) {
-          strategy_ = null;
-          onChanged();
-        } else {
-          strategy_ = null;
-          strategyBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 任务调度策略
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-       */
-      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder getStrategyBuilder() {
-        
-        onChanged();
-        return getStrategyFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * 任务调度策略
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-       */
-      public com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder getStrategyOrBuilder() {
-        if (strategyBuilder_ != null) {
-          return strategyBuilder_.getMessageOrBuilder();
-        } else {
-          return strategy_ == null ?
-              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.getDefaultInstance() : strategy_;
-        }
-      }
-      /**
-       * <pre>
-       * 任务调度策略
-       * </pre>
-       *
-       * <code>.com.hs.dsch.proto.DSchJobExecStrategy strategy = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder> 
-          getStrategyFieldBuilder() {
-        if (strategyBuilder_ == null) {
-          strategyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy.Builder, com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategyOrBuilder>(
-                  getStrategy(),
-                  getParentForChildren(),
-                  isClean());
-          strategy_ = null;
-        }
-        return strategyBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -19651,6 +19651,11 @@ public final class DSchAdminProto {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_hs_dsch_proto_DSchJobExecStrategy_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_hs_dsch_proto_DSchRegisterNodeRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -19670,11 +19675,6 @@ public final class DSchAdminProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_hs_dsch_proto_DSchRegisterJobResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_hs_dsch_proto_DSchJobExecStrategy_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_hs_dsch_proto_DSchJob_descriptor;
   private static final 
@@ -19790,21 +19790,21 @@ public final class DSchAdminProto {
   static {
     java.lang.String[] descriptorData = {
       "\n-src/main/resources/proto/DSchAdminProt" +
-      "o.proto\022\021com.hs.dsch.proto\"O\n\027DSchRegist" +
-      "erNodeRequest\022\023\n\013serviceName\030\001 \001(\t\022\021\n\tna" +
-      "mespace\030\002 \001(\t\022\014\n\004host\030\003 \001(\t\"`\n\030DSchRegis" +
-      "terNodeResponse\0224\n\007resCode\030\001 \001(\0162#.com.h" +
-      "s.dsch.proto.DSchResponseCode\022\016\n\006nodeId\030" +
-      "\002 \001(\t\"9\n\026DSchRegisterJobRequest\022\016\n\006nodeI" +
-      "d\030\001 \001(\t\022\017\n\007jobName\030\002 \001(\t\"n\n\027DSchRegister" +
-      "JobResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.ds" +
-      "ch.proto.DSchResponseCode\022\016\n\006nodeId\030\002 \001(" +
-      "\t\022\r\n\005jobId\030\003 \001(\t\"`\n\023DSchJobExecStrategy\022" +
-      "\014\n\004cron\030\001 \001(\t\022\022\n\nfixedDelay\030\002 \001(\003\022\021\n\tfix" +
-      "edRate\030\003 \001(\003\022\024\n\014initialDelay\030\004 \001(\003\"v\n\007DS" +
-      "chJob\022\r\n\005jobId\030\001 \001(\t\022\021\n\tbeginTime\030\002 \001(\003\022" +
-      "\017\n\007endTime\030\003 \001(\003\0228\n\010strategy\030\004 \001(\0132&.com" +
-      ".hs.dsch.proto.DSchJobExecStrategy\"_\n\010DS" +
+      "o.proto\022\021com.hs.dsch.proto\"`\n\023DSchJobExe" +
+      "cStrategy\022\014\n\004cron\030\001 \001(\t\022\022\n\nfixedDelay\030\002 " +
+      "\001(\003\022\021\n\tfixedRate\030\003 \001(\003\022\024\n\014initialDelay\030\004" +
+      " \001(\003\"O\n\027DSchRegisterNodeRequest\022\023\n\013servi" +
+      "ceName\030\001 \001(\t\022\021\n\tnamespace\030\002 \001(\t\022\014\n\004host\030" +
+      "\003 \001(\t\"`\n\030DSchRegisterNodeResponse\0224\n\007res" +
+      "Code\030\001 \001(\0162#.com.hs.dsch.proto.DSchRespo" +
+      "nseCode\022\016\n\006nodeId\030\002 \001(\t\"s\n\026DSchRegisterJ" +
+      "obRequest\022\016\n\006nodeId\030\001 \001(\t\022\017\n\007jobName\030\002 \001" +
+      "(\t\0228\n\010strategy\030\004 \001(\0132&.com.hs.dsch.proto" +
+      ".DSchJobExecStrategy\"n\n\027DSchRegisterJobR" +
+      "esponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.p" +
+      "roto.DSchResponseCode\022\016\n\006nodeId\030\002 \001(\t\022\r\n" +
+      "\005jobId\030\003 \001(\t\"<\n\007DSchJob\022\r\n\005jobId\030\001 \001(\t\022\021" +
+      "\n\tbeginTime\030\002 \001(\003\022\017\n\007endTime\030\003 \001(\003\"_\n\010DS" +
       "chNode\022\016\n\006nodeId\030\001 \001(\t\022\025\n\ractiveThreads\030" +
       "\002 \001(\003\022\013\n\003cpu\030\003 \001(\003\022\013\n\003mem\030\004 \001(\003\022\022\n\nupdat" +
       "eTime\030\005 \001(\003\"T\n\031DSchJobHealthCheckRequest" +
@@ -19866,42 +19866,42 @@ public final class DSchAdminProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_com_hs_dsch_proto_DSchRegisterNodeRequest_descriptor =
+    internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_com_hs_dsch_proto_DSchJobExecStrategy_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor,
+        new java.lang.String[] { "Cron", "FixedDelay", "FixedRate", "InitialDelay", });
+    internal_static_com_hs_dsch_proto_DSchRegisterNodeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_com_hs_dsch_proto_DSchRegisterNodeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchRegisterNodeRequest_descriptor,
         new java.lang.String[] { "ServiceName", "Namespace", "Host", });
     internal_static_com_hs_dsch_proto_DSchRegisterNodeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_com_hs_dsch_proto_DSchRegisterNodeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchRegisterNodeResponse_descriptor,
         new java.lang.String[] { "ResCode", "NodeId", });
     internal_static_com_hs_dsch_proto_DSchRegisterJobRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_com_hs_dsch_proto_DSchRegisterJobRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchRegisterJobRequest_descriptor,
-        new java.lang.String[] { "NodeId", "JobName", });
+        new java.lang.String[] { "NodeId", "JobName", "Strategy", });
     internal_static_com_hs_dsch_proto_DSchRegisterJobResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_hs_dsch_proto_DSchRegisterJobResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchRegisterJobResponse_descriptor,
         new java.lang.String[] { "ResCode", "NodeId", "JobId", });
-    internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_com_hs_dsch_proto_DSchJobExecStrategy_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_hs_dsch_proto_DSchJobExecStrategy_descriptor,
-        new java.lang.String[] { "Cron", "FixedDelay", "FixedRate", "InitialDelay", });
     internal_static_com_hs_dsch_proto_DSchJob_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_com_hs_dsch_proto_DSchJob_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchJob_descriptor,
-        new java.lang.String[] { "JobId", "BeginTime", "EndTime", "Strategy", });
+        new java.lang.String[] { "JobId", "BeginTime", "EndTime", });
     internal_static_com_hs_dsch_proto_DSchNode_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_com_hs_dsch_proto_DSchNode_fieldAccessorTable = new

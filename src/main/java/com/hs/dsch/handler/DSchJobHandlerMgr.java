@@ -12,6 +12,7 @@ public class DSchJobHandlerMgr {
 		handlers.put(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_COMMAND , new DSchJobCommandHandler());
 		handlers.put(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_JOB_HC , new DSchJobHealthCheckHandler());
 		handlers.put(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_NODE_HC , new DSchNodeHealthCheckHandler());
+		handlers.put(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_REG , new DSchJobRegHandler());
 	}
 	
 	public static DSchJobHandlerMgr getInstance() {

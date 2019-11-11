@@ -8,7 +8,6 @@ import com.hs.dsch.conf.DSchConfiguration;
 import com.hs.dsch.conf.DSchContext;
 import com.hs.dsch.consts.DSchClientConsts;
 import com.hs.dsch.proto.DSchAdminProto.DSchJob;
-import com.hs.dsch.proto.DSchAdminProto.DSchJobExecStrategy;
 import com.hs.dsch.proto.DSchAdminProto.DSchJobHealthCheckRequest;
 import com.hs.dsch.proto.DSchAdminProto.DSchJobHealthCheckResponse;
 import com.hs.dsch.proto.DSchAdminProto.DSchResponseCode;
@@ -28,13 +27,6 @@ public class DSchJobHealthCheckHandler implements DSchJobHandler {
 		job.setBeginTime(context.getBeginTime());
 		job.setEndTime(context.getEndTime());
 		job.setJobId(context.getJobId());
-		
-		DSchJobExecStrategy.Builder strategy = DSchJobExecStrategy.newBuilder();
-		strategy.setCron(context.getCron());
-		strategy.setFixedDelay(context.getFixDelay());
-		strategy.setFixedRate(context.getFixRate());
-		strategy.setInitialDelay(context.getInitialDelay());
-		job.setStrategy(strategy);
 		
 		request.setJob(job);
 		

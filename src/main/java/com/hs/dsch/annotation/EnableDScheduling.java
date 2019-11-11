@@ -26,12 +26,6 @@ public @interface EnableDScheduling {
 	String service();
 	
 	/**
-	 * 名字空间
-	 * @return
-	 */
-	String namespace();
-	
-	/**
 	 * 描述
 	 * @return
 	 */

@@ -19,6 +19,12 @@ public @interface DScheduled {
 	 * @return
 	 */
 	String job();
+	
+	/**
+	 * 作业描述
+	 * @return
+	 */
+	String desc();
 
 	/**
 	 * A cron-like expression, extending the usual UN*X definition to include triggers

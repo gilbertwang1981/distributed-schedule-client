@@ -9,6 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.hs.dsch.proto.DSchAdminProto.DSchJobStatus;
 import com.hs.dsch.util.AddressConvertor;
 import com.hs.dsch.util.HttpClient;
+import com.hs.dsch.vo.DSchJobData;
 
 public class DSchContext {
 	private String nodeId;
@@ -20,14 +21,18 @@ public class DSchContext {
 	
 	private Boolean isNodeShutdown = false;
 	
-	private Map<String , String> jobs = new ConcurrentHashMap<>();
+	private Map<String , DSchJobData> jobs = new ConcurrentHashMap<>();
 	
 	private Map<String , Integer> jobStatus = new ConcurrentHashMap<>();
 	
 	private static DSchContext instance = null;
 	
-	public void addJob(String jobName , String jobId) {
-		jobs.put(jobName,  jobId);
+	public void addJob(String jobName , String jobId , String desc) {
+		DSchJobData job = new DSchJobData();
+		job.setDesc(desc);
+		job.setJobId(jobId);
+		
+		jobs.put(jobName,  job);
 	}
 	
 	public void shutdownNode() {
@@ -46,7 +51,7 @@ public class DSchContext {
 		return jobStatus.get(jobId) == null? DSchJobStatus.DSCH_JOB_ST_STARTED_VALUE : jobStatus.get(jobId);
 	}
 	
-	public String getJob(String jobName) {
+	public DSchJobData getJob(String jobName) {
 		return jobs.get(jobName);
 	}
 	

@@ -4,6 +4,7 @@ public class DSchJobContext {
 	private String nodeId;
 	private String jobId;
 	private String jobName;
+	private String desc;
 	private Long beginTime;
 	private Long endTime;
 	private String cron;
@@ -64,5 +65,11 @@ public class DSchJobContext {
 	}
 	public void setInitialDelay(Long initialDelay) {
 		this.initialDelay = initialDelay;
+	}
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 }

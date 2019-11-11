@@ -15,6 +15,7 @@ import com.hs.dsch.handler.DSchJobContext;
 import com.hs.dsch.handler.DSchJobHandlerMgr;
 import com.hs.dsch.handler.DSchHandlerType;
 import com.hs.dsch.proto.DSchAdminProto.DSchJobStatus;
+import com.hs.dsch.vo.DSchJobData;
 
 @Aspect
 @Component
@@ -26,57 +27,83 @@ public class DSchedulingAspect {
     public void schedulePointCut() {
     }
 	
+	private DSchJobData handleRegJob(DScheduled dscheduled) {
+		DSchJobData jobData = DSchContext.getInstance().getJob(dscheduled.job());
+		if (jobData != null) {
+			return jobData;
+		}
+		
+		DSchJobContext jobRegContext = new DSchJobContext();
+		jobRegContext.setNodeId(DSchContext.getInstance().getNodeId());
+		jobRegContext.setJobName(dscheduled.job());
+		jobRegContext.setCron(dscheduled.cron());
+		jobRegContext.setDesc(dscheduled.desc());
+		jobRegContext.setFixDelay(dscheduled.fixedDelay());
+		jobRegContext.setFixRate(dscheduled.fixedRate());
+		jobRegContext.setInitialDelay(dscheduled.initialDelay());
+		
+		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_REG , jobRegContext);
+		
+		return DSchContext.getInstance().getJob(dscheduled.job());
+	}
+	
+	private void handleCommands(DSchJobData jobData) {
+		DSchJobContext commandGetContext = new DSchJobContext();
+		commandGetContext.setNodeId(DSchContext.getInstance().getNodeId());
+		commandGetContext.setJobId(jobData.getJobId());
+		
+		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_COMMAND , commandGetContext);		
+	}
+	
 	@Around("schedulePointCut() && @annotation(dscheduled)")
     public Object around(ProceedingJoinPoint point , DScheduled dscheduled) throws Throwable {
 		if (DSchContext.getInstance().isNodeShutdown()) {
-			logger.error("节点已经下线,{}" , DSchContext.getInstance().getNodeId());
+			logger.error("节点已经下线，JVM进程即将退出。{}" , DSchContext.getInstance().getNodeId());
 			
 			System.exit(0);
 		}
 		
-		String jobId = DSchContext.getInstance().getJob(dscheduled.job());
-		if (jobId == null) {
-			logger.error("找不到任务，同服务器失联.{}" , dscheduled.job());
+		DSchJobData jobData = handleRegJob(dscheduled);
+		if (jobData == null) {
+			logger.error("任务注册失败，服务启动失败.{}" , dscheduled.job());
 			
-			DSchContext.getInstance().updateJobStatus(jobId, DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE);
-			
-			return point.proceed();
+			System.exit(0);
 		}
 		
-		DSchJobContext preContext = new DSchJobContext();
-		preContext.setNodeId(DSchContext.getInstance().getNodeId());
-		preContext.setJobId(jobId);
+		handleCommands(jobData);
 		
-		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_COMMAND , preContext);
-		
-		if (DSchContext.getInstance().getJobStatus(jobId) == DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE) {
-			logger.error("任务状态已停止，同服务器失联.{}" , dscheduled.job() , DSchContext.getInstance().getJobStatus(jobId));
+		if (DSchContext.getInstance().getJobStatus(jobData.getJobId()) == DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE) {
+			logger.error("任务状态已停止，同服务器失联.{}" , dscheduled.job() , DSchContext.getInstance().getJobStatus(jobData.getJobId()));
 			
 			return null;
 		}
 		
-		DSchContext.getInstance().updateJobStatus(jobId, DSchJobStatus.DSCH_JOB_ST_RUNNING_VALUE);
+		DSchContext.getInstance().updateJobStatus(jobData.getJobId(), DSchJobStatus.DSCH_JOB_ST_RUNNING_VALUE);
 		
-		DSchJobContext postContext = new DSchJobContext();
+		DSchJobContext healthCheckContext = new DSchJobContext();
 		
-		postContext.setBeginTime(System.currentTimeMillis());
+		healthCheckContext.setBeginTime(System.currentTimeMillis());
 		
 		Object returnObj = point.proceed();
 		
-		postContext.setEndTime(System.currentTimeMillis());
+		healthCheckContext.setEndTime(System.currentTimeMillis());
 		
-		DSchContext.getInstance().updateJobStatus(jobId, DSchJobStatus.DSCH_JOB_ST_IDLING_VALUE);
+		DSchContext.getInstance().updateJobStatus(jobData.getJobId() , DSchJobStatus.DSCH_JOB_ST_IDLING_VALUE);
 
-		postContext.setJobId(jobId);
-		postContext.setJobName(dscheduled.job());
-		postContext.setNodeId(DSchContext.getInstance().getNodeId());
-		postContext.setCron(dscheduled.cron());
-		postContext.setFixDelay(dscheduled.fixedDelay());
-		postContext.setFixRate(dscheduled.fixedRate());
-		postContext.setInitialDelay(dscheduled.initialDelay());
-		
-		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_JOB_HC , postContext);
-		
+		handleHealthCheck(healthCheckContext , jobData , dscheduled);
+
 		return returnObj;
+	}
+	
+	private void handleHealthCheck(DSchJobContext healthCheckContext , DSchJobData jobData , DScheduled dscheduled) {
+		healthCheckContext.setJobId(jobData.getJobId());
+		healthCheckContext.setJobName(dscheduled.job());
+		healthCheckContext.setNodeId(DSchContext.getInstance().getNodeId());
+		healthCheckContext.setCron(dscheduled.cron());
+		healthCheckContext.setFixDelay(dscheduled.fixedDelay());
+		healthCheckContext.setFixRate(dscheduled.fixedRate());
+		healthCheckContext.setInitialDelay(dscheduled.initialDelay());
+		
+		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_JOB_HC , healthCheckContext);
 	}
 }

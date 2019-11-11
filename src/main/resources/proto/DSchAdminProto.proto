@@ -12,6 +12,18 @@ enum DSchResponseCode {
     RESP_CODE_FAILED = 201;
 };
 
+// 任务执行策略定义
+message DSchJobExecStrategy {
+	// cron表达式
+	string cron = 1;
+	// 任务执行固定延迟，XX毫秒
+	int64 fixedDelay = 2;
+	// 任务固定频率调度，XX毫秒
+	int64 fixedRate = 3;
+	// 第一次调度前延迟，XX毫秒
+	int64 initialDelay = 4;
+}
+
 //【任务端】节点注册消息请求
 message DSchRegisterNodeRequest {
 	// 服务名
@@ -36,6 +48,8 @@ message DSchRegisterJobRequest {
 	string nodeId = 1;
 	// 任务名字
 	string jobName = 2;
+	// 任务调度策略
+	DSchJobExecStrategy strategy = 4;
 }
 
 //【任务端】任务注册响应
@@ -48,18 +62,6 @@ message DSchRegisterJobResponse {
 	string jobId = 3;
 }
 
-// 任务执行策略定义
-message DSchJobExecStrategy {
-	// cron表达式
-	string cron = 1;
-	// 任务执行固定延迟，XX毫秒
-	int64 fixedDelay = 2;
-	// 任务固定频率调度，XX毫秒
-	int64 fixedRate = 3;
-	// 第一次调度前延迟，XX毫秒
-	int64 initialDelay = 4;
-}
-
 // 任务定义
 message DSchJob {
 	// 任务id
@@ -68,8 +70,6 @@ message DSchJob {
 	int64 beginTime = 2;
 	// 任务最近一次结束执行时间
 	int64 endTime = 3;
-	// 任务调度策略
-	DSchJobExecStrategy strategy = 4;
 }
 
 // 节点定义
