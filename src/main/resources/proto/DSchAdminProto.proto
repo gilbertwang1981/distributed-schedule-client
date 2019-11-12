@@ -246,7 +246,9 @@ message DSchOfflineServiceResponse {
 //【管理端】任务清理请求
 message DSchJobCleanRequest {
 	// 任务id
-	string jobId = 1;
+	string nodeId = 1;
+	// 任务id
+	string jobId = 2;
 }
 
 //【管理端】任务清理响应

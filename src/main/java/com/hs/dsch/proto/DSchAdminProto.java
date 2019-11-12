@@ -19659,7 +19659,25 @@ public final class DSchAdminProto {
      * 任务id
      * </pre>
      *
-     * <code>string jobId = 1;</code>
+     * <code>string nodeId = 1;</code>
+     */
+    java.lang.String getNodeId();
+    /**
+     * <pre>
+     * 任务id
+     * </pre>
+     *
+     * <code>string nodeId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNodeIdBytes();
+
+    /**
+     * <pre>
+     * 任务id
+     * </pre>
+     *
+     * <code>string jobId = 2;</code>
      */
     java.lang.String getJobId();
     /**
@@ -19667,7 +19685,7 @@ public final class DSchAdminProto {
      * 任务id
      * </pre>
      *
-     * <code>string jobId = 1;</code>
+     * <code>string jobId = 2;</code>
      */
     com.google.protobuf.ByteString
         getJobIdBytes();
@@ -19689,6 +19707,7 @@ public final class DSchAdminProto {
       super(builder);
     }
     private DSchJobCleanRequest() {
+      nodeId_ = "";
       jobId_ = "";
     }
 
@@ -19717,6 +19736,12 @@ public final class DSchAdminProto {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              nodeId_ = s;
+              break;
+            }
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
               jobId_ = s;
@@ -19754,14 +19779,56 @@ public final class DSchAdminProto {
               com.hs.dsch.proto.DSchAdminProto.DSchJobCleanRequest.class, com.hs.dsch.proto.DSchAdminProto.DSchJobCleanRequest.Builder.class);
     }
 
-    public static final int JOBID_FIELD_NUMBER = 1;
+    public static final int NODEID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object nodeId_;
+    /**
+     * <pre>
+     * 任务id
+     * </pre>
+     *
+     * <code>string nodeId = 1;</code>
+     */
+    public java.lang.String getNodeId() {
+      java.lang.Object ref = nodeId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        nodeId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 任务id
+     * </pre>
+     *
+     * <code>string nodeId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNodeIdBytes() {
+      java.lang.Object ref = nodeId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nodeId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int JOBID_FIELD_NUMBER = 2;
     private volatile java.lang.Object jobId_;
     /**
      * <pre>
      * 任务id
      * </pre>
      *
-     * <code>string jobId = 1;</code>
+     * <code>string jobId = 2;</code>
      */
     public java.lang.String getJobId() {
       java.lang.Object ref = jobId_;
@@ -19780,7 +19847,7 @@ public final class DSchAdminProto {
      * 任务id
      * </pre>
      *
-     * <code>string jobId = 1;</code>
+     * <code>string jobId = 2;</code>
      */
     public com.google.protobuf.ByteString
         getJobIdBytes() {
@@ -19810,8 +19877,11 @@ public final class DSchAdminProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!getNodeIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, nodeId_);
+      }
       if (!getJobIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, jobId_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, jobId_);
       }
       unknownFields.writeTo(output);
     }
@@ -19822,8 +19892,11 @@ public final class DSchAdminProto {
       if (size != -1) return size;
 
       size = 0;
+      if (!getNodeIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, nodeId_);
+      }
       if (!getJobIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, jobId_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, jobId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -19841,6 +19914,8 @@ public final class DSchAdminProto {
       com.hs.dsch.proto.DSchAdminProto.DSchJobCleanRequest other = (com.hs.dsch.proto.DSchAdminProto.DSchJobCleanRequest) obj;
 
       boolean result = true;
+      result = result && getNodeId()
+          .equals(other.getNodeId());
       result = result && getJobId()
           .equals(other.getJobId());
       result = result && unknownFields.equals(other.unknownFields);
@@ -19854,6 +19929,8 @@ public final class DSchAdminProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NODEID_FIELD_NUMBER;
+      hash = (53 * hash) + getNodeId().hashCode();
       hash = (37 * hash) + JOBID_FIELD_NUMBER;
       hash = (53 * hash) + getJobId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -19993,6 +20070,8 @@ public final class DSchAdminProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        nodeId_ = "";
+
         jobId_ = "";
 
         return this;
@@ -20021,6 +20100,7 @@ public final class DSchAdminProto {
       @java.lang.Override
       public com.hs.dsch.proto.DSchAdminProto.DSchJobCleanRequest buildPartial() {
         com.hs.dsch.proto.DSchAdminProto.DSchJobCleanRequest result = new com.hs.dsch.proto.DSchAdminProto.DSchJobCleanRequest(this);
+        result.nodeId_ = nodeId_;
         result.jobId_ = jobId_;
         onBuilt();
         return result;
@@ -20070,6 +20150,10 @@ public final class DSchAdminProto {
 
       public Builder mergeFrom(com.hs.dsch.proto.DSchAdminProto.DSchJobCleanRequest other) {
         if (other == com.hs.dsch.proto.DSchAdminProto.DSchJobCleanRequest.getDefaultInstance()) return this;
+        if (!other.getNodeId().isEmpty()) {
+          nodeId_ = other.nodeId_;
+          onChanged();
+        }
         if (!other.getJobId().isEmpty()) {
           jobId_ = other.jobId_;
           onChanged();
@@ -20103,13 +20187,102 @@ public final class DSchAdminProto {
         return this;
       }
 
+      private java.lang.Object nodeId_ = "";
+      /**
+       * <pre>
+       * 任务id
+       * </pre>
+       *
+       * <code>string nodeId = 1;</code>
+       */
+      public java.lang.String getNodeId() {
+        java.lang.Object ref = nodeId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          nodeId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 任务id
+       * </pre>
+       *
+       * <code>string nodeId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNodeIdBytes() {
+        java.lang.Object ref = nodeId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          nodeId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 任务id
+       * </pre>
+       *
+       * <code>string nodeId = 1;</code>
+       */
+      public Builder setNodeId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        nodeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务id
+       * </pre>
+       *
+       * <code>string nodeId = 1;</code>
+       */
+      public Builder clearNodeId() {
+        
+        nodeId_ = getDefaultInstance().getNodeId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务id
+       * </pre>
+       *
+       * <code>string nodeId = 1;</code>
+       */
+      public Builder setNodeIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        nodeId_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object jobId_ = "";
       /**
        * <pre>
        * 任务id
        * </pre>
        *
-       * <code>string jobId = 1;</code>
+       * <code>string jobId = 2;</code>
        */
       public java.lang.String getJobId() {
         java.lang.Object ref = jobId_;
@@ -20128,7 +20301,7 @@ public final class DSchAdminProto {
        * 任务id
        * </pre>
        *
-       * <code>string jobId = 1;</code>
+       * <code>string jobId = 2;</code>
        */
       public com.google.protobuf.ByteString
           getJobIdBytes() {
@@ -20148,7 +20321,7 @@ public final class DSchAdminProto {
        * 任务id
        * </pre>
        *
-       * <code>string jobId = 1;</code>
+       * <code>string jobId = 2;</code>
        */
       public Builder setJobId(
           java.lang.String value) {
@@ -20165,7 +20338,7 @@ public final class DSchAdminProto {
        * 任务id
        * </pre>
        *
-       * <code>string jobId = 1;</code>
+       * <code>string jobId = 2;</code>
        */
       public Builder clearJobId() {
         
@@ -20178,7 +20351,7 @@ public final class DSchAdminProto {
        * 任务id
        * </pre>
        *
-       * <code>string jobId = 1;</code>
+       * <code>string jobId = 2;</code>
        */
       public Builder setJobIdBytes(
           com.google.protobuf.ByteString value) {
@@ -22153,21 +22326,22 @@ public final class DSchAdminProto {
       "nseCode\"0\n\031DSchOfflineServiceRequest\022\023\n\013" +
       "serviceName\030\001 \001(\t\"R\n\032DSchOfflineServiceR" +
       "esponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.p" +
-      "roto.DSchResponseCode\"$\n\023DSchJobCleanReq" +
-      "uest\022\r\n\005jobId\030\001 \001(\t\"L\n\024DSchJobCleanRespo" +
-      "nse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto" +
-      ".DSchResponseCode\"&\n\024DSchNodeCleanReques" +
-      "t\022\016\n\006nodeId\030\001 \001(\t\"M\n\025DSchNodeCleanRespon" +
-      "se\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto." +
-      "DSchResponseCode*Y\n\020DSchResponseCode\022\026\n\022" +
-      "RESP_CODE_RESERVED\020\000\022\026\n\021RESP_CODE_SUCCES" +
-      "S\020\310\001\022\025\n\020RESP_CODE_FAILED\020\311\001*|\n\007DSchCmd\022\023" +
-      "\n\017DSCH_JOB_RESUME\020\000\022\022\n\016DSCH_JOB_PAUSE\020\001\022" +
-      "\025\n\021DSCH_NODE_OFFLINE\020\002\022\027\n\023DSCH_SERVICE_O" +
-      "NLINE\020\003\022\030\n\024DSCH_SERVICE_OFFLINE\020\004*r\n\rDSc" +
-      "hJobStatus\022\027\n\023DSCH_JOB_ST_STARTED\020\000\022\027\n\023D" +
-      "SCH_JOB_ST_RUNNING\020\001\022\026\n\022DSCH_JOB_ST_IDLI" +
-      "NG\020\002\022\027\n\023DSCH_JOB_ST_STOPPED\020\003b\006proto3"
+      "roto.DSchResponseCode\"4\n\023DSchJobCleanReq" +
+      "uest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"L\n\024D" +
+      "SchJobCleanResponse\0224\n\007resCode\030\001 \001(\0162#.c" +
+      "om.hs.dsch.proto.DSchResponseCode\"&\n\024DSc" +
+      "hNodeCleanRequest\022\016\n\006nodeId\030\001 \001(\t\"M\n\025DSc" +
+      "hNodeCleanResponse\0224\n\007resCode\030\001 \001(\0162#.co" +
+      "m.hs.dsch.proto.DSchResponseCode*Y\n\020DSch" +
+      "ResponseCode\022\026\n\022RESP_CODE_RESERVED\020\000\022\026\n\021" +
+      "RESP_CODE_SUCCESS\020\310\001\022\025\n\020RESP_CODE_FAILED" +
+      "\020\311\001*|\n\007DSchCmd\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016D" +
+      "SCH_JOB_PAUSE\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002\022\027" +
+      "\n\023DSCH_SERVICE_ONLINE\020\003\022\030\n\024DSCH_SERVICE_" +
+      "OFFLINE\020\004*r\n\rDSchJobStatus\022\027\n\023DSCH_JOB_S" +
+      "T_STARTED\020\000\022\027\n\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022" +
+      "DSCH_JOB_ST_IDLING\020\002\022\027\n\023DSCH_JOB_ST_STOP" +
+      "PED\020\003b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -22342,7 +22516,7 @@ public final class DSchAdminProto {
     internal_static_com_hs_dsch_proto_DSchJobCleanRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchJobCleanRequest_descriptor,
-        new java.lang.String[] { "JobId", });
+        new java.lang.String[] { "NodeId", "JobId", });
     internal_static_com_hs_dsch_proto_DSchJobCleanResponse_descriptor =
       getDescriptor().getMessageTypes().get(27);
     internal_static_com_hs_dsch_proto_DSchJobCleanResponse_fieldAccessorTable = new
