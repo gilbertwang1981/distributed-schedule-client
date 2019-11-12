@@ -242,3 +242,27 @@ message DSchOfflineServiceResponse {
 	// 结果码
 	DSchResponseCode resCode = 1;
 }
+
+//【管理端】任务清理请求
+message DSchJobCleanRequest {
+	// 任务id
+	string jobId = 1;
+}
+
+//【管理端】任务清理响应
+message DSchJobCleanResponse {
+	// 结果码
+	DSchResponseCode resCode = 1;
+}
+
+//【管理端】节点清理请求
+message DSchNodeCleanRequest {
+	// 任务id
+	string nodeId = 1;
+}
+
+//【管理端】节点清理响应
+message DSchNodeCleanResponse {
+	// 结果码
+	DSchResponseCode resCode = 1;
+}
