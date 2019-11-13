@@ -28,7 +28,7 @@ public class DSchNodeHealthCheckHandler implements DSchJobHandler {
 		Builder node = DSchNode.newBuilder();
 		node.setActiveThreads(SystemUtils.getThreadCount());
 		node.setMem(SystemUtils.getMemUtil());
-		node.setCpu(0);
+		node.setCpu(SystemUtils.getCpuUtil());
 		node.setUpdateTime(System.currentTimeMillis());
 		builder.setNode(node);
 		

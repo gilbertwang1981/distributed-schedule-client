@@ -15,4 +15,8 @@ public class SystemUtils {
         
         return (long) ((used / (float)total) * 100);
 	}
+	
+	public static long getCpuUtil() {
+		return 10L;
+	}
 }
