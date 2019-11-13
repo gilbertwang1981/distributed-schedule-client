@@ -21,7 +21,7 @@ public class DSchJobRegHandler implements DSchJobHandler {
 	
 	@Override
 	public void handle(DSchJobContext context) {
-		logger.info("任务注册：{} {}" , context.getJobId() , context.getJobName());
+		logger.info("任务注册：{}" , context.getJobName());
 		
 		DSchRegisterJobRequest.Builder request = DSchRegisterJobRequest.newBuilder();
 		request.setJobName(context.getJobName());
