@@ -58,9 +58,9 @@ public class DSchedulingAspect {
 	@Around("schedulePointCut() && @annotation(dscheduled)")
     public Object around(ProceedingJoinPoint point , DScheduled dscheduled) throws Throwable {
 		if (DSchContext.getInstance().isNodeShutdown()) {
-			logger.error("节点已经下线，JVM进程即将退出。{}" , DSchContext.getInstance().getNodeId());
+			logger.error("节点关闭，任务停止执行。{}" , DSchContext.getInstance().getNodeId());
 			
-			System.exit(0);
+			return null;
 		}
 		
 		DSchJobData jobData = handleRegJob(dscheduled);
