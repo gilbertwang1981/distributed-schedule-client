@@ -22,8 +22,8 @@ public class HttpClient {
 	
 	private static final Integer HTTP_CODE_SUCCESS = 200;
 	private static final Integer CONNECT_TIMEOUT = 250;
-	private static final Integer READ_TIMEOUT = 100;
-	private static final Integer MAX_TOTAL_CONN = 100;
+	private static final Integer READ_TIMEOUT = 500;
+	private static final Integer MAX_TOTAL_CONN = 500;
 	private static final Integer MAX_PER_ROUTE = 25;
 	private static final Integer MAX_RETRY_TIMES = 2;
 	private static final Integer DEFAULT_KA_TIME = 60000;
