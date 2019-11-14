@@ -36,5 +36,5 @@ dependencies {
 	compile('org.apache.httpcomponents:httpclient:4.5.2')
 	compile('org.apache.httpcomponents:httpcore:4.4')
 	
-	compile('org.hyperic.sigar:com.springsource.org.hyperic.sigar:1.6.3')
+	//compile('org.hyperic.sigar:com.springsource.org.hyperic.sigar:1.6.3')
 }
