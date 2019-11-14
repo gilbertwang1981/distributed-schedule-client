@@ -35,4 +35,6 @@ dependencies {
 	compile('com.google.guava:guava:28.0-jre')
 	compile('org.apache.httpcomponents:httpclient:4.5.2')
 	compile('org.apache.httpcomponents:httpcore:4.4')
+	
+	compile('org.hyperic.sigar:com.springsource.org.hyperic.sigar:1.6.3')
 }
