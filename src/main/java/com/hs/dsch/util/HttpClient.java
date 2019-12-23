@@ -27,7 +27,6 @@ public class HttpClient {
 	
 	        post.setEntity(new ByteArrayEntity(content));
 	        post.addHeader("Content-Type", "application/x-protobuf;charset=UTF-8");
-	        post.addHeader("Connection", "keep-alive");
 	        
 	        RequestConfig rconfig = RequestConfig.custom().
 	        		setSocketTimeout(READ_TIMEOUT).
