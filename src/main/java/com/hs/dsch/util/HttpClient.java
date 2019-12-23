@@ -20,10 +20,9 @@ public class HttpClient {
 	private static final Integer READ_TIMEOUT = 500;
 	
 	public HttpResponse post(String host , Integer port , String url , byte[] content) throws Exception {
-		HttpPost post = null;
 		try {
 			URI uri = new URI("http", null, host , port , url, "", null);
-			post = new HttpPost(uri);
+			HttpPost post = new HttpPost(uri);
 	
 	        post.setEntity(new ByteArrayEntity(content));
 	        post.addHeader("Content-Type", "application/x-protobuf;charset=UTF-8");
@@ -41,10 +40,6 @@ public class HttpClient {
 			}
 		} catch (Exception e) {
 			throw e;
-		} finally {
-			if (post != null) {
-				post.releaseConnection();
-			}
 		}
 	}
 }
