@@ -94,6 +94,13 @@ public class DSchedulingAspect {
 		}
 		
 		healthCheckContext.setEndTime(System.currentTimeMillis());
+		
+		if (jobStatus == DSchJobHealthStatus.DSCH_JOB_ST_GREEN) {
+			if (dscheduled.fixedRate() > 0L && dscheduled.fixedRate() < (healthCheckContext.getEndTime() - healthCheckContext.getBeginTime())) {
+				jobStatus = DSchJobHealthStatus.DSCH_JOB_ST_YELLOW;
+			}
+		}
+		
 		healthCheckContext.setJobStatus(jobStatus);
 		
 		DSchContext.getInstance().updateJobStatus(jobData.getJobId() , DSchJobStatus.DSCH_JOB_ST_IDLING_VALUE);
