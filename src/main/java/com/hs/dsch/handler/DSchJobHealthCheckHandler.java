@@ -27,6 +27,7 @@ public class DSchJobHealthCheckHandler implements DSchJobHandler {
 		job.setBeginTime(context.getBeginTime());
 		job.setEndTime(context.getEndTime());
 		job.setJobId(context.getJobId());
+		job.setStatus(context.getJobStatus());
 		
 		request.setJob(job);
 		

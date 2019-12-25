@@ -151,6 +151,141 @@ public final class DSchAdminProto {
 
   /**
    * <pre>
+   * 任务健康状态
+   * </pre>
+   *
+   * Protobuf enum {@code com.hs.dsch.proto.DSchJobHealthStatus}
+   */
+  public enum DSchJobHealthStatus
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * 绿色
+     * </pre>
+     *
+     * <code>DSCH_JOB_ST_GREEN = 0;</code>
+     */
+    DSCH_JOB_ST_GREEN(0),
+    /**
+     * <pre>
+     * 黄色
+     * </pre>
+     *
+     * <code>DSCH_JOB_ST_YELLOW = 1;</code>
+     */
+    DSCH_JOB_ST_YELLOW(1),
+    /**
+     * <pre>
+     * 红色
+     * </pre>
+     *
+     * <code>DSCH_JOB_ST_RED = 2;</code>
+     */
+    DSCH_JOB_ST_RED(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * 绿色
+     * </pre>
+     *
+     * <code>DSCH_JOB_ST_GREEN = 0;</code>
+     */
+    public static final int DSCH_JOB_ST_GREEN_VALUE = 0;
+    /**
+     * <pre>
+     * 黄色
+     * </pre>
+     *
+     * <code>DSCH_JOB_ST_YELLOW = 1;</code>
+     */
+    public static final int DSCH_JOB_ST_YELLOW_VALUE = 1;
+    /**
+     * <pre>
+     * 红色
+     * </pre>
+     *
+     * <code>DSCH_JOB_ST_RED = 2;</code>
+     */
+    public static final int DSCH_JOB_ST_RED_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DSchJobHealthStatus valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static DSchJobHealthStatus forNumber(int value) {
+      switch (value) {
+        case 0: return DSCH_JOB_ST_GREEN;
+        case 1: return DSCH_JOB_ST_YELLOW;
+        case 2: return DSCH_JOB_ST_RED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DSchJobHealthStatus>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DSchJobHealthStatus> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DSchJobHealthStatus>() {
+            public DSchJobHealthStatus findValueByNumber(int number) {
+              return DSchJobHealthStatus.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.hs.dsch.proto.DSchAdminProto.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final DSchJobHealthStatus[] VALUES = values();
+
+    public static DSchJobHealthStatus valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DSchJobHealthStatus(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.hs.dsch.proto.DSchJobHealthStatus)
+  }
+
+  /**
+   * <pre>
    * 命令定义
    * </pre>
    *
@@ -292,7 +427,7 @@ public final class DSchAdminProto {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.hs.dsch.proto.DSchAdminProto.getDescriptor().getEnumTypes().get(1);
+      return com.hs.dsch.proto.DSchAdminProto.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final DSchCmd[] VALUES = values();
@@ -444,7 +579,7 @@ public final class DSchAdminProto {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.hs.dsch.proto.DSchAdminProto.getDescriptor().getEnumTypes().get(2);
+      return com.hs.dsch.proto.DSchAdminProto.getDescriptor().getEnumTypes().get(3);
     }
 
     private static final DSchJobStatus[] VALUES = values();
@@ -4937,6 +5072,23 @@ public final class DSchAdminProto {
      * <code>int64 endTime = 3;</code>
      */
     long getEndTime();
+
+    /**
+     * <pre>
+     * 任务健康状态
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobHealthStatus status = 4;</code>
+     */
+    int getStatusValue();
+    /**
+     * <pre>
+     * 任务健康状态
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobHealthStatus status = 4;</code>
+     */
+    com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus getStatus();
   }
   /**
    * <pre>
@@ -4958,6 +5110,7 @@ public final class DSchAdminProto {
       jobId_ = "";
       beginTime_ = 0L;
       endTime_ = 0L;
+      status_ = 0;
     }
 
     @java.lang.Override
@@ -4998,6 +5151,12 @@ public final class DSchAdminProto {
             case 24: {
 
               endTime_ = input.readInt64();
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              status_ = rawValue;
               break;
             }
             default: {
@@ -5100,6 +5259,31 @@ public final class DSchAdminProto {
       return endTime_;
     }
 
+    public static final int STATUS_FIELD_NUMBER = 4;
+    private int status_;
+    /**
+     * <pre>
+     * 任务健康状态
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobHealthStatus status = 4;</code>
+     */
+    public int getStatusValue() {
+      return status_;
+    }
+    /**
+     * <pre>
+     * 任务健康状态
+     * </pre>
+     *
+     * <code>.com.hs.dsch.proto.DSchJobHealthStatus status = 4;</code>
+     */
+    public com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus getStatus() {
+      @SuppressWarnings("deprecation")
+      com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus result = com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.valueOf(status_);
+      return result == null ? com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5123,6 +5307,9 @@ public final class DSchAdminProto {
       if (endTime_ != 0L) {
         output.writeInt64(3, endTime_);
       }
+      if (status_ != com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.DSCH_JOB_ST_GREEN.getNumber()) {
+        output.writeEnum(4, status_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5142,6 +5329,10 @@ public final class DSchAdminProto {
       if (endTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, endTime_);
+      }
+      if (status_ != com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.DSCH_JOB_ST_GREEN.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, status_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5165,6 +5356,7 @@ public final class DSchAdminProto {
           == other.getBeginTime());
       result = result && (getEndTime()
           == other.getEndTime());
+      result = result && status_ == other.status_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5184,6 +5376,8 @@ public final class DSchAdminProto {
       hash = (37 * hash) + ENDTIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getEndTime());
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + status_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5327,6 +5521,8 @@ public final class DSchAdminProto {
 
         endTime_ = 0L;
 
+        status_ = 0;
+
         return this;
       }
 
@@ -5356,6 +5552,7 @@ public final class DSchAdminProto {
         result.jobId_ = jobId_;
         result.beginTime_ = beginTime_;
         result.endTime_ = endTime_;
+        result.status_ = status_;
         onBuilt();
         return result;
       }
@@ -5413,6 +5610,9 @@ public final class DSchAdminProto {
         }
         if (other.getEndTime() != 0L) {
           setEndTime(other.getEndTime());
+        }
+        if (other.status_ != 0) {
+          setStatusValue(other.getStatusValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5604,6 +5804,71 @@ public final class DSchAdminProto {
       public Builder clearEndTime() {
         
         endTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int status_ = 0;
+      /**
+       * <pre>
+       * 任务健康状态
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobHealthStatus status = 4;</code>
+       */
+      public int getStatusValue() {
+        return status_;
+      }
+      /**
+       * <pre>
+       * 任务健康状态
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobHealthStatus status = 4;</code>
+       */
+      public Builder setStatusValue(int value) {
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务健康状态
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobHealthStatus status = 4;</code>
+       */
+      public com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus getStatus() {
+        @SuppressWarnings("deprecation")
+        com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus result = com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.valueOf(status_);
+        return result == null ? com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 任务健康状态
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobHealthStatus status = 4;</code>
+       */
+      public Builder setStatus(com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        status_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 任务健康状态
+       * </pre>
+       *
+       * <code>.com.hs.dsch.proto.DSchJobHealthStatus status = 4;</code>
+       */
+      public Builder clearStatus() {
+        
+        status_ = 0;
         onChanged();
         return this;
       }
@@ -22286,62 +22551,65 @@ public final class DSchAdminProto {
       "JobExecStrategy\"n\n\027DSchRegisterJobRespon" +
       "se\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto." +
       "DSchResponseCode\022\016\n\006nodeId\030\002 \001(\t\022\r\n\005jobI" +
-      "d\030\003 \001(\t\"<\n\007DSchJob\022\r\n\005jobId\030\001 \001(\t\022\021\n\tbeg" +
-      "inTime\030\002 \001(\003\022\017\n\007endTime\030\003 \001(\003\"_\n\010DSchNod" +
-      "e\022\016\n\006nodeId\030\001 \001(\t\022\025\n\ractiveThreads\030\002 \001(\003" +
-      "\022\013\n\003cpu\030\003 \001(\003\022\013\n\003mem\030\004 \001(\003\022\022\n\nupdateTime" +
-      "\030\005 \001(\003\"T\n\031DSchJobHealthCheckRequest\022\016\n\006n" +
-      "odeId\030\001 \001(\t\022\'\n\003job\030\002 \001(\0132\032.com.hs.dsch.p" +
-      "roto.DSchJob\"R\n\032DSchJobHealthCheckRespon" +
-      "se\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto." +
-      "DSchResponseCode\"W\n\032DSchNodeHealthCheckR" +
-      "equest\022\016\n\006nodeId\030\001 \001(\t\022)\n\004node\030\002 \001(\0132\033.c" +
-      "om.hs.dsch.proto.DSchNode\"S\n\033DSchNodeHea" +
-      "lthCheckResponse\0224\n\007resCode\030\001 \001(\0162#.com." +
-      "hs.dsch.proto.DSchResponseCode\"3\n\022DSchCo" +
-      "mmandRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 " +
-      "\001(\t\"I\n\013DSchCommand\022\r\n\005jobId\030\001 \001(\t\022+\n\007cmd" +
-      "Type\030\002 \001(\0162\032.com.hs.dsch.proto.DSchCmd\"V" +
-      "\n\023DSchCommandResponse\022/\n\007command\030\001 \001(\0132\036" +
-      ".com.hs.dsch.proto.DSchCommand\022\016\n\006nodeId" +
-      "\030\002 \001(\t\"U\n\025DSchAddCommandRequest\022\016\n\006nodeI" +
-      "d\030\001 \001(\t\022,\n\004cmds\030\002 \003(\0132\036.com.hs.dsch.prot" +
-      "o.DSchCommand\"N\n\026DSchAddCommandResponse\022" +
-      "4\n\007resCode\030\001 \001(\0162#.com.hs.dsch.proto.DSc" +
-      "hResponseCode\"5\n\024DSchJobStatusRequest\022\016\n" +
-      "\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"v\n\025DSchJobS" +
-      "tatusResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs." +
-      "dsch.proto.DSchResponseCode\022\'\n\003job\030\002 \001(\013" +
-      "2\032.com.hs.dsch.proto.DSchJob\"\'\n\025DSchNode" +
-      "StatusRequest\022\016\n\006nodeId\030\001 \001(\t\"y\n\026DSchNod" +
-      "eStatusResponse\0224\n\007resCode\030\001 \001(\0162#.com.h" +
-      "s.dsch.proto.DSchResponseCode\022)\n\004node\030\002 " +
-      "\001(\0132\033.com.hs.dsch.proto.DSchNode\"(\n\026DSch" +
-      "OfflineNodeRequest\022\016\n\006nodeId\030\001 \001(\t\"O\n\027DS" +
-      "chOfflineNodeResponse\0224\n\007resCode\030\001 \001(\0162#" +
-      ".com.hs.dsch.proto.DSchResponseCode\"/\n\030D" +
-      "SchOnlineServiceRequest\022\023\n\013serviceName\030\001" +
-      " \001(\t\"Q\n\031DSchOnlineServiceResponse\0224\n\007res" +
-      "Code\030\001 \001(\0162#.com.hs.dsch.proto.DSchRespo" +
-      "nseCode\"0\n\031DSchOfflineServiceRequest\022\023\n\013" +
-      "serviceName\030\001 \001(\t\"R\n\032DSchOfflineServiceR" +
-      "esponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch.p" +
-      "roto.DSchResponseCode\"4\n\023DSchJobCleanReq" +
-      "uest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002 \001(\t\"L\n\024D" +
-      "SchJobCleanResponse\0224\n\007resCode\030\001 \001(\0162#.c" +
-      "om.hs.dsch.proto.DSchResponseCode\"&\n\024DSc" +
-      "hNodeCleanRequest\022\016\n\006nodeId\030\001 \001(\t\"M\n\025DSc" +
-      "hNodeCleanResponse\0224\n\007resCode\030\001 \001(\0162#.co" +
-      "m.hs.dsch.proto.DSchResponseCode*Y\n\020DSch" +
-      "ResponseCode\022\026\n\022RESP_CODE_RESERVED\020\000\022\026\n\021" +
-      "RESP_CODE_SUCCESS\020\310\001\022\025\n\020RESP_CODE_FAILED" +
-      "\020\311\001*|\n\007DSchCmd\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016D" +
-      "SCH_JOB_PAUSE\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002\022\027" +
-      "\n\023DSCH_SERVICE_ONLINE\020\003\022\030\n\024DSCH_SERVICE_" +
-      "OFFLINE\020\004*r\n\rDSchJobStatus\022\027\n\023DSCH_JOB_S" +
-      "T_STARTED\020\000\022\027\n\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022" +
-      "DSCH_JOB_ST_IDLING\020\002\022\027\n\023DSCH_JOB_ST_STOP" +
-      "PED\020\003b\006proto3"
+      "d\030\003 \001(\t\"t\n\007DSchJob\022\r\n\005jobId\030\001 \001(\t\022\021\n\tbeg" +
+      "inTime\030\002 \001(\003\022\017\n\007endTime\030\003 \001(\003\0226\n\006status\030" +
+      "\004 \001(\0162&.com.hs.dsch.proto.DSchJobHealthS" +
+      "tatus\"_\n\010DSchNode\022\016\n\006nodeId\030\001 \001(\t\022\025\n\ract" +
+      "iveThreads\030\002 \001(\003\022\013\n\003cpu\030\003 \001(\003\022\013\n\003mem\030\004 \001" +
+      "(\003\022\022\n\nupdateTime\030\005 \001(\003\"T\n\031DSchJobHealthC" +
+      "heckRequest\022\016\n\006nodeId\030\001 \001(\t\022\'\n\003job\030\002 \001(\013" +
+      "2\032.com.hs.dsch.proto.DSchJob\"R\n\032DSchJobH" +
+      "ealthCheckResponse\0224\n\007resCode\030\001 \001(\0162#.co" +
+      "m.hs.dsch.proto.DSchResponseCode\"W\n\032DSch" +
+      "NodeHealthCheckRequest\022\016\n\006nodeId\030\001 \001(\t\022)" +
+      "\n\004node\030\002 \001(\0132\033.com.hs.dsch.proto.DSchNod" +
+      "e\"S\n\033DSchNodeHealthCheckResponse\0224\n\007resC" +
+      "ode\030\001 \001(\0162#.com.hs.dsch.proto.DSchRespon" +
+      "seCode\"3\n\022DSchCommandRequest\022\016\n\006nodeId\030\001" +
+      " \001(\t\022\r\n\005jobId\030\002 \001(\t\"I\n\013DSchCommand\022\r\n\005jo" +
+      "bId\030\001 \001(\t\022+\n\007cmdType\030\002 \001(\0162\032.com.hs.dsch" +
+      ".proto.DSchCmd\"V\n\023DSchCommandResponse\022/\n" +
+      "\007command\030\001 \001(\0132\036.com.hs.dsch.proto.DSchC" +
+      "ommand\022\016\n\006nodeId\030\002 \001(\t\"U\n\025DSchAddCommand" +
+      "Request\022\016\n\006nodeId\030\001 \001(\t\022,\n\004cmds\030\002 \003(\0132\036." +
+      "com.hs.dsch.proto.DSchCommand\"N\n\026DSchAdd" +
+      "CommandResponse\0224\n\007resCode\030\001 \001(\0162#.com.h" +
+      "s.dsch.proto.DSchResponseCode\"5\n\024DSchJob" +
+      "StatusRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005jobId\030\002" +
+      " \001(\t\"v\n\025DSchJobStatusResponse\0224\n\007resCode" +
+      "\030\001 \001(\0162#.com.hs.dsch.proto.DSchResponseC" +
+      "ode\022\'\n\003job\030\002 \001(\0132\032.com.hs.dsch.proto.DSc" +
+      "hJob\"\'\n\025DSchNodeStatusRequest\022\016\n\006nodeId\030" +
+      "\001 \001(\t\"y\n\026DSchNodeStatusResponse\0224\n\007resCo" +
+      "de\030\001 \001(\0162#.com.hs.dsch.proto.DSchRespons" +
+      "eCode\022)\n\004node\030\002 \001(\0132\033.com.hs.dsch.proto." +
+      "DSchNode\"(\n\026DSchOfflineNodeRequest\022\016\n\006no" +
+      "deId\030\001 \001(\t\"O\n\027DSchOfflineNodeResponse\0224\n" +
+      "\007resCode\030\001 \001(\0162#.com.hs.dsch.proto.DSchR" +
+      "esponseCode\"/\n\030DSchOnlineServiceRequest\022" +
+      "\023\n\013serviceName\030\001 \001(\t\"Q\n\031DSchOnlineServic" +
+      "eResponse\0224\n\007resCode\030\001 \001(\0162#.com.hs.dsch" +
+      ".proto.DSchResponseCode\"0\n\031DSchOfflineSe" +
+      "rviceRequest\022\023\n\013serviceName\030\001 \001(\t\"R\n\032DSc" +
+      "hOfflineServiceResponse\0224\n\007resCode\030\001 \001(\016" +
+      "2#.com.hs.dsch.proto.DSchResponseCode\"4\n" +
+      "\023DSchJobCleanRequest\022\016\n\006nodeId\030\001 \001(\t\022\r\n\005" +
+      "jobId\030\002 \001(\t\"L\n\024DSchJobCleanResponse\0224\n\007r" +
+      "esCode\030\001 \001(\0162#.com.hs.dsch.proto.DSchRes" +
+      "ponseCode\"&\n\024DSchNodeCleanRequest\022\016\n\006nod" +
+      "eId\030\001 \001(\t\"M\n\025DSchNodeCleanResponse\0224\n\007re" +
+      "sCode\030\001 \001(\0162#.com.hs.dsch.proto.DSchResp" +
+      "onseCode*Y\n\020DSchResponseCode\022\026\n\022RESP_COD" +
+      "E_RESERVED\020\000\022\026\n\021RESP_CODE_SUCCESS\020\310\001\022\025\n\020" +
+      "RESP_CODE_FAILED\020\311\001*Y\n\023DSchJobHealthStat" +
+      "us\022\025\n\021DSCH_JOB_ST_GREEN\020\000\022\026\n\022DSCH_JOB_ST" +
+      "_YELLOW\020\001\022\023\n\017DSCH_JOB_ST_RED\020\002*|\n\007DSchCm" +
+      "d\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016DSCH_JOB_PAUSE" +
+      "\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002\022\027\n\023DSCH_SERVIC" +
+      "E_ONLINE\020\003\022\030\n\024DSCH_SERVICE_OFFLINE\020\004*r\n\r" +
+      "DSchJobStatus\022\027\n\023DSCH_JOB_ST_STARTED\020\000\022\027" +
+      "\n\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022DSCH_JOB_ST_I" +
+      "DLING\020\002\022\027\n\023DSCH_JOB_ST_STOPPED\020\003b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -22390,7 +22658,7 @@ public final class DSchAdminProto {
     internal_static_com_hs_dsch_proto_DSchJob_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_hs_dsch_proto_DSchJob_descriptor,
-        new java.lang.String[] { "JobId", "BeginTime", "EndTime", });
+        new java.lang.String[] { "JobId", "BeginTime", "EndTime", "Status", });
     internal_static_com_hs_dsch_proto_DSchNode_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_com_hs_dsch_proto_DSchNode_fieldAccessorTable = new

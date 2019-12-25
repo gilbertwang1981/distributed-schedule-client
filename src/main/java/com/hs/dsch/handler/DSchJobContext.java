@@ -1,5 +1,7 @@
 package com.hs.dsch.handler;
 
+import com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus;
+
 public class DSchJobContext {
 	private String nodeId;
 	private String jobId;
@@ -11,6 +13,7 @@ public class DSchJobContext {
 	private Long fixDelay;
 	private Long fixRate;
 	private Long initialDelay;
+	private DSchJobHealthStatus jobStatus;
 	
 	public String getNodeId() {
 		return nodeId;
@@ -71,5 +74,11 @@ public class DSchJobContext {
 	}
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+	public DSchJobHealthStatus getJobStatus() {
+		return jobStatus;
+	}
+	public void setJobStatus(DSchJobHealthStatus jobStatus) {
+		this.jobStatus = jobStatus;
 	}
 }

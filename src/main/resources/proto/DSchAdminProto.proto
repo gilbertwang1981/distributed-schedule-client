@@ -12,6 +12,16 @@ enum DSchResponseCode {
     RESP_CODE_FAILED = 201;
 };
 
+// 任务健康状态
+enum DSchJobHealthStatus {
+	// 绿色
+    DSCH_JOB_ST_GREEN = 0;
+    // 黄色
+    DSCH_JOB_ST_YELLOW = 1;
+    // 红色
+    DSCH_JOB_ST_RED = 2;
+};
+
 // 任务执行策略定义
 message DSchJobExecStrategy {
 	// cron表达式
@@ -70,6 +80,8 @@ message DSchJob {
 	int64 beginTime = 2;
 	// 任务最近一次结束执行时间
 	int64 endTime = 3;
+    // 任务健康状态
+    DSchJobHealthStatus status = 4;
 }
 
 // 节点定义
@@ -116,7 +128,7 @@ message DSchNodeHealthCheckResponse {
 
 // 命令定义
 enum DSchCmd {
-	//【管理端】任务恢复
+    //【管理端】任务恢复
     DSCH_JOB_RESUME = 0;
     //【管理端】任务暂停
     DSCH_JOB_PAUSE = 1;

@@ -14,6 +14,7 @@ import com.hs.dsch.conf.DSchContext;
 import com.hs.dsch.handler.DSchJobContext;
 import com.hs.dsch.handler.DSchJobHandlerMgr;
 import com.hs.dsch.handler.DSchHandlerType;
+import com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus;
 import com.hs.dsch.proto.DSchAdminProto.DSchJobStatus;
 import com.hs.dsch.vo.DSchJobData;
 
@@ -84,9 +85,16 @@ public class DSchedulingAspect {
 		
 		healthCheckContext.setBeginTime(System.currentTimeMillis());
 		
-		Object returnObj = point.proceed();
+		Object returnObj = null;
+		DSchJobHealthStatus jobStatus = DSchJobHealthStatus.DSCH_JOB_ST_GREEN;
+		try {
+			returnObj = point.proceed();
+		} catch (Exception e) {
+			jobStatus = DSchJobHealthStatus.DSCH_JOB_ST_RED;
+		}
 		
 		healthCheckContext.setEndTime(System.currentTimeMillis());
+		healthCheckContext.setJobStatus(jobStatus);
 		
 		DSchContext.getInstance().updateJobStatus(jobData.getJobId() , DSchJobStatus.DSCH_JOB_ST_IDLING_VALUE);
 
