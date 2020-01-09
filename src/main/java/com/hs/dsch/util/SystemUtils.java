@@ -34,27 +34,25 @@ public class SystemUtils {
 		InputStream is = null;
 		InputStreamReader isr = null;
 		BufferedReader br = null;
+		
+		String[] command = {"/bin/sh" , "-c" , "top -b -n 1 -H -p " + jvmPid() + " | grep Threads | awk -F, \'{print $1}\' | awk -F: \'{print $2}\' | awk \'{print $1}\'"};  
 		try {
-			process = runtime.exec("top -n 1 -H -p " + jvmPid() + " | grep Threads | awk -F, '{print $1}' | awk -F: '{print $2}' | awk '{print $2}'");
+			process = runtime.exec(command);
+			process.waitFor();
+			
 			is = process.getInputStream();
 			isr = new InputStreamReader(is);
 			br = new BufferedReader(isr);
- 
+			
 			String line;
-			int counter = 0;
 			StringBuffer sb = new StringBuffer();
 			while ((line = br.readLine()) != null) {
-				if (counter > 1) {
-					break;
-				}
-				
 				sb.append(line);
-				counter ++;
 			}
 			
-			logger.info("线程数:{}/{}" , sb.toString() , jvmPid());
+			logger.info("线程数:{}/{}/{}" , sb.toString() , jvmPid() , command);
 			
-			return Long.valueOf(sb.toString());
+			return Double.valueOf(sb.toString()).longValue();
 		} catch (Exception e) {
 			logger.error("获取线程数发生异常, {}" , e.getMessage());
 			
@@ -84,29 +82,26 @@ public class SystemUtils {
 		InputStream is = null;
 		InputStreamReader isr = null;
 		BufferedReader br = null;
+		String[] command = {"/bin/sh" , "-c" , "top -b -n 1 -p " + jvmPid() + " | tail -n 1 | awk \'{print $10}\'"};
 		try {
-			process = runtime.exec("top -b -n 1 -p " + jvmPid() + " | tail -n 1 | awk '{print $10}'");
+			process = runtime.exec(command);
+			process.waitFor();
+			
 			is = process.getInputStream();
 			isr = new InputStreamReader(is);
 			br = new BufferedReader(isr);
  
 			String line;
-			int counter = 0;
 			StringBuffer sb = new StringBuffer();
 			while ((line = br.readLine()) != null) {
-				if (counter > 1) {
-					break;
-				}
-				
 				sb.append(line);
-				counter ++;
 			}
 			
-			logger.info("内存使用率:{}/{}" , sb.toString() , jvmPid());
+			logger.info("内存使用率:{}/{}/{}" , sb.toString() , jvmPid() , command);
 			
-			return Long.valueOf(sb.toString());
+			return Double.valueOf(sb.toString()).longValue();
 		} catch (Exception e) {
-			logger.error("获取内存利用率发生异常, {}" , e.getMessage());
+			logger.error("获取内存利用率发生异常, {}/{}" , e.getMessage() , command);
 			
 			return 0L;
 		} finally {
@@ -134,29 +129,26 @@ public class SystemUtils {
 		InputStream is = null;
 		InputStreamReader isr = null;
 		BufferedReader br = null;
+		String[] command = {"/bin/sh" , "-c" , "top -b -n 1 -p " + jvmPid() + " | tail -n 1 | awk \'{print $9}\'"};
 		try {
-			process = runtime.exec("top -b -n 1 -p " + jvmPid() + " | tail -n 1 | awk '{print $9}'");
+			process = runtime.exec(command);
+			process.waitFor();
+			
 			is = process.getInputStream();
 			isr = new InputStreamReader(is);
 			br = new BufferedReader(isr);
  
 			String line;
-			int counter = 0;
 			StringBuffer sb = new StringBuffer();
-			while ((line = br.readLine()) != null) {
-				if (counter > 1) {
-					break;
-				}
-				
+			while ((line = br.readLine()) != null) {			
 				sb.append(line);
-				counter ++;
 			}
 			
-			logger.info("CPU使用率:{}/{}" , sb.toString() , jvmPid());
+			logger.info("CPU使用率:{}/{}/{}" , sb.toString() , jvmPid() , command);
 			
-			return Long.valueOf(sb.toString());
+			return Double.valueOf(sb.toString()).longValue();
 		} catch (Exception e) {
-			logger.error("获取CPU利用率发生异常, {}" , e.getMessage());
+			logger.error("获取CPU利用率发生异常, {}/{}" , command , e.getMessage());
 			
 			return 0L;
 		} finally {
