@@ -36,12 +36,12 @@ public class DSchJobHealthCheckHandler implements DSchJobHandler {
 					DSchClientConsts.DSCH_SERVICE_HEALTH_CHECK_INF_NAME , request.build().toByteArray());
 			DSchJobHealthCheckResponse response = DSchJobHealthCheckResponse.parseFrom(httpResponse.getEntity().getContent());
 			if (response.getResCode() == DSchResponseCode.RESP_CODE_FAILED) {
-				logger.error("任务健康检查失败,{}" , job.getJobId());
+				logger.error("任务健康检查失败 {}" , job.getJobId());
 			} else {
-				logger.info("任务健康检查成功,node:{} job:{}" , DSchContext.getInstance().getNodeId() , job.getJobId());
+				logger.info("任务健康检查成功 node:{} job:{}" , DSchContext.getInstance().getNodeId() , job.getJobId());
 			}
 		} catch (Exception e) {
-			logger.error("任务健康检查失败：{}" , e.getMessage());
+			logger.error("任务健康检查失败 {}" , e.getMessage());
 		}
 	}
 }

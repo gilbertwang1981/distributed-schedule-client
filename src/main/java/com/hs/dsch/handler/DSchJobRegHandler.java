@@ -21,7 +21,7 @@ public class DSchJobRegHandler implements DSchJobHandler {
 	
 	@Override
 	public void handle(DSchJobContext context) {
-		logger.info("任务注册：{}" , context.getJobName());
+		logger.info("任务注册 {}" , context.getJobName());
 		
 		DSchRegisterJobRequest.Builder request = DSchRegisterJobRequest.newBuilder();
 		request.setJobName(context.getJobName());
@@ -40,14 +40,14 @@ public class DSchJobRegHandler implements DSchJobHandler {
 					DSchClientConsts.DSCH_SERVICE_REG_JOB_INF_NAME , request.build().toByteArray());
 			DSchRegisterJobResponse response = DSchRegisterJobResponse.parseFrom(httpResponse.getEntity().getContent());
 			if (response.getResCode() == DSchResponseCode.RESP_CODE_SUCCESS) {
-				logger.info("任务注册成功，job：{}" , response.getJobId());
+				logger.info("任务注册成功，job {}" , response.getJobId());
 				
 				DSchContext.getInstance().addJob(context.getJobName() , response.getJobId() , context.getDesc());
 			} else {
-				logger.info("任务注册失败，job-name:{}" , context.getJobName());
+				logger.info("任务注册失败 job-name:{}" , context.getJobName());
 			}
 		} catch (Exception e) {
-			logger.error("注册任务异常发生：{}" , e);
+			logger.error("注册任务异常发生 {}" , e);
 		}
 	}
 }

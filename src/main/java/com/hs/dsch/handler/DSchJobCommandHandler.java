@@ -22,7 +22,7 @@ public class DSchJobCommandHandler implements DSchJobHandler {
 
 	@Override
 	public void handle(DSchJobContext context) {
-		logger.info("从服务端拉取命令:job:{} node:{}" , context.getJobId() , context.getNodeId());
+		logger.info("从服务端拉取命令 job:{} node:{}" , context.getJobId() , context.getNodeId());
 		
 		DSchCommandRequest.Builder request = DSchCommandRequest.newBuilder();
 		request.setJobId(context.getJobId());
@@ -34,7 +34,7 @@ public class DSchJobCommandHandler implements DSchJobHandler {
 			DSchCommandResponse response = DSchCommandResponse.parseFrom(httpResponse.getEntity().getContent());
 			if (response.getCommand().getCmdType() != DSchCmd.DSCH_JOB_RESUME && 
 					response.getCommand().getCmdType() != DSchCmd.DSCH_JOB_PAUSE) {
-				logger.debug("获取不到远程命令,job:{} node:{}" , request.getJobId() , request.getNodeId());
+				logger.debug("获取不到远程命令 job:{} node:{}" , request.getJobId() , request.getNodeId());
 						
 				return;
 			}
@@ -47,7 +47,7 @@ public class DSchJobCommandHandler implements DSchJobHandler {
 				DSchContext.getInstance().updateJobStatus(context.getJobId() , DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE);
 			}
 		} catch (Exception e) {
-			logger.error("获取远程命令失败:{}" , e.getMessage());
+			logger.error("获取远程命令失败 {}" , e.getMessage());
 			
 			return;
 		}
