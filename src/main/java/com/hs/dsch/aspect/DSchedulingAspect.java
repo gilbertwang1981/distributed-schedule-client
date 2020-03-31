@@ -59,14 +59,14 @@ public class DSchedulingAspect {
 	@Around("schedulePointCut() && @annotation(dscheduled)")
     public Object around(ProceedingJoinPoint point , DScheduled dscheduled) throws Throwable {
 		if (DSchContext.getInstance().isNodeShutdown()) {
-			logger.error("节点关闭，任务停止执行。{}" , DSchContext.getInstance().getNodeId());
+			logger.error("节点关闭，任务停止执行 {}" , DSchContext.getInstance().getNodeId());
 			
 			return null;
 		}
 		
 		DSchJobData jobData = handleRegJob(dscheduled);
 		if (jobData == null) {
-			logger.error("任务注册失败，服务启动失败.{}" , dscheduled.job());
+			logger.error("任务注册失败，服务启动失败 {}" , dscheduled.job());
 			
 			System.exit(0);
 		}
@@ -74,7 +74,7 @@ public class DSchedulingAspect {
 		handleCommands(jobData);
 		
 		if (DSchContext.getInstance().getJobStatus(jobData.getJobId()) == DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE) {
-			logger.error("任务状态已停止，同服务器失联.{}" , dscheduled.job() , DSchContext.getInstance().getJobStatus(jobData.getJobId()));
+			logger.error("任务状态已停止，同服务器失联 {}" , dscheduled.job() , DSchContext.getInstance().getJobStatus(jobData.getJobId()));
 			
 			return null;
 		}
