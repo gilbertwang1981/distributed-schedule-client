@@ -29,8 +29,12 @@ public class DSchedulingAspect {
     }
 	
 	private DSchJobData handleRegJob(DScheduled dscheduled) {
+		logger.info("注册任务 {}" , dscheduled.job());
+		
 		DSchJobData jobData = DSchContext.getInstance().getJob(dscheduled.job());
 		if (jobData != null) {
+			logger.info("找到注册任务 {}" , dscheduled.job());
+			
 			return jobData;
 		}
 		
@@ -53,11 +57,15 @@ public class DSchedulingAspect {
 		commandGetContext.setNodeId(DSchContext.getInstance().getNodeId());
 		commandGetContext.setJobId(jobData.getJobId());
 		
+		logger.info("处理任务命令 {}" , commandGetContext);
+		
 		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_COMMAND , commandGetContext);		
 	}
 	
 	@Around("schedulePointCut() && @annotation(dscheduled)")
     public Object around(ProceedingJoinPoint point , DScheduled dscheduled) throws Throwable {
+		logger.info("进入任务切面 {}" , dscheduled.job());
+		
 		if (DSchContext.getInstance().isNodeShutdown()) {
 			logger.error("节点关闭，任务停止执行 {}" , DSchContext.getInstance().getNodeId());
 			
