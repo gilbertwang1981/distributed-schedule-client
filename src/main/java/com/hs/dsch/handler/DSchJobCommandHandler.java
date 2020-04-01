@@ -39,12 +39,16 @@ public class DSchJobCommandHandler implements DSchJobHandler {
 				return;
 			}
 			
+			logger.info("任务命令 {} {}" , response.getCommand().getCmdType() , response.getNodeId());
+			
 			if (DSchContext.getInstance().getJobStatus(context.getJobId()) == DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE && 
 					response.getCommand().getCmdType() == DSchCmd.DSCH_JOB_RESUME) {
 				DSchContext.getInstance().updateJobStatus(context.getJobId() , DSchJobStatus.DSCH_JOB_ST_STARTED_VALUE);
 			} else if (DSchContext.getInstance().getJobStatus(context.getJobId()) != DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE && 
 					response.getCommand().getCmdType() == DSchCmd.DSCH_JOB_PAUSE) {
 				DSchContext.getInstance().updateJobStatus(context.getJobId() , DSchJobStatus.DSCH_JOB_ST_STOPPED_VALUE);
+			} else {
+				logger.warn("命令错误 {}" , response.getCommand().getCmdType());
 			}
 		} catch (Exception e) {
 			logger.error("获取远程命令失败 {}" , e.getMessage());

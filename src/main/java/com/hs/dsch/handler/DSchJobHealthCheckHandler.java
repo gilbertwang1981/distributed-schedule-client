@@ -38,7 +38,7 @@ public class DSchJobHealthCheckHandler implements DSchJobHandler {
 			if (response.getResCode() == DSchResponseCode.RESP_CODE_FAILED) {
 				logger.error("任务健康检查失败 {}" , job.getJobId());
 			} else {
-				logger.info("任务健康检查成功 node:{} job:{}" , DSchContext.getInstance().getNodeId() , job.getJobId());
+				logger.info("任务健康检查成功 node:{} job:{} status:{}" , DSchContext.getInstance().getNodeId() , job.getJobId() , job.getStatus());
 			}
 		} catch (Exception e) {
 			logger.error("任务健康检查失败 {}" , e.getMessage());
