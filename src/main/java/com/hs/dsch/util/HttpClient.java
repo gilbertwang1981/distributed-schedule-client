@@ -42,10 +42,6 @@ public class HttpClient {
 			}
 		} catch (Exception e) {
 			throw e;
-		} finally {
-			if (response != null) {
-				EntityUtils.toString(response.getEntity() , "UTF-8");
-			}
 		}
 	}
 }

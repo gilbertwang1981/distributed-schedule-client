@@ -57,7 +57,7 @@ public class DSchedulingAspect {
 		commandGetContext.setNodeId(DSchContext.getInstance().getNodeId());
 		commandGetContext.setJobId(jobData.getJobId());
 		
-		logger.info("处理任务命令 {}" , commandGetContext);
+		logger.info("处理任务命令 {} {} {}" , commandGetContext.getNodeId() , commandGetContext.getJobId() , commandGetContext.getJobStatus());
 		
 		DSchJobHandlerMgr.getInstance().handle(DSchHandlerType.DSCH_JOB_HANDLER_TYPE_COMMAND , commandGetContext);		
 	}
