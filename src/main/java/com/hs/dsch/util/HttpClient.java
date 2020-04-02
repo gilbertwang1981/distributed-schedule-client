@@ -9,6 +9,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration("httpClient")
@@ -20,6 +21,7 @@ public class HttpClient {
 	private static final Integer READ_TIMEOUT = 500;
 	
 	public HttpResponse post(String host , Integer port , String url , byte[] content) throws Exception {
+		HttpResponse response = null;
 		try {
 			URI uri = new URI("http", null, host , port , url, "", null);
 			HttpPost post = new HttpPost(uri);
@@ -32,7 +34,7 @@ public class HttpClient {
 	        		setConnectTimeout(CONNECT_TIMEOUT).build();
 	        post.setConfig(rconfig);
 	        
-	        HttpResponse response = httpClient.execute(post);
+	        response = httpClient.execute(post);
 			if (response.getStatusLine().getStatusCode() == HTTP_CODE_SUCCESS) {				
 				return response;
 			} else {
@@ -40,6 +42,10 @@ public class HttpClient {
 			}
 		} catch (Exception e) {
 			throw e;
+		} finally {
+			if (response != null) {
+				EntityUtils.toString(response.getEntity() , "UTF-8");
+			}
 		}
 	}
 }

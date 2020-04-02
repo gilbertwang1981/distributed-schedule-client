@@ -34,7 +34,8 @@ public class DSchJobCommandHandler implements DSchJobHandler {
 			DSchCommandResponse response = DSchCommandResponse.parseFrom(httpResponse.getEntity().getContent());
 			if (response.getCommand().getCmdType() != DSchCmd.DSCH_JOB_RESUME && 
 					response.getCommand().getCmdType() != DSchCmd.DSCH_JOB_PAUSE) {
-				logger.debug("获取不到远程命令 job:{} node:{}" , request.getJobId() , request.getNodeId());
+				logger.info("获取不到远程命令 job:{} node:{} type:{}" , request.getJobId() , 
+						request.getNodeId() , response.getCommand().getCmdType().name());
 						
 				return;
 			}
