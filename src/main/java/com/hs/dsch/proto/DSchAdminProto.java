@@ -160,55 +160,71 @@ public final class DSchAdminProto {
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
+     * 预留
+     * </pre>
+     *
+     * <code>DSCH_JOB_HC_ST_RESERVED = 0;</code>
+     */
+    DSCH_JOB_HC_ST_RESERVED(0),
+    /**
+     * <pre>
      * 绿色
      * </pre>
      *
-     * <code>DSCH_JOB_ST_GREEN = 0;</code>
+     * <code>DSCH_JOB_ST_GREEN = 1;</code>
      */
-    DSCH_JOB_ST_GREEN(0),
+    DSCH_JOB_ST_GREEN(1),
     /**
      * <pre>
      * 黄色
      * </pre>
      *
-     * <code>DSCH_JOB_ST_YELLOW = 1;</code>
+     * <code>DSCH_JOB_ST_YELLOW = 2;</code>
      */
-    DSCH_JOB_ST_YELLOW(1),
+    DSCH_JOB_ST_YELLOW(2),
     /**
      * <pre>
      * 红色
      * </pre>
      *
-     * <code>DSCH_JOB_ST_RED = 2;</code>
+     * <code>DSCH_JOB_ST_RED = 3;</code>
      */
-    DSCH_JOB_ST_RED(2),
+    DSCH_JOB_ST_RED(3),
     UNRECOGNIZED(-1),
     ;
 
     /**
      * <pre>
+     * 预留
+     * </pre>
+     *
+     * <code>DSCH_JOB_HC_ST_RESERVED = 0;</code>
+     */
+    public static final int DSCH_JOB_HC_ST_RESERVED_VALUE = 0;
+    /**
+     * <pre>
      * 绿色
      * </pre>
      *
-     * <code>DSCH_JOB_ST_GREEN = 0;</code>
+     * <code>DSCH_JOB_ST_GREEN = 1;</code>
      */
-    public static final int DSCH_JOB_ST_GREEN_VALUE = 0;
+    public static final int DSCH_JOB_ST_GREEN_VALUE = 1;
     /**
      * <pre>
      * 黄色
      * </pre>
      *
-     * <code>DSCH_JOB_ST_YELLOW = 1;</code>
+     * <code>DSCH_JOB_ST_YELLOW = 2;</code>
      */
-    public static final int DSCH_JOB_ST_YELLOW_VALUE = 1;
+    public static final int DSCH_JOB_ST_YELLOW_VALUE = 2;
     /**
      * <pre>
      * 红色
      * </pre>
      *
-     * <code>DSCH_JOB_ST_RED = 2;</code>
+     * <code>DSCH_JOB_ST_RED = 3;</code>
      */
-    public static final int DSCH_JOB_ST_RED_VALUE = 2;
+    public static final int DSCH_JOB_ST_RED_VALUE = 3;
 
 
     public final int getNumber() {
@@ -229,9 +245,10 @@ public final class DSchAdminProto {
 
     public static DSchJobHealthStatus forNumber(int value) {
       switch (value) {
-        case 0: return DSCH_JOB_ST_GREEN;
-        case 1: return DSCH_JOB_ST_YELLOW;
-        case 2: return DSCH_JOB_ST_RED;
+        case 0: return DSCH_JOB_HC_ST_RESERVED;
+        case 1: return DSCH_JOB_ST_GREEN;
+        case 2: return DSCH_JOB_ST_YELLOW;
+        case 3: return DSCH_JOB_ST_RED;
         default: return null;
       }
     }
@@ -295,87 +312,103 @@ public final class DSchAdminProto {
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
+     * 【管理端】预留
+     * </pre>
+     *
+     * <code>DSCH_JOB_RESERVED = 0;</code>
+     */
+    DSCH_JOB_RESERVED(0),
+    /**
+     * <pre>
      *【管理端】任务恢复
      * </pre>
      *
-     * <code>DSCH_JOB_RESUME = 0;</code>
+     * <code>DSCH_JOB_RESUME = 1;</code>
      */
-    DSCH_JOB_RESUME(0),
+    DSCH_JOB_RESUME(1),
     /**
      * <pre>
      *【管理端】任务暂停
      * </pre>
      *
-     * <code>DSCH_JOB_PAUSE = 1;</code>
+     * <code>DSCH_JOB_PAUSE = 2;</code>
      */
-    DSCH_JOB_PAUSE(1),
+    DSCH_JOB_PAUSE(2),
     /**
      * <pre>
      *【任务端】节点下线
      * </pre>
      *
-     * <code>DSCH_NODE_OFFLINE = 2;</code>
+     * <code>DSCH_NODE_OFFLINE = 3;</code>
      */
-    DSCH_NODE_OFFLINE(2),
+    DSCH_NODE_OFFLINE(3),
     /**
      * <pre>
      *【任务端】服务上线
      * </pre>
      *
-     * <code>DSCH_SERVICE_ONLINE = 3;</code>
+     * <code>DSCH_SERVICE_ONLINE = 4;</code>
      */
-    DSCH_SERVICE_ONLINE(3),
+    DSCH_SERVICE_ONLINE(4),
     /**
      * <pre>
      *【任务端】服务下线
      * </pre>
      *
-     * <code>DSCH_SERVICE_OFFLINE = 4;</code>
+     * <code>DSCH_SERVICE_OFFLINE = 5;</code>
      */
-    DSCH_SERVICE_OFFLINE(4),
+    DSCH_SERVICE_OFFLINE(5),
     UNRECOGNIZED(-1),
     ;
 
     /**
      * <pre>
+     * 【管理端】预留
+     * </pre>
+     *
+     * <code>DSCH_JOB_RESERVED = 0;</code>
+     */
+    public static final int DSCH_JOB_RESERVED_VALUE = 0;
+    /**
+     * <pre>
      *【管理端】任务恢复
      * </pre>
      *
-     * <code>DSCH_JOB_RESUME = 0;</code>
+     * <code>DSCH_JOB_RESUME = 1;</code>
      */
-    public static final int DSCH_JOB_RESUME_VALUE = 0;
+    public static final int DSCH_JOB_RESUME_VALUE = 1;
     /**
      * <pre>
      *【管理端】任务暂停
      * </pre>
      *
-     * <code>DSCH_JOB_PAUSE = 1;</code>
+     * <code>DSCH_JOB_PAUSE = 2;</code>
      */
-    public static final int DSCH_JOB_PAUSE_VALUE = 1;
+    public static final int DSCH_JOB_PAUSE_VALUE = 2;
     /**
      * <pre>
      *【任务端】节点下线
      * </pre>
      *
-     * <code>DSCH_NODE_OFFLINE = 2;</code>
+     * <code>DSCH_NODE_OFFLINE = 3;</code>
      */
-    public static final int DSCH_NODE_OFFLINE_VALUE = 2;
+    public static final int DSCH_NODE_OFFLINE_VALUE = 3;
     /**
      * <pre>
      *【任务端】服务上线
      * </pre>
      *
-     * <code>DSCH_SERVICE_ONLINE = 3;</code>
+     * <code>DSCH_SERVICE_ONLINE = 4;</code>
      */
-    public static final int DSCH_SERVICE_ONLINE_VALUE = 3;
+    public static final int DSCH_SERVICE_ONLINE_VALUE = 4;
     /**
      * <pre>
      *【任务端】服务下线
      * </pre>
      *
-     * <code>DSCH_SERVICE_OFFLINE = 4;</code>
+     * <code>DSCH_SERVICE_OFFLINE = 5;</code>
      */
-    public static final int DSCH_SERVICE_OFFLINE_VALUE = 4;
+    public static final int DSCH_SERVICE_OFFLINE_VALUE = 5;
 
 
     public final int getNumber() {
@@ -396,11 +429,12 @@ public final class DSchAdminProto {
 
     public static DSchCmd forNumber(int value) {
       switch (value) {
-        case 0: return DSCH_JOB_RESUME;
-        case 1: return DSCH_JOB_PAUSE;
-        case 2: return DSCH_NODE_OFFLINE;
-        case 3: return DSCH_SERVICE_ONLINE;
-        case 4: return DSCH_SERVICE_OFFLINE;
+        case 0: return DSCH_JOB_RESERVED;
+        case 1: return DSCH_JOB_RESUME;
+        case 2: return DSCH_JOB_PAUSE;
+        case 3: return DSCH_NODE_OFFLINE;
+        case 4: return DSCH_SERVICE_ONLINE;
+        case 5: return DSCH_SERVICE_OFFLINE;
         default: return null;
       }
     }
@@ -464,71 +498,87 @@ public final class DSchAdminProto {
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
+     * 任务预留
+     * </pre>
+     *
+     * <code>DSCH_JOB_ST_RESERVED = 0;</code>
+     */
+    DSCH_JOB_ST_RESERVED(0),
+    /**
+     * <pre>
      * 任务已经启动
      * </pre>
      *
-     * <code>DSCH_JOB_ST_STARTED = 0;</code>
+     * <code>DSCH_JOB_ST_STARTED = 1;</code>
      */
-    DSCH_JOB_ST_STARTED(0),
+    DSCH_JOB_ST_STARTED(1),
     /**
      * <pre>
      * 任务运行中
      * </pre>
      *
-     * <code>DSCH_JOB_ST_RUNNING = 1;</code>
+     * <code>DSCH_JOB_ST_RUNNING = 2;</code>
      */
-    DSCH_JOB_ST_RUNNING(1),
+    DSCH_JOB_ST_RUNNING(2),
     /**
      * <pre>
      * 任务已启动未运行
      * </pre>
      *
-     * <code>DSCH_JOB_ST_IDLING = 2;</code>
+     * <code>DSCH_JOB_ST_IDLING = 3;</code>
      */
-    DSCH_JOB_ST_IDLING(2),
+    DSCH_JOB_ST_IDLING(3),
     /**
      * <pre>
      * 任务已经停止
      * </pre>
      *
-     * <code>DSCH_JOB_ST_STOPPED = 3;</code>
+     * <code>DSCH_JOB_ST_STOPPED = 4;</code>
      */
-    DSCH_JOB_ST_STOPPED(3),
+    DSCH_JOB_ST_STOPPED(4),
     UNRECOGNIZED(-1),
     ;
 
     /**
      * <pre>
+     * 任务预留
+     * </pre>
+     *
+     * <code>DSCH_JOB_ST_RESERVED = 0;</code>
+     */
+    public static final int DSCH_JOB_ST_RESERVED_VALUE = 0;
+    /**
+     * <pre>
      * 任务已经启动
      * </pre>
      *
-     * <code>DSCH_JOB_ST_STARTED = 0;</code>
+     * <code>DSCH_JOB_ST_STARTED = 1;</code>
      */
-    public static final int DSCH_JOB_ST_STARTED_VALUE = 0;
+    public static final int DSCH_JOB_ST_STARTED_VALUE = 1;
     /**
      * <pre>
      * 任务运行中
      * </pre>
      *
-     * <code>DSCH_JOB_ST_RUNNING = 1;</code>
+     * <code>DSCH_JOB_ST_RUNNING = 2;</code>
      */
-    public static final int DSCH_JOB_ST_RUNNING_VALUE = 1;
+    public static final int DSCH_JOB_ST_RUNNING_VALUE = 2;
     /**
      * <pre>
      * 任务已启动未运行
      * </pre>
      *
-     * <code>DSCH_JOB_ST_IDLING = 2;</code>
+     * <code>DSCH_JOB_ST_IDLING = 3;</code>
      */
-    public static final int DSCH_JOB_ST_IDLING_VALUE = 2;
+    public static final int DSCH_JOB_ST_IDLING_VALUE = 3;
     /**
      * <pre>
      * 任务已经停止
      * </pre>
      *
-     * <code>DSCH_JOB_ST_STOPPED = 3;</code>
+     * <code>DSCH_JOB_ST_STOPPED = 4;</code>
      */
-    public static final int DSCH_JOB_ST_STOPPED_VALUE = 3;
+    public static final int DSCH_JOB_ST_STOPPED_VALUE = 4;
 
 
     public final int getNumber() {
@@ -549,10 +599,11 @@ public final class DSchAdminProto {
 
     public static DSchJobStatus forNumber(int value) {
       switch (value) {
-        case 0: return DSCH_JOB_ST_STARTED;
-        case 1: return DSCH_JOB_ST_RUNNING;
-        case 2: return DSCH_JOB_ST_IDLING;
-        case 3: return DSCH_JOB_ST_STOPPED;
+        case 0: return DSCH_JOB_ST_RESERVED;
+        case 1: return DSCH_JOB_ST_STARTED;
+        case 2: return DSCH_JOB_ST_RUNNING;
+        case 3: return DSCH_JOB_ST_IDLING;
+        case 4: return DSCH_JOB_ST_STOPPED;
         default: return null;
       }
     }
@@ -5307,7 +5358,7 @@ public final class DSchAdminProto {
       if (endTime_ != 0L) {
         output.writeInt64(3, endTime_);
       }
-      if (status_ != com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.DSCH_JOB_ST_GREEN.getNumber()) {
+      if (status_ != com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.DSCH_JOB_HC_ST_RESERVED.getNumber()) {
         output.writeEnum(4, status_);
       }
       unknownFields.writeTo(output);
@@ -5330,7 +5381,7 @@ public final class DSchAdminProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, endTime_);
       }
-      if (status_ != com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.DSCH_JOB_ST_GREEN.getNumber()) {
+      if (status_ != com.hs.dsch.proto.DSchAdminProto.DSchJobHealthStatus.DSCH_JOB_HC_ST_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, status_);
       }
@@ -10632,7 +10683,7 @@ public final class DSchAdminProto {
       if (!getJobIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, jobId_);
       }
-      if (cmdType_ != com.hs.dsch.proto.DSchAdminProto.DSchCmd.DSCH_JOB_RESUME.getNumber()) {
+      if (cmdType_ != com.hs.dsch.proto.DSchAdminProto.DSchCmd.DSCH_JOB_RESERVED.getNumber()) {
         output.writeEnum(2, cmdType_);
       }
       unknownFields.writeTo(output);
@@ -10647,7 +10698,7 @@ public final class DSchAdminProto {
       if (!getJobIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, jobId_);
       }
-      if (cmdType_ != com.hs.dsch.proto.DSchAdminProto.DSchCmd.DSCH_JOB_RESUME.getNumber()) {
+      if (cmdType_ != com.hs.dsch.proto.DSchAdminProto.DSchCmd.DSCH_JOB_RESERVED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, cmdType_);
       }
@@ -22601,15 +22652,17 @@ public final class DSchAdminProto {
       "sCode\030\001 \001(\0162#.com.hs.dsch.proto.DSchResp" +
       "onseCode*Y\n\020DSchResponseCode\022\026\n\022RESP_COD" +
       "E_RESERVED\020\000\022\026\n\021RESP_CODE_SUCCESS\020\310\001\022\025\n\020" +
-      "RESP_CODE_FAILED\020\311\001*Y\n\023DSchJobHealthStat" +
-      "us\022\025\n\021DSCH_JOB_ST_GREEN\020\000\022\026\n\022DSCH_JOB_ST" +
-      "_YELLOW\020\001\022\023\n\017DSCH_JOB_ST_RED\020\002*|\n\007DSchCm" +
-      "d\022\023\n\017DSCH_JOB_RESUME\020\000\022\022\n\016DSCH_JOB_PAUSE" +
-      "\020\001\022\025\n\021DSCH_NODE_OFFLINE\020\002\022\027\n\023DSCH_SERVIC" +
-      "E_ONLINE\020\003\022\030\n\024DSCH_SERVICE_OFFLINE\020\004*r\n\r" +
-      "DSchJobStatus\022\027\n\023DSCH_JOB_ST_STARTED\020\000\022\027" +
-      "\n\023DSCH_JOB_ST_RUNNING\020\001\022\026\n\022DSCH_JOB_ST_I" +
-      "DLING\020\002\022\027\n\023DSCH_JOB_ST_STOPPED\020\003b\006proto3"
+      "RESP_CODE_FAILED\020\311\001*v\n\023DSchJobHealthStat" +
+      "us\022\033\n\027DSCH_JOB_HC_ST_RESERVED\020\000\022\025\n\021DSCH_" +
+      "JOB_ST_GREEN\020\001\022\026\n\022DSCH_JOB_ST_YELLOW\020\002\022\023" +
+      "\n\017DSCH_JOB_ST_RED\020\003*\223\001\n\007DSchCmd\022\025\n\021DSCH_" +
+      "JOB_RESERVED\020\000\022\023\n\017DSCH_JOB_RESUME\020\001\022\022\n\016D" +
+      "SCH_JOB_PAUSE\020\002\022\025\n\021DSCH_NODE_OFFLINE\020\003\022\027" +
+      "\n\023DSCH_SERVICE_ONLINE\020\004\022\030\n\024DSCH_SERVICE_" +
+      "OFFLINE\020\005*\214\001\n\rDSchJobStatus\022\030\n\024DSCH_JOB_" +
+      "ST_RESERVED\020\000\022\027\n\023DSCH_JOB_ST_STARTED\020\001\022\027" +
+      "\n\023DSCH_JOB_ST_RUNNING\020\002\022\026\n\022DSCH_JOB_ST_I" +
+      "DLING\020\003\022\027\n\023DSCH_JOB_ST_STOPPED\020\004b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
